@@ -56,7 +56,7 @@ import tv.Tunfisch.HardcoreSilicon.Proxies.ServerProxy;
 
 
 
-@Mod(modid="HardcoreSiliconID", name="Hardcore Silicon", version="0.9.0",dependencies = "after:Mekanism")
+@Mod(modid="HardcoreSiliconID", name="Hardcore Silicon", version="0.9.0")
 public class HardcoreSilicon {
 
 	
@@ -104,25 +104,15 @@ public class HardcoreSilicon {
 	
 //Creative Tabs
 	public CreativeTabs tabHardcoreSilicon = new CreativeTabs("tabHardcoreSilicon"){
-
-		@Override
-		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem() {
-			
 			return itemWaferEtched;
 		}
-		
 	};
 	
 	public CreativeTabs tabHardcoreGenerators = new CreativeTabs("tabHardcoreGenerators"){
-
-		@Override
-		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem() {
-			
 			return itemCoil;
 		}
-		
 	};
 	
 	
@@ -226,7 +216,7 @@ public class HardcoreSilicon {
 	
 	
 	@EventHandler
-	public void load(FMLInitializationEvent event){
+	public void init(FMLInitializationEvent event){
 		/*
 		
 		//Quarzstaub OK
@@ -279,12 +269,7 @@ public class HardcoreSilicon {
 		
 
 		//GameRegistry.addShapelessRecipe(new ItemStack(itemDust), 4, Items.iron_ingot, Items.iron_ingot, Items.coal, Items.diamond);
-		*/
-		
-		//Blubb
-		
-		
-		
+		*/		
 		
 	}
 	
