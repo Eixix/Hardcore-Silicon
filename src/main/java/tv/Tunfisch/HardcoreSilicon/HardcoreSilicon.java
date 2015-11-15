@@ -78,12 +78,13 @@ public class HardcoreSilicon {
 	public void preInit(FMLPreInitializationEvent event){   
 		//Register Items
 		ItemRegister.registerItems();
+		BlockRegister.registerBlocks();
 	}	
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event){
 		//Assign Block Texture
-		if(event.getSide() == Side.CLIENT) BlockRenderRegister.blockRenderRegister(ItemRegister.blockOreQuartz);
+		if(event.getSide() == Side.CLIENT) BlockRenderRegister.registerBlocks();
 		//Assign Item Texture
 		ItemRenderRegister.registerItemRenderer();;
 	}

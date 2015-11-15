@@ -59,7 +59,7 @@ public class ItemRegister {
 		public static Item itemIronOxide;
 		public static Item itemOsmiumIron;
         
-		public static Block blockOreQuartz;
+		
 		
 		public static void registerItems(){
 			//WERKZEUG
@@ -133,10 +133,6 @@ public class ItemRegister {
 			
 			itemEmotor = new ItemEmotor().setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);
 			registerItem(itemEmotor);
-			
-			//BLOCKS
-			blockOreQuartz = new BlockOreQuartz(Material.rock, 1.0F, 1.0F, 0.0F, "pickaxe", 2);
-			//blockOreChrom = new BlockOreQuartz(Material.rock).setBlockTextureName("HardcoreSilicon:BlockOreChrom").setBlockName("BlockOreChrom");
 		}
 		
 		
