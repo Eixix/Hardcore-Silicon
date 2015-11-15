@@ -7,14 +7,12 @@ import net.minecraft.item.Item;
 public final class ItemRenderRegister {
 	
 	public static void registerItemRenderer() {
-	     //Place Items here	
+	    //TOOLS
 		itemRenderRegister(ItemRegister.swordStainless);
 		itemRenderRegister(ItemRegister.pickaxeStainless);
 		itemRenderRegister(ItemRegister.axeStainless);
 		itemRenderRegister(ItemRegister.shovelStainless);
-		
-		//ITEMS
-		
+		//ITEMS		
 		itemRenderRegister(ItemRegister.itemSiliconCrystal);
 		itemRenderRegister(ItemRegister.itemWaferRaw);
 		itemRenderRegister(ItemRegister.itemWaferEtched);

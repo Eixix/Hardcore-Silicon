@@ -84,7 +84,7 @@ public class HardcoreSilicon {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event){
-		//Assign blocktexture
+		//Assign Block Texture
 		if(event.getSide() == Side.CLIENT) BlockRenderRegister.blockRenderRegister(ItemRegister.blockOreQuartz);
 		//Assign Item Texture
 		ItemRenderRegister.registerItemRenderer();;
