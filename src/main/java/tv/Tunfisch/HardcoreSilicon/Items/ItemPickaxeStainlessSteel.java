@@ -7,9 +7,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraftforge.common.util.EnumHelper;
 
-public class ItemPickaxeStainless extends ItemPickaxe {
+public class ItemPickaxeStainlessSteel extends ItemPickaxe {
 
-	public ItemPickaxeStainless() {
+	public ItemPickaxeStainlessSteel() {
 		super(EnumHelper.addToolMaterial("STAINLESSSTEEL", 3, 8421, 15.0F, 10.0F, 20));
 	}
 	

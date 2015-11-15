@@ -15,7 +15,7 @@ import tv.Tunfisch.HardcoreSilicon.Items.ItemGenerator;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemIronOxide;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemNandSwitch;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemOsmiumIron;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemPickaxeStainless;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemPickaxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemQuartzCrystal;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemQuartzDust;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSenseless;
@@ -66,7 +66,7 @@ public class ItemRegister {
 			swordStainless =  new ItemSwordStainlessSteel();
 			registerItem(swordStainless);
 			
-			pickaxeStainless =  new ItemPickaxeStainless();
+			pickaxeStainless =  new ItemPickaxeStainlessSteel();
 			registerItem(pickaxeStainless);
 			
 			axeStainless =  new ItemAxeStainlessSteel();
@@ -137,7 +137,7 @@ public class ItemRegister {
 		
 		
 		public static void registerItem(Item item){
-			if(item.getCreativeTab() == null) item.setCreativeTab(HardcoreSilicon.tabHardcoreSilicon);
+			if(item.getCreativeTab() != HardcoreSilicon.tabHardcoreGenerators)item.setCreativeTab(HardcoreSilicon.tabHardcoreSilicon);
 			item.setUnlocalizedName(Utility.getName(item));
 			GameRegistry.registerItem(item, Utility.getName(item));
 		}

@@ -40,7 +40,7 @@ import tv.Tunfisch.HardcoreSilicon.Items.ItemGenerator;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemIronOxide;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemNandSwitch;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemOsmiumIron;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemPickaxeStainless;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemPickaxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemQuartzCrystal;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemQuartzDust;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSenseless;

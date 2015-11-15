@@ -19,8 +19,6 @@ public class BlockOreQuartz extends Block {
 		setLightLevel(lightLevel);
 		setHarvestLevel(tool, harvestLevel);
 		setStepSound(soundTypeStone);
-		setCreativeTab(HardcoreSilicon.tabHardcoreSilicon);
-		GameRegistry.registerBlock(this, Utility.getName(this));
 	}	
 }
 

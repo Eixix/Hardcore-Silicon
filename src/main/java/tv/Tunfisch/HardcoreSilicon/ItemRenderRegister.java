@@ -20,6 +20,7 @@ public final class ItemRenderRegister {
 		itemRenderRegister(ItemRegister.itemQuartzCrystal);
 		itemRenderRegister(ItemRegister.itemQuartzDust);
 		itemRenderRegister(ItemRegister.itemStainlessSteelIngot);
+		itemRenderRegister(ItemRegister.itemStainlessSteelDust);
 		itemRenderRegister(ItemRegister.itemCircuitBoard);
 		itemRenderRegister(ItemRegister.itemBasicBoard);
 		itemRenderRegister(ItemRegister.itemStorageModule128);
