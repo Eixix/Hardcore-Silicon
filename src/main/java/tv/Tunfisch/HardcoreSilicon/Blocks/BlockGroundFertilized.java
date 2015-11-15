@@ -6,7 +6,6 @@ import tv.Tunfisch.HardcoreSilicon.Utility;
 
 public class BlockGroundFertilized extends Block 
 {
-
         public BlockGroundFertilized (Material ground){
                 super(ground);
         }
