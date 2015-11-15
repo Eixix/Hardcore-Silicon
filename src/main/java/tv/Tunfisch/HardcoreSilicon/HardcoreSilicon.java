@@ -72,25 +72,25 @@ public class HardcoreSilicon {
 	
 	//ITEMS
 	
-	Item itemSiliconCrystal;
-	Item itemWaferRaw;
+	static Item itemSiliconCrystal;
+	static Item itemWaferRaw;
 	static Item itemWaferEtched;
-	Item itemSiliconRaw;
-	Item itemQuartzCrystal;
-	Item itemQuartzDust;
-	Item itemDust;
-	Item itemStainlessSteelIngot;
-	Item itemCircuitBoard;
-	Item itemBasicBoard;
-	Item itemStorageModule128;
-	Item itemSenseless;
-	Item itemNandSwitch;
+	static Item itemSiliconRaw;
+	static Item itemQuartzCrystal;
+	static Item itemQuartzDust;
+	static Item itemDust;
+	static Item itemStainlessSteelIngot;
+	static Item itemCircuitBoard;
+	static Item itemBasicBoard;
+	static Item itemStorageModule128;
+	static Item itemSenseless;
+	static Item itemNandSwitch;
 	static Item itemCoil;
-	Item itemCoalBrush;
-	Item itemGenerator;
-	Item itemEmotor;
-	Item itemIronOxide;
-	Item itemOsmiumIron;
+	static Item itemCoalBrush;
+	static Item itemGenerator;
+	static Item itemEmotor;
+	static Item itemIronOxide;
+	static Item itemOsmiumIron;
 	
 	
 	
