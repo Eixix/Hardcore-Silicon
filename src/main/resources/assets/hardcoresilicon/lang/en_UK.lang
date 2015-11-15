@@ -21,6 +21,6 @@ item.ItemGenerator.name=Generator
 item.ItemEmotor.name=Electric Motor
 item.ItemIronOxide.name=Iron Oxide
 item.ItemOsmiumIron.name=Osmium-Iron-Oxide
-block.BlockOreQuartz.name=Quartz Ore
+tile.BlockOreQuartz.name=Quartz Ore
 itemGroup.tabHardcoreSilicon=Hardcore Silicon
 itemGroup.tabHardcoreGenerators=Hardcore Generators
