@@ -56,8 +56,7 @@ import tv.Tunfisch.HardcoreSilicon.Proxies.ServerProxy;
 
 
 
-@Mod(modid="HardcoreSiliconID", name="Hardcore Silicon", version="0.9.0",
-dependencies = "after:Mekanism")
+@Mod(modid="HardcoreSiliconID", name="Hardcore Silicon", version="0.9.0",dependencies = "after:Mekanism")
 public class HardcoreSilicon {
 
 	
