@@ -63,7 +63,7 @@ public class HardcoreSilicon {
 	@Instance(value=Reference.MOD_ID)
 	public static HardcoreSilicon instance;
 	
-   //Creative Tabs
+    //Creative Tabs
 	public static CreativeTabs tabHardcoreSilicon = new CreativeTabs("tabHardcoreSilicon"){
 		public Item getTabIconItem() {
 			return ItemRegister.itemWaferEtched;

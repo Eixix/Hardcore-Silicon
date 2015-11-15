@@ -7,12 +7,6 @@ import net.minecraft.item.ItemStack;
 public class ItemSenseless extends Item {
 	
 	public ItemSenseless(){
-		setCreativeTab(CreativeTabs.tabMaterials);
-		setMaxStackSize(64);
-		setUnlocalizedName("ItemSenseless");
-		//setTextureName("HardcoreSilicon:ItemSenseless");
-		
-		
 		
 	}
 
