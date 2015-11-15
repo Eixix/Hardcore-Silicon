@@ -118,17 +118,17 @@ public class HardcoreSilicon {
 		
 		
 		//WERKZEUG
-		swordStainless =  new ItemSwordStainlessSteel(null).setUnlocalizedName("swordStainless");
-		GameRegistry.registerItem(swordStainless, "swordStainless");
+		swordStainless =  new ItemSwordStainlessSteel();
+		this.registerItem(swordStainless);
 		
-		pickaxeStainless =  new ItemPickaxeStainless(null).setUnlocalizedName("pickaxeStainless");
-		GameRegistry.registerItem(pickaxeStainless, "pickaxeStainless");
+		pickaxeStainless =  new ItemPickaxeStainless();
+		this.registerItem(pickaxeStainless);
 		
-		axeStainless =  new ItemAxeStainlessSteel(null).setUnlocalizedName("axeStainless");
-		GameRegistry.registerItem(axeStainless, "axeStainless");
+		axeStainless =  new ItemAxeStainlessSteel();
+		this.registerItem(axeStainless);
 		
-		shovelStainless =  new ItemShovelStainlessSteel(null).setUnlocalizedName("shovelStainless");
-		GameRegistry.registerItem(shovelStainless, "shovelStainless");
+		shovelStainless =  new ItemShovelStainlessSteel();
+		this.registerItem(shovelStainless);
 		
 		//ITEMS
 		
@@ -137,66 +137,72 @@ public class HardcoreSilicon {
 			GameRegistry.registerItem(item, "Item");
 		 */
 		
-		itemSiliconCrystal = new ItemSiliconCrystal().setCreativeTab(tabHardcoreSilicon);
-		GameRegistry.registerItem(itemSiliconCrystal, "ItemSiliconCrystal");
+		itemSiliconCrystal = new ItemSiliconCrystal();
+		this.registerItem(itemSiliconCrystal);
 		
-		itemWaferRaw = new ItemWaferRaw().setCreativeTab(tabHardcoreSilicon);
-		GameRegistry.registerItem(itemWaferRaw, "ItemWaferRaw");
+		itemWaferRaw = new ItemWaferRaw();
+		this.registerItem(itemWaferRaw);
 		
-		itemWaferEtched = new ItemWaferEtched().setCreativeTab(tabHardcoreSilicon);
-		GameRegistry.registerItem(itemWaferEtched, "ItemWaferEtched");
+		itemWaferEtched = new ItemWaferEtched();
+		this.registerItem(itemWaferEtched);
 		
-		itemSiliconRaw = new ItemSiliconRaw().setCreativeTab(tabHardcoreSilicon);
-		GameRegistry.registerItem(itemSiliconRaw, "ItemSiliconRaw");
+		itemSiliconRaw = new ItemSiliconRaw();
+		this.registerItem(itemSiliconRaw);
 
-		itemQuartzCrystal = new ItemQuartzCrystal().setCreativeTab(tabHardcoreSilicon);
-		GameRegistry.registerItem(itemQuartzCrystal, "ItemQuartzCrystal");
+		itemQuartzCrystal = new ItemQuartzCrystal();
+		this.registerItem(itemQuartzCrystal);
 		
-		itemQuartzDust = new ItemQuartzDust().setCreativeTab(tabHardcoreSilicon);
-		GameRegistry.registerItem(itemQuartzDust, "ItemQuartzDust");	
+		itemQuartzDust = new ItemQuartzDust();
+		this.registerItem(itemQuartzDust);	
 		
-		itemDust = new ItemDust().setCreativeTab(tabHardcoreSilicon);
-		GameRegistry.registerItem(itemDust, "ItemDustStainlessSteel");
+		itemDust = new ItemDust();
+		this.registerItem(itemDust);
 		
-		itemStainlessSteelIngot = new ItemStainlessSteelIngot().setCreativeTab(tabHardcoreSilicon);
-		GameRegistry.registerItem(itemStainlessSteelIngot, "ItemStainlessSteelIngot");
+		itemStainlessSteelIngot = new ItemStainlessSteelIngot();
+		this.registerItem(itemStainlessSteelIngot);
 		
-		itemCircuitBoard = new ItemCircuitBoard().setCreativeTab(tabHardcoreSilicon);
-		GameRegistry.registerItem(itemCircuitBoard, "ItemCiruitBoard");
+		itemCircuitBoard = new ItemCircuitBoard();
+		this.registerItem(itemCircuitBoard);
 		
-		itemBasicBoard = new ItemBasicBoard().setCreativeTab(tabHardcoreSilicon);
-		GameRegistry.registerItem(itemBasicBoard, "ItemBasicBoard");
+		itemBasicBoard = new ItemBasicBoard();
+		this.registerItem(itemBasicBoard);
 		
-		itemStorageModule128 = new ItemStorageModule128().setCreativeTab(tabHardcoreSilicon);
-		GameRegistry.registerItem(itemStorageModule128, "ItemStorageModule128");
+		itemStorageModule128 = new ItemStorageModule128();
+		this.registerItem(itemStorageModule128);
 		
-		itemSenseless = new ItemSenseless().setCreativeTab(tabHardcoreSilicon);
-		GameRegistry.registerItem(itemSenseless, "ItemSenseless");
+		itemSenseless = new ItemSenseless();
+		this.registerItem(itemSenseless);
 		
-		itemNandSwitch = new ItemNandSwitch().setCreativeTab(tabHardcoreSilicon);
-		GameRegistry.registerItem(itemNandSwitch, "ItemNandSwitch");
+		itemNandSwitch = new ItemNandSwitch();
+		this.registerItem(itemNandSwitch);
 		
-		itemIronOxide = new ItemIronOxide().setCreativeTab(tabHardcoreSilicon);
-		GameRegistry.registerItem(itemIronOxide, "ItemIronOxide");
+		itemIronOxide = new ItemIronOxide();
+		this.registerItem(itemIronOxide);
 		
-		itemOsmiumIron = new ItemOsmiumIron().setCreativeTab(tabHardcoreSilicon);
-		GameRegistry.registerItem(itemOsmiumIron, "ItemOsmiumIron");
+		itemOsmiumIron = new ItemOsmiumIron();
+		this.registerItem(itemOsmiumIron);
 		
-		itemCoil = new ItemCoil().setCreativeTab(tabHardcoreGenerators);
-		GameRegistry.registerItem(itemCoil, "ItemCoil");
+		itemCoil = new ItemCoil();
+		this.registerItem(itemCoil);
 		
-		itemCoalBrush = new ItemCoalBrush().setCreativeTab(tabHardcoreGenerators);
-		GameRegistry.registerItem(itemCoalBrush, "ItemCoalBrush");
+		itemCoalBrush = new ItemCoalBrush();
+		this.registerItem(itemCoalBrush);
 		
 		itemGenerator = new ItemGenerator().setCreativeTab(tabHardcoreGenerators);
-		GameRegistry.registerItem(itemGenerator, "ItemGenerator");
+		this.registerItem(itemGenerator);
 		
 		itemEmotor = new ItemEmotor().setCreativeTab(tabHardcoreGenerators);
-		GameRegistry.registerItem(itemEmotor, "ItemEmotor");
+		this.registerItem(itemEmotor);
 		
 		//BLOCKS
 		blockOreQuartz = new BlockOreQuartz(Material.rock, Utility.getName(blockOreQuartz), 1.0F, 1.0F, 0.0F, "pickaxe", 2);
 		//blockOreChrom = new BlockOreQuartz(Material.rock).setBlockTextureName("HardcoreSilicon:BlockOreChrom").setBlockName("BlockOreChrom");
+	}
+	
+	public void registerItem(Item item){
+		if(item.getCreativeTab() != null) item.setCreativeTab(this.tabHardcoreSilicon);
+		item.setUnlocalizedName(Utility.getName(item));
+		GameRegistry.registerItem(item, Utility.getName(item));
 	}
 	
 	
