@@ -10,7 +10,7 @@ import net.minecraftforge.common.util.EnumHelper;
 
 public class ItemShovelStainlessSteel extends ItemSpade {
 
-	public ItemShovelStainlessSteel(ToolMaterial material) {
+	public ItemShovelStainlessSteel() {
 		super(EnumHelper.addToolMaterial("STAINLESSSTEEL", 3, 8421, 15.0F, 8.0F, 20));
 		setCreativeTab(CreativeTabs.tabTools);
 		//setTextureName("HardcoreSilicon:ItemShovelStainlessSteel");

@@ -9,7 +9,7 @@ import net.minecraftforge.common.util.EnumHelper;
 
 public class ItemAxeStainlessSteel extends ItemAxe {
 
-	public ItemAxeStainlessSteel(ToolMaterial material) {
+	public ItemAxeStainlessSteel() {
 		super(EnumHelper.addToolMaterial("STAINLESSSTEEL", 3, 8421, 13.0F, 11.0F, 20));
 		setCreativeTab(CreativeTabs.tabTools);
 		//setTextureName("HardcoreSilicon:ItemAxeStainlessSteel");
