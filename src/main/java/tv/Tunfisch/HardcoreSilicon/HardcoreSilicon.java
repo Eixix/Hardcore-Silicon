@@ -274,7 +274,7 @@ public class HardcoreSilicon {
 		//GameRegistry.addShapelessRecipe(new ItemStack(itemDust), 4, Items.iron_ingot, Items.iron_ingot, Items.coal, Items.diamond);
 		*/
 		
-	
+		//Blubb
 		
 		
 		
