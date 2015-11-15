@@ -1,5 +1,5 @@
 {
-	"parent": "hardcoresilicon:block/BlockOreChrom",
+	"parent": "hardcoresilicon:block/BlockOreQuartz",
 	"display": {
 		"thirdperson": {
 			"rotation": [ 10, -45, 170 ],
