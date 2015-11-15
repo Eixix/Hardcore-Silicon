@@ -35,7 +35,6 @@ import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCircuitBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCoalBrush;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCoil;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemDust;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemEmotor;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemGenerator;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemIronOxide;

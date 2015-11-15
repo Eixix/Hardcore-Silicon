@@ -10,7 +10,6 @@ import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCircuitBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCoalBrush;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCoil;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemDust;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemEmotor;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemGenerator;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemIronOxide;
@@ -23,6 +22,7 @@ import tv.Tunfisch.HardcoreSilicon.Items.ItemSenseless;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemShovelStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSiliconCrystal;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSiliconRaw;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemStainlessSteelDust;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemStainlessSteelIngot;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemStorageModule128;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSwordStainlessSteel;
@@ -45,7 +45,7 @@ public class ItemRegister {
 		public static Item itemSiliconRaw;
 		public static Item itemQuartzCrystal;
 		public static Item itemQuartzDust;
-		public static Item itemDust;
+		public static Item itemStainlessSteel;
 		public static Item itemStainlessSteelIngot;
 		public static Item itemCircuitBoard;
 		public static Item itemBasicBoard;
@@ -96,8 +96,8 @@ public class ItemRegister {
 			itemQuartzDust = new ItemQuartzDust();
 			registerItem(itemQuartzDust);	
 			
-			itemDust = new ItemDust();
-			registerItem(itemDust);
+			itemStainlessSteel = new ItemStainlessSteelDust();
+			registerItem(itemStainlessSteel);
 			
 			itemStainlessSteelIngot = new ItemStainlessSteelIngot();
 			registerItem(itemStainlessSteelIngot);
