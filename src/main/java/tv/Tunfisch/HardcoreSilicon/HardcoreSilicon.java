@@ -132,11 +132,6 @@ public class HardcoreSilicon {
 		
 		//ITEMS
 		
-		/*
-		 * 	item = new Item().setCreativeTab(tabHardcoreSilicon);
-			GameRegistry.registerItem(item, "Item");
-		 */
-		
 		itemSiliconCrystal = new ItemSiliconCrystal();
 		this.registerItem(itemSiliconCrystal);
 		
