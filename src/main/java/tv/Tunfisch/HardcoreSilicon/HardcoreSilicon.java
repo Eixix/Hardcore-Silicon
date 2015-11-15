@@ -194,18 +194,9 @@ public class HardcoreSilicon {
 		itemEmotor = new ItemEmotor().setCreativeTab(tabHardcoreGenerators);
 		GameRegistry.registerItem(itemEmotor, "ItemEmotor");
 		
-		
-		
-		
-		
 		//BLOCKS
-		blockOreQuartz = new BlockOreQuartz(Material.rock, "BlockOreQuartz", 1.0F, 1.0F, 0.0F, "pickaxe", 2);
-		
+		blockOreQuartz = new BlockOreQuartz(Material.rock, Utility.getName(blockOreQuartz), 1.0F, 1.0F, 0.0F, "pickaxe", 2);
 		//blockOreChrom = new BlockOreQuartz(Material.rock).setBlockTextureName("HardcoreSilicon:BlockOreChrom").setBlockName("BlockOreChrom");
-	
-		
-		
-		
 	}
 	
 	
