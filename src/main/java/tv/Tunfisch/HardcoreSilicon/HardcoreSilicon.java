@@ -78,6 +78,7 @@ public class HardcoreSilicon {
 	public void preInit(FMLPreInitializationEvent event){   
 		//Register Items
 		ItemRegister.registerItems();
+		//Register Blocks
 		BlockRegister.registerBlocks();
 	}	
 	
