@@ -1,0 +1,15 @@
+item.ItemSiliconCrystal.name=Silicon crystal
+item.ItemWaferRaw.name=Raw wafer
+item.ItemWaferEtched.name=Etched wafer
+item.ItemSiliconRaw.name=Raw silicon
+item.ItemQuartzCrystal.name=Quartz crystal
+item.ItemQuartzDust.name=Quarz dust
+item.ItemDust.name=Stainless Steel dust
+item.ItemStainlessSteelIngot.name=Stainless steel ingot
+item.swordStainless.name=Stainless steel sword
+item.pickaxeStainless.name=Stainless steel pickaxe
+item.axeStainless.name=Stainless steel axe
+item.shovelStainless.name=Stainless steel shovel
+block.blockOreQuartz.name=Quartz ore
+block.blockOreChrom.name=Chrome ore
+itemGroup.tabHardcoreSilicon=Hardcore Silicon

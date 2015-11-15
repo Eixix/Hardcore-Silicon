@@ -1,0 +1,16 @@
+[
+{
+  "modid": "HardcoreSiliconID",
+  "name": "Hardcore Silicon",
+  "description": "Special mod for Revilix GC2.",
+  "version": "${version}",
+  "mcversion": "0.9.0",
+  "url": "http://www.youtube.de/user/IgordasTunfisch",
+  "updateUrl": "",
+  "authorList": ["Igor das Tunfisch"],
+  "credits": "Lagiacrus24 for the idea doing this",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
