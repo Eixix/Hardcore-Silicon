@@ -29,6 +29,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
+import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCircuitBoard;
@@ -62,10 +63,7 @@ public class HardcoreSilicon {
 	
 	@Instance(value="HardcoreSiliconID")
 	public static HardcoreSilicon instance;
-	
-	@SidedProxy(clientSide="tv.Tunfisch.HardcoreSilicon.Proxies.ClientProxy", serverSide="tv.Tunfisch.HardcoreSilicon.Proxies.ServerProxy")
-	public static ServerProxy proxy;
-	
+
 	//WERKZEUGE
 	public static Item swordStainless;
 	public static Item pickaxeStainless;
@@ -76,7 +74,7 @@ public class HardcoreSilicon {
 	
 	Item itemSiliconCrystal;
 	Item itemWaferRaw;
-	Item itemWaferEtched;
+	static Item itemWaferEtched;
 	Item itemSiliconRaw;
 	Item itemQuartzCrystal;
 	Item itemQuartzDust;
@@ -87,7 +85,7 @@ public class HardcoreSilicon {
 	Item itemStorageModule128;
 	Item itemSenseless;
 	Item itemNandSwitch;
-	Item itemCoil;
+	static Item itemCoil;
 	Item itemCoalBrush;
 	Item itemGenerator;
 	Item itemEmotor;
@@ -97,19 +95,18 @@ public class HardcoreSilicon {
 	
 	
 	//BLOCKS
-	//Do not use yet
-	//Block blockOreQuartz;
+	Block blockOreQuartz;
 	//Block blockOreChrom;
 	
 	
 //Creative Tabs
-	public CreativeTabs tabHardcoreSilicon = new CreativeTabs("tabHardcoreSilicon"){
+	public static CreativeTabs tabHardcoreSilicon = new CreativeTabs("tabHardcoreSilicon"){
 		public Item getTabIconItem() {
 			return itemWaferEtched;
 		}
 	};
 	
-	public CreativeTabs tabHardcoreGenerators = new CreativeTabs("tabHardcoreGenerators"){
+	public static CreativeTabs tabHardcoreGenerators = new CreativeTabs("tabHardcoreGenerators"){
 		public Item getTabIconItem() {
 			return itemCoil;
 		}
@@ -202,11 +199,8 @@ public class HardcoreSilicon {
 		
 		
 		//BLOCKS
-		// Do not use yet
 		//GameRegistry.registerBlock(blockOreQuartz, blockOreQuartz);
-		//blockOreQuartz = new BlockOreQuartz(Material.rock);
-		
-		//GameRegistry.registerBlock(blockOreChrom, blockOreChrom);
+		blockOreQuartz = new BlockOreQuartz(Material.rock, "BlockOreQuartz", 1.0F, 1.0F, 1.0F, "pickaxe", 2);
 		//blockOreChrom = new BlockOreQuartz(Material.rock).setBlockTextureName("HardcoreSilicon:BlockOreChrom").setBlockName("BlockOreChrom");
 	
 		
