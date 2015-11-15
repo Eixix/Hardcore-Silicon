@@ -45,8 +45,8 @@ public class ItemRegister {
 		public static Item itemSiliconRaw;
 		public static Item itemQuartzCrystal;
 		public static Item itemQuartzDust;
-		public static Item itemStainlessSteel;
 		public static Item itemStainlessSteelIngot;
+		public static Item itemStainlessSteelDust;
 		public static Item itemCircuitBoard;
 		public static Item itemBasicBoard;
 		public static Item itemStorageModule128;
@@ -96,8 +96,8 @@ public class ItemRegister {
 			itemQuartzDust = new ItemQuartzDust();
 			registerItem(itemQuartzDust);	
 			
-			itemStainlessSteel = new ItemStainlessSteelDust();
-			registerItem(itemStainlessSteel);
+			itemStainlessSteelDust = new ItemStainlessSteelDust();
+			registerItem(itemStainlessSteelDust);
 			
 			itemStainlessSteelIngot = new ItemStainlessSteelIngot();
 			registerItem(itemStainlessSteelIngot);
