@@ -30,13 +30,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.Proxies.HardcoreSiliconProxy;
-import mekanism.api.MekanismAPI;
-import mekanism.api.MekanismConfig.machines;
-import mekanism.api.gas.GasRegistry;
-import mekanism.api.gas.GasStack;
-import mekanism.api.infuse.InfuseObject;
-import mekanism.api.infuse.InfuseRegistry;
-import mekanism.api.infuse.InfuseType;
+
 
 
 @Mod(modid="HardcoreSiliconID", name="Hardcore Silicon", version="0.9.0",

@@ -9,7 +9,7 @@ public class ItemDust extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemDust");
-		setTextureName("HardcoreSilicon:ItemDustStainlessSteel");
+		//setTextureName("HardcoreSilicon:ItemDustStainlessSteel");
 		
 	}
 

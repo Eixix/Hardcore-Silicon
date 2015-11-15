@@ -9,7 +9,7 @@ public class ItemSiliconCrystal extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemSiliconCrystal");
-		setTextureName("HardcoreSilicon:ItemSiliconCrystal");
+		//setTextureName("HardcoreSilicon:ItemSiliconCrystal");
 		
 	}
 

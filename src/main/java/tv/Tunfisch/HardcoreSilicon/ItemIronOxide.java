@@ -9,7 +9,7 @@ public class ItemIronOxide extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemIronOxide");
-		setTextureName("HardcoreSilicon:ItemIronOxide");
+		//setTextureName("HardcoreSilicon:ItemIronOxide");
 		
 	}
 

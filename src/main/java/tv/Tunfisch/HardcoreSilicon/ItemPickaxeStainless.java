@@ -12,7 +12,7 @@ public class ItemPickaxeStainless extends ItemPickaxe {
 	public ItemPickaxeStainless(ToolMaterial material) {
 		super(EnumHelper.addToolMaterial("STAINLESSSTEEL", 3, 8421, 15.0F, 10.0F, 20));
 		setCreativeTab(CreativeTabs.tabTools);
-		setTextureName("HardcoreSilicon:ItemPickaxeStainlessSteel");
+		//setTextureName("HardcoreSilicon:ItemPickaxeStainlessSteel");
 		
 	}
 	

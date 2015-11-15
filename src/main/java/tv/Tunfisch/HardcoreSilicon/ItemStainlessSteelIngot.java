@@ -9,7 +9,7 @@ public class ItemStainlessSteelIngot extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemStainlessSteelIngot");
-		setTextureName("HardcoreSilicon:ItemStainlessSteel");
+		//setTextureName("HardcoreSilicon:ItemStainlessSteel");
 		
 	}
 

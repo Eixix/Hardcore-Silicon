@@ -13,7 +13,7 @@ public class ItemShovelStainlessSteel extends ItemSpade {
 	public ItemShovelStainlessSteel(ToolMaterial material) {
 		super(EnumHelper.addToolMaterial("STAINLESSSTEEL", 3, 8421, 15.0F, 8.0F, 20));
 		setCreativeTab(CreativeTabs.tabTools);
-		setTextureName("HardcoreSilicon:ItemShovelStainlessSteel");
+		//setTextureName("HardcoreSilicon:ItemShovelStainlessSteel");
 		
 	}
 	

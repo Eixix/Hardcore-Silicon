@@ -9,7 +9,7 @@ public class ItemNandSwitch extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemNandSwitch");
-		setTextureName("HardcoreSilicon:ItemNandSwitch");
+		//setTextureName("HardcoreSilicon:ItemNandSwitch");
 		
 	}
 

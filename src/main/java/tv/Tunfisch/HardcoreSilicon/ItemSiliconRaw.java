@@ -9,7 +9,7 @@ public class ItemSiliconRaw extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemSiliconRaw");
-		setTextureName("HardcoreSilicon:ItemSiliconRaw");
+		//setTextureName("HardcoreSilicon:ItemSiliconRaw");
 		
 	}
 

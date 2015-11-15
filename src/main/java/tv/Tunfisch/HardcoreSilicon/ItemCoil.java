@@ -9,7 +9,7 @@ public class ItemCoil extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemCoil");
-		setTextureName("HardcoreSilicon:ItemCoil");
+		//setTextureName("HardcoreSilicon:ItemCoil");
 		
 	}
 

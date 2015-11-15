@@ -9,7 +9,7 @@ public class ItemWaferRaw extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemWaferRaw");
-		setTextureName("HardcoreSilicon:ItemWaferRaw");
+		//setTextureName("HardcoreSilicon:ItemWaferRaw");
 		
 	}
 

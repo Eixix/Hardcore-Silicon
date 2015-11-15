@@ -9,7 +9,7 @@ public class ItemQuartzCrystal extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemQuartzCrystal");
-		setTextureName("HardcoreSilicon:ItemQuartzCrystal");
+		//setTextureName("HardcoreSilicon:ItemQuartzCrystal");
 		
 	}
 

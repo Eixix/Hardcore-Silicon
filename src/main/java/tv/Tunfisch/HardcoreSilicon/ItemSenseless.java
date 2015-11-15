@@ -10,7 +10,7 @@ public class ItemSenseless extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemSenseless");
-		setTextureName("HardcoreSilicon:ItemSenseless");
+		//setTextureName("HardcoreSilicon:ItemSenseless");
 		
 		
 		

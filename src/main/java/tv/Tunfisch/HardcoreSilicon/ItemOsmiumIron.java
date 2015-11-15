@@ -9,7 +9,7 @@ public class ItemOsmiumIron extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemOsmiumIron");
-		setTextureName("HardcoreSilicon:ItemOsmiumIron");
+		//setTextureName("HardcoreSilicon:ItemOsmiumIron");
 		
 	}
 

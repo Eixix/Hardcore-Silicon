@@ -9,7 +9,7 @@ public class ItemEmotor extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemEmotor");
-		setTextureName("HardcoreSilicon:ItemEmotor");
+		//setTextureName("HardcoreSilicon:ItemEmotor");
 		
 	}
 

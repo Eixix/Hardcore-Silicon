@@ -9,7 +9,7 @@ public class ItemGenerator extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemGenerator");
-		setTextureName("HardcoreSilicon:ItemGenerator");
+		//setTextureName("HardcoreSilicon:ItemGenerator");
 		
 	}
 

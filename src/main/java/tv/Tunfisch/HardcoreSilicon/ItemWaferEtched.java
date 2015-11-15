@@ -9,7 +9,7 @@ public class ItemWaferEtched extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemWaferEtched");
-		setTextureName("HardcoreSilicon:ItemWaferEtched");
+		//setTextureName("HardcoreSilicon:ItemWaferEtched");
 		
 	}
 

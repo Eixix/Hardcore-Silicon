@@ -9,7 +9,7 @@ public class ItemStorageModule128 extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemStorageModule128");
-		setTextureName("HardcoreSilicon:ItemStorageModule128");
+		//setTextureName("HardcoreSilicon:ItemStorageModule128");
 		
 	}
 

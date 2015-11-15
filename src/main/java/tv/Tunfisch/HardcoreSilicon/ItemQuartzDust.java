@@ -9,7 +9,7 @@ public class ItemQuartzDust extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemQuartzDust");
-		setTextureName("HardcoreSilicon:ItemQuartzDust");
+		//setTextureName("HardcoreSilicon:ItemQuartzDust");
 		
 	}
 
