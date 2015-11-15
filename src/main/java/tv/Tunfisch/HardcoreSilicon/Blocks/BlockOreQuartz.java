@@ -21,7 +21,6 @@ public class BlockOreQuartz extends Block {
 		setStepSound(soundTypeStone);
 		setCreativeTab(HardcoreSilicon.tabHardcoreSilicon);
 		GameRegistry.registerBlock(this, Utility.getName(this));
-		BlockRenderRegister.blockRenderRegister(this);
 	}	
 }
 
