@@ -63,147 +63,29 @@ public class HardcoreSilicon {
 	
 	@Instance(value=Reference.MOD_ID)
 	public static HardcoreSilicon instance;
-
-	//WERKZEUGE
-	public static Item swordStainless;
-	public static Item pickaxeStainless;
-	public static Item axeStainless;
-	public static Item shovelStainless;
 	
-	//ITEMS
-	
-	Item itemSiliconCrystal;
-	Item itemWaferRaw;
-	static Item itemWaferEtched;
-	Item itemSiliconRaw;
-	Item itemQuartzCrystal;
-	Item itemQuartzDust;
-	Item itemDust;
-	Item itemStainlessSteelIngot;
-	Item itemCircuitBoard;
-	Item itemBasicBoard;
-	Item itemStorageModule128;
-	Item itemSenseless;
-	Item itemNandSwitch;
-	static Item itemCoil;
-	Item itemCoalBrush;
-	Item itemGenerator;
-	Item itemEmotor;
-	Item itemIronOxide;
-	Item itemOsmiumIron;
-	
-	
-	
-	//BLOCKS
-	Block blockOreQuartz;
-	//Block blockOreChrom;
-	
-	
-//Creative Tabs
+   //Creative Tabs
 	public static CreativeTabs tabHardcoreSilicon = new CreativeTabs("tabHardcoreSilicon"){
 		public Item getTabIconItem() {
-			return itemWaferEtched;
+			return ItemRegister.itemWaferEtched;
 		}
 	};
 	
 	public static CreativeTabs tabHardcoreGenerators = new CreativeTabs("tabHardcoreGenerators"){
 		public Item getTabIconItem() {
-			return itemCoil;
+			return ItemRegister.itemCoil;
 		}
 	};
 	
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
-		
-		
-		//WERKZEUG
-		swordStainless =  new ItemSwordStainlessSteel();
-		this.registerItem(swordStainless);
-		
-		pickaxeStainless =  new ItemPickaxeStainless();
-		this.registerItem(pickaxeStainless);
-		
-		axeStainless =  new ItemAxeStainlessSteel();
-		this.registerItem(axeStainless);
-		
-		shovelStainless =  new ItemShovelStainlessSteel();
-		this.registerItem(shovelStainless);
-		
-		//ITEMS
-		
-		itemSiliconCrystal = new ItemSiliconCrystal();
-		this.registerItem(itemSiliconCrystal);
-		
-		itemWaferRaw = new ItemWaferRaw();
-		this.registerItem(itemWaferRaw);
-		
-		itemWaferEtched = new ItemWaferEtched();
-		this.registerItem(itemWaferEtched);
-		
-		itemSiliconRaw = new ItemSiliconRaw();
-		this.registerItem(itemSiliconRaw);
-
-		itemQuartzCrystal = new ItemQuartzCrystal();
-		this.registerItem(itemQuartzCrystal);
-		
-		itemQuartzDust = new ItemQuartzDust();
-		this.registerItem(itemQuartzDust);	
-		
-		itemDust = new ItemDust();
-		this.registerItem(itemDust);
-		
-		itemStainlessSteelIngot = new ItemStainlessSteelIngot();
-		this.registerItem(itemStainlessSteelIngot);
-		
-		itemCircuitBoard = new ItemCircuitBoard();
-		this.registerItem(itemCircuitBoard);
-		
-		itemBasicBoard = new ItemBasicBoard();
-		this.registerItem(itemBasicBoard);
-		
-		itemStorageModule128 = new ItemStorageModule128();
-		this.registerItem(itemStorageModule128);
-		
-		itemSenseless = new ItemSenseless();
-		this.registerItem(itemSenseless);
-		
-		itemNandSwitch = new ItemNandSwitch();
-		this.registerItem(itemNandSwitch);
-		
-		itemIronOxide = new ItemIronOxide();
-		this.registerItem(itemIronOxide);
-		
-		itemOsmiumIron = new ItemOsmiumIron();
-		this.registerItem(itemOsmiumIron);
-		
-		itemCoil = new ItemCoil();
-		this.registerItem(itemCoil);
-		
-		itemCoalBrush = new ItemCoalBrush();
-		this.registerItem(itemCoalBrush);
-		
-		itemGenerator = new ItemGenerator().setCreativeTab(tabHardcoreGenerators);
-		this.registerItem(itemGenerator);
-		
-		itemEmotor = new ItemEmotor().setCreativeTab(tabHardcoreGenerators);
-		this.registerItem(itemEmotor);
-		
-		//BLOCKS
-		blockOreQuartz = new BlockOreQuartz(Material.rock, 1.0F, 1.0F, 0.0F, "pickaxe", 2);
-		//blockOreChrom = new BlockOreQuartz(Material.rock).setBlockTextureName("HardcoreSilicon:BlockOreChrom").setBlockName("BlockOreChrom");
-	}
-	
-	public void registerItem(Item item){
-		if(item.getCreativeTab() == null) item.setCreativeTab(this.tabHardcoreSilicon);
-		item.setUnlocalizedName(Utility.getName(item));
-		GameRegistry.registerItem(item, Utility.getName(item));
-	}
-	
+		ItemRegister.registerItems();
+	}	
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event){
-		if(event.getSide() == Side.CLIENT) BlockRenderRegister.blockRenderRegister(blockOreQuartz);
+		if(event.getSide() == Side.CLIENT) BlockRenderRegister.blockRenderRegister(ItemRegister.blockOreQuartz);
 	}
 	
 	@EventHandler
