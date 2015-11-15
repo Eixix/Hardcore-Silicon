@@ -10,9 +10,6 @@ public class ItemSwordStainlessSteel extends ItemSword {
 
 	public ItemSwordStainlessSteel() {
 		super(EnumHelper.addToolMaterial("STAINLESSSTEEL", 3, 8421, 5.0F, 12.0F, 20));
-		setCreativeTab(CreativeTabs.tabCombat);
-		//setTextureName("HardcoreSilicon:ItemSwordStainlessSteel");
-		
 	}
 	
 
