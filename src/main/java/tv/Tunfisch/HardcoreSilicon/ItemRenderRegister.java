@@ -10,7 +10,7 @@ public final class ItemRenderRegister {
 	     //Place Items here	
     }
 	
-	public static void reg(Item item) {
+	public static void itemRenderRegister(Item item) {
 	    Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
 	    .register(item, 0, new ModelResourceLocation(Utility.getTextureName(item), "inventory"));
 	}
