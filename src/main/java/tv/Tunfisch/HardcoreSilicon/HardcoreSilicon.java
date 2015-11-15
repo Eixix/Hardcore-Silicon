@@ -59,7 +59,6 @@ import tv.Tunfisch.HardcoreSilicon.Proxies.ServerProxy;
 
 @Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.MOD_VERSION)
 public class HardcoreSilicon {
-
 	
 	@Instance(value=Reference.MOD_ID)
 	public static HardcoreSilicon instance;
