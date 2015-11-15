@@ -58,9 +58,6 @@ public class ItemRegister {
 		public static Item itemEmotor;
 		public static Item itemIronOxide;
 		public static Item itemOsmiumIron;
-
-		//BLOCKS
-		public static Block blockOreQuartz;
         
 		public static void registerItems(){
 			//WERKZEUG
