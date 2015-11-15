@@ -199,8 +199,8 @@ public class HardcoreSilicon {
 		
 		
 		//BLOCKS
-		//GameRegistry.registerBlock(blockOreQuartz, blockOreQuartz);
 		blockOreQuartz = new BlockOreQuartz(Material.rock, "BlockOreQuartz", 1.0F, 1.0F, 1.0F, "pickaxe", 2);
+		
 		//blockOreChrom = new BlockOreQuartz(Material.rock).setBlockTextureName("HardcoreSilicon:BlockOreChrom").setBlockName("BlockOreChrom");
 	
 		
@@ -211,6 +211,7 @@ public class HardcoreSilicon {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event){
+		if(event.getSide() == Side.CLIENT) BlockRenderRegister.blockRenderRegister(blockOreQuartz);
 		/*
 		
 		//Quarzstaub OK

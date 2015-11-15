@@ -20,7 +20,7 @@ public class BlockOreQuartz extends Block {
 		setStepSound(soundTypeStone);
 		setCreativeTab(HardcoreSilicon.tabHardcoreSilicon);
 		
-		GameRegistry.registerBlock(this, Utility.getTextureName(this));
+		GameRegistry.registerBlock(this, Utility.getName(this));
 
 	}	
 }
