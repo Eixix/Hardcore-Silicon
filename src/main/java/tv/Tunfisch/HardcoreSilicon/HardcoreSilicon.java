@@ -52,7 +52,7 @@ import tv.Tunfisch.HardcoreSilicon.Items.ItemStorageModule128;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSwordStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemWaferEtched;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemWaferRaw;
-import tv.Tunfisch.HardcoreSilicon.Proxies.HardcoreSiliconProxy;
+import tv.Tunfisch.HardcoreSilicon.Proxies.ServerProxy;
 
 
 
@@ -64,17 +64,14 @@ public class HardcoreSilicon {
 	@Instance(value="HardcoreSiliconID")
 	public static HardcoreSilicon instance;
 	
-	@SidedProxy(clientSide="tv.Tunfisch.HardcoreSilicon.Proxies.HardcoreSiliconClientProxy", serverSide="tv.Tunfisch.HardcoreSilicon.Proxies.HardcoreSiliconProxy")
-	public static HardcoreSiliconProxy proxy;
+	@SidedProxy(clientSide="tv.Tunfisch.HardcoreSilicon.Proxies.ClientProxy", serverSide="tv.Tunfisch.HardcoreSilicon.Proxies.ServerProxy")
+	public static ServerProxy proxy;
 	
 	//WERKZEUGE
 	public static Item swordStainless;
 	public static Item pickaxeStainless;
 	public static Item axeStainless;
 	public static Item shovelStainless;
-	
-	//Blubb....
-
 	
 	//ITEMS
 	
@@ -231,8 +228,6 @@ public class HardcoreSilicon {
 	
 	@EventHandler
 	public void load(FMLInitializationEvent event){
-		proxy.registerRenderers();
-		
 		/*
 		
 		//Quarzstaub OK
