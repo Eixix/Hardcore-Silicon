@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import tv.Tunfisch.HardcoreSilicon.BlockRenderRegister;
 import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
 import tv.Tunfisch.HardcoreSilicon.Utility;
 
@@ -20,8 +21,8 @@ public class BlockOreQuartz extends Block {
 		setStepSound(soundTypeStone);
 		setCreativeTab(HardcoreSilicon.tabHardcoreSilicon);
 		
-		GameRegistry.registerBlock(this, Utility.getTextureName(this));
-
+		GameRegistry.registerBlock(this, Utility.getName(this));
+		BlockRenderRegister.blockRenderRegister(this);
 	}	
 }
 
