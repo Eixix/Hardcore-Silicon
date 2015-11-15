@@ -1,4 +1,4 @@
-package tv.Tunfisch.HardcoreSilicon;
+package tv.Tunfisch.HardcoreSilicon.Blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
