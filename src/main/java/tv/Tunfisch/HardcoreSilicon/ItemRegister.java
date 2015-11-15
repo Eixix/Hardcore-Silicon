@@ -59,6 +59,8 @@ public class ItemRegister {
 		public static Item itemIronOxide;
 		public static Item itemOsmiumIron;
         
+		public static Block blockOreQuartz;
+		
 		public static void registerItems(){
 			//WERKZEUG
 			swordStainless =  new ItemSwordStainlessSteel();
