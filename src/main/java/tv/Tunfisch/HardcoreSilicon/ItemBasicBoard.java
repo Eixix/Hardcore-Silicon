@@ -9,7 +9,7 @@ public class ItemBasicBoard extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemBasicBoard");
-		setTextureName("HardcoreSilicon:ItemBasicBoard");
+		//setTextureName("HardcoreSilicon:ItemBasicBoard");
 		
 	}
 

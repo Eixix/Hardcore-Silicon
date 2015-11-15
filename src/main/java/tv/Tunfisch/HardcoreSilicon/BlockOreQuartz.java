@@ -11,8 +11,8 @@ public class BlockOreQuartz extends Block {
 		
 		setCreativeTab(CreativeTabs.tabBlock);
 		setStepSound(Block.soundTypeStone);
-		setBlockTextureName("HardcoreSilicon:BlockOreQuartz");
-		setBlockName("BlockOreQuartz");
+		//setBlockTextureName("HardcoreSilicon:BlockOreQuartz");
+		//setBlockName("BlockOreQuartz");
 		
 		
 		

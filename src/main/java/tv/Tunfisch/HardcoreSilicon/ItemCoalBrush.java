@@ -9,7 +9,7 @@ public class ItemCoalBrush extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemCoalBrush");
-		setTextureName("HardcoreSilicon:ItemCoalBrush");
+		//setTextureName("HardcoreSilicon:ItemCoalBrush");
 		
 	}
 

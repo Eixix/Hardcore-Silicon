@@ -9,7 +9,7 @@ public class ItemCircuitBoard extends Item {
 		setCreativeTab(CreativeTabs.tabMaterials);
 		setMaxStackSize(64);
 		setUnlocalizedName("ItemCircuitBoard");
-		setTextureName("HardcoreSilicon:ItemCircuitBoard");
+		//setTextureName("HardcoreSilicon:ItemCircuitBoard");
 		
 	}
 
