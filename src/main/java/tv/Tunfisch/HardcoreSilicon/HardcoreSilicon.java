@@ -52,7 +52,6 @@ import tv.Tunfisch.HardcoreSilicon.Items.ItemStorageModule128;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSwordStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemWaferEtched;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemWaferRaw;
-import tv.Tunfisch.HardcoreSilicon.Proxies.ServerProxy;
 
 
 
