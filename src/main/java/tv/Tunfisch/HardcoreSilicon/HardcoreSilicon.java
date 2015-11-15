@@ -195,12 +195,12 @@ public class HardcoreSilicon {
 		this.registerItem(itemEmotor);
 		
 		//BLOCKS
-		blockOreQuartz = new BlockOreQuartz(Material.rock, Utility.getName(blockOreQuartz), 1.0F, 1.0F, 0.0F, "pickaxe", 2);
+		blockOreQuartz = new BlockOreQuartz(Material.rock, 1.0F, 1.0F, 0.0F, "pickaxe", 2);
 		//blockOreChrom = new BlockOreQuartz(Material.rock).setBlockTextureName("HardcoreSilicon:BlockOreChrom").setBlockName("BlockOreChrom");
 	}
 	
 	public void registerItem(Item item){
-		if(item.getCreativeTab() != null) item.setCreativeTab(this.tabHardcoreSilicon);
+		if(item.getCreativeTab() == null) item.setCreativeTab(this.tabHardcoreSilicon);
 		item.setUnlocalizedName(Utility.getName(item));
 		GameRegistry.registerItem(item, Utility.getName(item));
 	}
@@ -209,60 +209,6 @@ public class HardcoreSilicon {
 	@EventHandler
 	public void init(FMLInitializationEvent event){
 		if(event.getSide() == Side.CLIENT) BlockRenderRegister.blockRenderRegister(blockOreQuartz);
-		/*
-		
-		//Quarzstaub OK
-		NBTTagCompound crushQuartz = new NBTTagCompound();
-		crushQuartz.setTag("input", new ItemStack(itemQuartzCrystal).writeToNBT(new NBTTagCompound()));
-		crushQuartz.setTag("output", new ItemStack(itemQuartzDust).writeToNBT(new NBTTagCompound()));
-		FMLInterModComms.sendMessage("Mekanism", "CrusherRecipe", crushQuartz);
-		
-		//Rohes Silizium
-		NBTTagCompound rawSilicon = new NBTTagCompound();
-		
-		rawSilicon.setTag("gasInput", new GasStack(GasRegistry.getGas("hydrogenChloride"), 100).write(new NBTTagCompound()));
-		rawSilicon.setTag("input", new ItemStack(itemQuartzDust).writeToNBT(new NBTTagCompound()));
-		rawSilicon.setTag("output", new ItemStack(itemSiliconRaw).writeToNBT(new NBTTagCompound()));
-		FMLInterModComms.sendMessage("Mekanism", "ChemicalInjectionChamberRecipe", rawSilicon);
-		
-		//Kristalle OK
-		NBTTagCompound enrichSilicon = new NBTTagCompound();
-		enrichSilicon.setTag("input", new ItemStack(itemSiliconRaw).writeToNBT(new NBTTagCompound()));
-		enrichSilicon.setTag("output", new ItemStack(itemSiliconCrystal).writeToNBT(new NBTTagCompound()));
-		FMLInterModComms.sendMessage("Mekanism", "EnrichmentChamberRecipe", enrichSilicon);
-		
-		//Kristalle zersägen OK
-		NBTTagCompound sawCrystals = new NBTTagCompound();
-		sawCrystals.setTag("input", new ItemStack(itemSiliconCrystal).writeToNBT(new NBTTagCompound()));
-		sawCrystals.setTag("primaryOutput", new ItemStack(itemWaferRaw, 2).writeToNBT(new NBTTagCompound()));
-		sawCrystals.setTag("secondaryOutput", new ItemStack(itemSiliconRaw).writeToNBT(new NBTTagCompound()));
-		FMLInterModComms.sendMessage("Mekanism", "PrecisionSawmillRecipe", sawCrystals);
-		
-		//Wafer Ätzen
-		NBTTagCompound etchedWafer = new NBTTagCompound();
-		etchedWafer.setTag("itemInput", new ItemStack(itemWaferRaw).writeToNBT(new NBTTagCompound()));
-		etchedWafer.setTag("fluidInput", new FluidStack(FluidRegistry.WATER, 1000).writeToNBT(new NBTTagCompound()));
-		etchedWafer.setTag("gasInput", new GasStack(GasRegistry.getGas("sulfuricAcid"), 1000).write(new NBTTagCompound()));
-		
-		etchedWafer.setTag("itemOutput", new ItemStack(itemWaferEtched).writeToNBT(new NBTTagCompound()));
-		etchedWafer.setTag("gasOutput", new GasStack(GasRegistry.getGas("sulfuricAcid"), 500).write(new NBTTagCompound()));
-		FMLInterModComms.sendMessage("Mekanism", "PressurizedReactionChamberRecipe", etchedWafer);
-		
-		*/
-		
-		//Edelstahlstaub
-		/*
-		NBTTagCompound SLSteel = new NBTTagCompound();
-		SLSteel.setTag("input", new ItemStack(itemSiliconRaw).writeToNBT(new NBTTagCompound()));
-		SLSteel.setTag("infuseType", new 
-		SLSteel.setTag("output", new ItemStack(itemSiliconCrystal).writeToNBT(new NBTTagCompound()));
-		FMLInterModComms.sendMessage("Mekanism", "EnrichmentChamberRecipe", SLSteel);
-		
-		
-
-		//GameRegistry.addShapelessRecipe(new ItemStack(itemDust), 4, Items.iron_ingot, Items.iron_ingot, Items.coal, Items.diamond);
-		*/		
-		
 	}
 	
 	@EventHandler
