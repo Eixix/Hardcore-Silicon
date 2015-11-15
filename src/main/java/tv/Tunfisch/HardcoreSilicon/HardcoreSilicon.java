@@ -59,6 +59,8 @@ public class HardcoreSilicon {
 	public static Item pickaxeStainless;
 	public static Item axeStainless;
 	public static Item shovelStainless;
+	
+	//Blubb....
 
 	
 	//ITEMS
