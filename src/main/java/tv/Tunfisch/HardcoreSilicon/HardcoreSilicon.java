@@ -77,7 +77,6 @@ public class HardcoreSilicon {
 		}
 	};
 	
-	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		ItemRegister.registerItems();
