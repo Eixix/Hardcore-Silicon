@@ -57,11 +57,11 @@ import tv.Tunfisch.HardcoreSilicon.Proxies.ServerProxy;
 
 
 
-@Mod(modid="HardcoreSiliconID", name="Hardcore Silicon", version="0.9.0")
+@Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.MOD_VERSION)
 public class HardcoreSilicon {
 
 	
-	@Instance(value="HardcoreSiliconID")
+	@Instance(value=Reference.MOD_ID)
 	public static HardcoreSilicon instance;
 
 	//WERKZEUGE
