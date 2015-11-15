@@ -11,9 +11,9 @@ import tv.Tunfisch.HardcoreSilicon.Utility;
 
 public class BlockOreQuartz extends Block {
 
-	public BlockOreQuartz(Material materialIn, String unlocalizedName, float hardness, float resistance, float lightLevel, String tool, int harvestLevel) {
+	public BlockOreQuartz(Material materialIn, float hardness, float resistance, float lightLevel, String tool, int harvestLevel) {
 		super(materialIn);
-		setUnlocalizedName(unlocalizedName);
+		setUnlocalizedName(Utility.getName(this));
 		setHardness(hardness);
 		setResistance(resistance);
 		setLightLevel(lightLevel);
