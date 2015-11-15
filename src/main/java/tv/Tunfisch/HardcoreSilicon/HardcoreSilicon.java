@@ -56,16 +56,13 @@ import tv.Tunfisch.HardcoreSilicon.Proxies.ServerProxy;
 
 
 
-@Mod(modid="HardcoreSiliconID", name="Hardcore Silicon", version="0.9.0")
+@Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.MOD_VERSION)
 public class HardcoreSilicon {
 
 	
-	@Instance(value="HardcoreSiliconID")
+	@Instance(value=Reference.MOD_ID)
 	public static HardcoreSilicon instance;
-	
-	@SidedProxy(clientSide="tv.Tunfisch.HardcoreSilicon.Proxies.ClientProxy", serverSide="tv.Tunfisch.HardcoreSilicon.Proxies.ServerProxy")
-	public static ServerProxy proxy;
-	
+
 	//WERKZEUGE
 	public static Item swordStainless;
 	public static Item pickaxeStainless;
