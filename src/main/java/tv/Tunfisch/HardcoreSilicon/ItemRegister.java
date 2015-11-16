@@ -68,7 +68,8 @@ public class ItemRegister {
 		 * Initializes all given items and registers them in the Registry.
 		 */
 		public static void registerItems(){
-			//WERKZEUG
+			
+			//TOOLS
 			swordStainless =  new ItemSwordStainlessSteel();
 			registerItem(swordStainless);
 			
