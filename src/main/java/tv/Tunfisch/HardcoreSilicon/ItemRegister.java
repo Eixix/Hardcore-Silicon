@@ -29,6 +29,9 @@ import tv.Tunfisch.HardcoreSilicon.Items.ItemSwordStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemWaferEtched;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemWaferRaw;
 
+/**
+ * This class contains all mod Items and registers them.
+ */
 public class ItemRegister {
 	
 	    //TOOLS
@@ -60,7 +63,9 @@ public class ItemRegister {
 		public static Item itemOsmiumIron;
         
 		
-		
+		/**
+		 * Initializes all given items and registers them in the Registry.
+		 */
 		public static void registerItems(){
 			//WERKZEUG
 			swordStainless =  new ItemSwordStainlessSteel();
@@ -135,9 +140,13 @@ public class ItemRegister {
 			registerItem(itemEmotor);
 		}
 		
-		
+		/**
+		 * Registers the given item in the GameRegistry, sets the unlocalizedName and sets and registers a creativeTab if it has none yet. 
+		 * @param item Item to be registered.
+		 */
 		public static void registerItem(Item item){
-			if(item.getCreativeTab() != HardcoreSilicon.tabHardcoreGenerators)item.setCreativeTab(HardcoreSilicon.tabHardcoreSilicon);
+			//Default Tab: tabHardcoreSilicon
+			if(item.getCreativeTab() == null || item.getCreativeTab().getTabIndex() < 10)item.setCreativeTab(HardcoreSilicon.tabHardcoreSilicon);
 			item.setUnlocalizedName(Utility.getName(item));
 			GameRegistry.registerItem(item, Utility.getName(item));
 		}
