@@ -3,6 +3,7 @@ package tv.Tunfisch.HardcoreSilicon;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
 
 /**
@@ -18,6 +19,8 @@ public class BlockRegister {
 		//BLOCKS
 		blockOreQuartz = new BlockOreQuartz(Material.rock, 1.0F, 1.0F, 0.0F, "pickaxe", 2);
 		registerBlock(blockOreQuartz);
+		//Create an OreDictionary entry
+		OreDictionary.registerOre("oreQuartz", blockOreQuartz);
 	}
 	
 	/**

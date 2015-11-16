@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
@@ -96,15 +97,23 @@ public class ItemRegister {
 
 			itemQuartzCrystal = new ItemQuartzCrystal();
 			registerItem(itemQuartzCrystal);
+			//Create an OreDictionary entry
+			OreDictionary.registerOre("gemQuartz", itemQuartzCrystal);
 			
 			itemQuartzDust = new ItemQuartzDust();
-			registerItem(itemQuartzDust);	
+			registerItem(itemQuartzDust);
+			//Create an OreDictionary entry
+			OreDictionary.registerOre("dustQuartz", itemQuartzDust);
 			
 			itemStainlessSteelDust = new ItemStainlessSteelDust();
 			registerItem(itemStainlessSteelDust);
+			//Create an OreDictionary entry
+			OreDictionary.registerOre("dustSteel", itemStainlessSteelDust);
 			
 			itemStainlessSteelIngot = new ItemStainlessSteelIngot();
 			registerItem(itemStainlessSteelIngot);
+			//Create an OreDictionary entry
+			OreDictionary.registerOre("ingotSteel", itemStainlessSteelIngot);
 			
 			itemCircuitBoard = new ItemCircuitBoard();
 			registerItem(itemCircuitBoard);
