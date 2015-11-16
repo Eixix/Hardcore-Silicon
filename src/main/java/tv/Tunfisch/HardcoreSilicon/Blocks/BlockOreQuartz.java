@@ -1,12 +1,17 @@
 package tv.Tunfisch.HardcoreSilicon.Blocks;
 
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import tv.Tunfisch.HardcoreSilicon.BlockRenderRegister;
 import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
+import tv.Tunfisch.HardcoreSilicon.ItemRegister;
 import tv.Tunfisch.HardcoreSilicon.Utility;
 
 public class BlockOreQuartz extends Block {
@@ -20,5 +25,14 @@ public class BlockOreQuartz extends Block {
 		setHarvestLevel(tool, harvestLevel);
 		setStepSound(soundTypeStone);
 	}	
+	
+	public Item getItemDropped(IBlockState blockstate, Random random, int fortune){
+		return ItemRegister.itemQuartzCrystal;
+	}
+	
+	@Override
+	public int quantityDropped(IBlockState blockstate, int fortune, Random random) {
+	    return 1 + random.nextInt(fortune + 3);
+	}
 }
 
