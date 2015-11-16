@@ -4,8 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 /**
- * Diese Klasse enthält diverse nützliche Methoden.
- * @author Lagi
+ * This class contain various useful methods.
  */
 public class Utility {
 
