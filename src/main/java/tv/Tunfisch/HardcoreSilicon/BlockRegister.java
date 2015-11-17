@@ -24,7 +24,7 @@ public class BlockRegister {
 	}
 	
 	/**
-	 * Registers the given Block in the GameReguistry and sets the creativeTab.
+	 * Registers the given Block in the GameRegistry and sets the creativeTab.
 	 * @param block Block to be registered
 	 */
 	private static void registerBlock(Block block){

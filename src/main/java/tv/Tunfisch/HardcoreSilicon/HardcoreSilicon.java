@@ -78,10 +78,14 @@ public class HardcoreSilicon {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){   
+		//Register the FuelHandler
+		GameRegistry.registerFuelHandler(new FuelHandler());
 		//Register Items
 		ItemRegister.registerItems();
 		//Register Blocks
 		BlockRegister.registerBlocks();
+		//Register Crafting
+		CraftingHandler.registerCraftingRecipes();
 	}	
 	
 	@EventHandler
