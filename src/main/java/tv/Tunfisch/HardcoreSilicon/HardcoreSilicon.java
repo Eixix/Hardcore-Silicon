@@ -89,7 +89,9 @@ public class HardcoreSilicon {
 		//Assign Block Texture
 		if(event.getSide() == Side.CLIENT) BlockRenderRegister.registerBlocks();
 		//Assign Item Texture
-		ItemRenderRegister.registerItemRenderer();;
+		ItemRenderRegister.registerItemRenderer();
+		//Register WorldGeneration
+		GameRegistry.registerWorldGenerator(new WorldGeneration(), 0); //0 is the priority
 	}
 	
 	@EventHandler

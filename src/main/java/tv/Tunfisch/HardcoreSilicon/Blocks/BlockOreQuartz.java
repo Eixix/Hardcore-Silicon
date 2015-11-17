@@ -26,6 +26,7 @@ public class BlockOreQuartz extends Block {
 		setStepSound(soundTypeStone);
 	}	
 	
+	@Override
 	public Item getItemDropped(IBlockState blockstate, Random random, int fortune){
 		return ItemRegister.itemQuartzCrystal;
 	}
