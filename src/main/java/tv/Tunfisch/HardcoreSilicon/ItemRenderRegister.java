@@ -38,6 +38,8 @@ public final class ItemRenderRegister {
 		itemRenderRegister(ItemRegister.itemEmotor);
 		itemRenderRegister(ItemRegister.itemIronOxide);
 		itemRenderRegister(ItemRegister.itemOsmiumIron);
+		itemRenderRegister(ItemRegister.itemAndesiteDust);
+		itemRenderRegister(ItemRegister.itemCoalDust);
     }
 	
 	/**
