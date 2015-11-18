@@ -17,7 +17,7 @@ public class BlockRegister {
 	 */
 	public static void registerBlocks(){
 		//BLOCKS
-		blockOreQuartz = new BlockOreQuartz(Material.rock, 2.5F, 2.0F, 0.0F, "pickaxe", 1);
+		blockOreQuartz = new BlockOreQuartz(Material.rock, 25.0F, 2.0F, 0.0F, "pickaxe", 2);
 		registerBlock(blockOreQuartz);
 		//Create an OreDictionary entry
 		OreDictionary.registerOre("oreQuartz", blockOreQuartz);
