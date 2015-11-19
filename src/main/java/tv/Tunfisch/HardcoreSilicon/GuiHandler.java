@@ -1,4 +1,4 @@
-package tv.Tunfisch.HardcoreSilicon.Grinder;
+package tv.Tunfisch.HardcoreSilicon;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -8,7 +8,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import tv.Tunfisch.HardcoreSilicon.BlockRegister;
+import tv.Tunfisch.HardcoreSilicon.Electrolyzer.ContainerElectrolyzer;
+import tv.Tunfisch.HardcoreSilicon.Electrolyzer.GuiElectrolyzer;
+import tv.Tunfisch.HardcoreSilicon.Grinder.ContainerGrinder;
+import tv.Tunfisch.HardcoreSilicon.Grinder.GuiGrinder;
 
 @SideOnly(Side.CLIENT)
 public class GuiHandler implements IGuiHandler {
@@ -20,6 +23,9 @@ public class GuiHandler implements IGuiHandler {
         if (tileEntity != null){
             if (tileEntity.getBlockType() == BlockRegister.blockGrinder){
                 return new ContainerGrinder(player.inventory, (IInventory)tileEntity);
+            }else if (tileEntity.getBlockType() == BlockRegister.blockElectrolyzer){
+            	System.out.println("ELECTROLYZE!!!");
+                return new ContainerElectrolyzer(player.inventory,(IInventory)tileEntity);
             }
         }
         return null;
@@ -32,6 +38,8 @@ public class GuiHandler implements IGuiHandler {
         if (tileEntity != null){
             if (tileEntity.getBlockType() == BlockRegister.blockGrinder){
                 return new GuiGrinder(player.inventory,(IInventory)tileEntity);
+            }else if (tileEntity.getBlockType() == BlockRegister.blockElectrolyzer){
+                return new GuiElectrolyzer(player.inventory,(IInventory)tileEntity);
             }
         }    
         return null;

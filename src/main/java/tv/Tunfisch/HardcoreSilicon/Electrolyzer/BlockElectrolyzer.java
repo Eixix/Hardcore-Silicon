@@ -1,4 +1,4 @@
-package tv.Tunfisch.HardcoreSilicon.Grinder;
+package tv.Tunfisch.HardcoreSilicon.Electrolyzer;
 
 import java.util.Random;
 
@@ -25,11 +25,11 @@ import tv.Tunfisch.HardcoreSilicon.BlockRegister;
 import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
 
-public class BlockGrinder extends BlockContainer {
+public class BlockElectrolyzer extends BlockContainer {
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 	private static boolean hasTileEntity;
 
-	public BlockGrinder() {
+	public BlockElectrolyzer() {
 		super(Material.rock);
 		setUnlocalizedName(NameHelper.getName(this));
 		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
@@ -74,8 +74,8 @@ public class BlockGrinder extends BlockContainer {
 	public boolean onBlockActivated(World parWorld, BlockPos parBlockPos, IBlockState parIBlockState,
 			EntityPlayer parPlayer, EnumFacing parSide, float hitX, float hitY, float hitZ) {
 		if (!parWorld.isRemote) {
-			// TODO do not use 123
-			parPlayer.openGui(HardcoreSilicon.instance, 123, parWorld, parBlockPos.getX(),
+			// TODO do not use 121
+			parPlayer.openGui(HardcoreSilicon.instance, 121, parWorld, parBlockPos.getX(),
 					parBlockPos.getY(), parBlockPos.getZ());
 		}
 
@@ -84,7 +84,7 @@ public class BlockGrinder extends BlockContainer {
 
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileEntityGrinder();
+		return new TileEntityElectrolyzer();
 	}
 
 	@Override
@@ -104,8 +104,8 @@ public class BlockGrinder extends BlockContainer {
 		if (!hasTileEntity) {
 			TileEntity tileentity = worldIn.getTileEntity(pos);
 
-			if (tileentity instanceof TileEntityGrinder) {
-				InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityGrinder) tileentity);
+			if (tileentity instanceof TileEntityElectrolyzer) {
+				InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityElectrolyzer) tileentity);
 				worldIn.updateComparatorOutputLevel(pos, this);
 			}
 		}
@@ -116,7 +116,7 @@ public class BlockGrinder extends BlockContainer {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Item getItem(World worldIn, BlockPos pos) {
-		return Item.getItemFromBlock(BlockRegister.blockGrinder);
+		return Item.getItemFromBlock(BlockRegister.blockElectrolyzer);
 	}
 
 	@Override

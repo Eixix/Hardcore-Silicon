@@ -1,4 +1,4 @@
-package tv.Tunfisch.HardcoreSilicon.Grinder;
+package tv.Tunfisch.HardcoreSilicon.Electrolyzer;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -10,24 +10,27 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import tv.Tunfisch.HardcoreSilicon.Grinder.SlotFuel;
+import tv.Tunfisch.HardcoreSilicon.Grinder.SlotGrinderOutput;
 
-public class ContainerGrinder extends Container {
+public class ContainerElectrolyzer extends Container {
 	private final IInventory tileGrinder;
 	private final int sizeInventory;
 	private int ticksGrindingItemSoFar;
 	private int ticksPerItem;
 	private int timeCanGrind;
 
-	public ContainerGrinder(InventoryPlayer parInventoryPlayer, IInventory parIInventory) {
+	public ContainerElectrolyzer(InventoryPlayer parInventoryPlayer, IInventory parIInventory) {
+		System.out.println("ELECTROLYZE!!!");
 		tileGrinder = parIInventory;
 		sizeInventory = tileGrinder.getSizeInventory();
 		//Input-Slot
-		addSlotToContainer(new Slot(tileGrinder, TileEntityGrinder.slotEnum.INPUT_SLOT.ordinal(), 56, 35));
+		addSlotToContainer(new Slot(tileGrinder, TileEntityElectrolyzer.slotEnum.INPUT_SLOT.ordinal(), 56, 35));
 		//Output-Slot
 		addSlotToContainer(new SlotGrinderOutput(parInventoryPlayer.player, tileGrinder,
-				TileEntityGrinder.slotEnum.OUTPUT_SLOT.ordinal(), 116, 35));
+				TileEntityElectrolyzer.slotEnum.OUTPUT_SLOT.ordinal(), 116, 35));
         //Fuel-Slot
-		addSlotToContainer(new SlotFuel(tileGrinder, TileEntityGrinder.slotEnum.FUEL_SLOT.ordinal(), 26, 35));
+		addSlotToContainer(new SlotFuel(tileGrinder, TileEntityElectrolyzer.slotEnum.INPUT_SLOT.ordinal(), 36, 35));
 		// add player inventory slots
 		// note that the slot numbers are within the player inventory so can
 		// be same as the tile entity inventory
@@ -98,23 +101,23 @@ public class ContainerGrinder extends Container {
 			ItemStack itemStack2 = slot.getStack();
 			itemStack1 = itemStack2.copy();
 			//Fuel Slot
-			if (slotIndex == TileEntityGrinder.slotEnum.FUEL_SLOT.ordinal()) {
+			if (slotIndex == TileEntityElectrolyzer.slotEnum.INPUT2_SLOT.ordinal()) {
 				if (!mergeItemStack(itemStack2, sizeInventory, sizeInventory + 36, true)) {
 					return null;
 				}
 
 				slot.onSlotChange(itemStack2, itemStack1);
 			//Output Slot	
-			}else if (slotIndex == TileEntityGrinder.slotEnum.OUTPUT_SLOT.ordinal()) {
+			}else if (slotIndex == TileEntityElectrolyzer.slotEnum.OUTPUT_SLOT.ordinal()) {
 				if (!mergeItemStack(itemStack2, sizeInventory, sizeInventory + 36, true)) {
 					return null;
 				}
 
 				slot.onSlotChange(itemStack2, itemStack1);
 			//Input Slot	
-			} else if (slotIndex != TileEntityGrinder.slotEnum.INPUT_SLOT.ordinal()) {
+			} else if (slotIndex != TileEntityElectrolyzer.slotEnum.INPUT_SLOT.ordinal()) {
 				//Check if there is a grinding recipe for the stack
-				if (GrinderRecipes.instance().getGrindingResult(itemStack2) != null) {
+				if (ElectrolyzerRecipes.instance().getGrindingResult(itemStack2) != null) {
 					if (!mergeItemStack(itemStack2, 0, 1, false)) {
 						return null;
 					}

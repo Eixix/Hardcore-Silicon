@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
+import tv.Tunfisch.HardcoreSilicon.Electrolyzer.BlockElectrolyzer;
 import tv.Tunfisch.HardcoreSilicon.Grinder.BlockGrinder;
 
 /**
@@ -13,6 +14,7 @@ import tv.Tunfisch.HardcoreSilicon.Grinder.BlockGrinder;
 public class BlockRegister {
 	public static Block blockOreQuartz;
 	public static Block blockGrinder;
+	public static Block blockElectrolyzer;
 	
 	/**
 	 * Initializes and registers all given blocks.
@@ -26,6 +28,8 @@ public class BlockRegister {
 		
 		blockGrinder = new BlockGrinder();
 		registerBlock(blockGrinder);
+		blockElectrolyzer = new BlockElectrolyzer();
+		registerBlock(blockElectrolyzer);
 	}
 	
 	/**

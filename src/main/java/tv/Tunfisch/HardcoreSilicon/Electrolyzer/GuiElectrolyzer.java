@@ -1,4 +1,4 @@
-package tv.Tunfisch.HardcoreSilicon.Grinder;
+package tv.Tunfisch.HardcoreSilicon.Electrolyzer;
 
 import java.awt.Color;
 
@@ -12,21 +12,21 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import tv.Tunfisch.HardcoreSilicon.Reference;
 
 @SideOnly(Side.CLIENT)
-public class GuiGrinder extends GuiContainer {
-	private static final ResourceLocation grinderGuiTextures = new ResourceLocation(
-			Reference.MOD_ID + ":textures/gui/container/grinder.png");
+public class GuiElectrolyzer extends GuiContainer {
+	private static final ResourceLocation electrolyzerGuiTextures = new ResourceLocation(
+			Reference.MOD_ID + ":textures/gui/container/electrolyzer.png");
 	private final InventoryPlayer inventoryPlayer;
-	private final IInventory tileGrinder;
+	private final IInventory tileElectrolyzer;
 
-	public GuiGrinder(InventoryPlayer parInventoryPlayer, IInventory parInventoryGrinder) {
-		super(new ContainerGrinder(parInventoryPlayer, parInventoryGrinder));
+	public GuiElectrolyzer(InventoryPlayer parInventoryPlayer, IInventory parInventoryElectrolyzer) {
+		super(new ContainerElectrolyzer(parInventoryPlayer, parInventoryElectrolyzer));
 		inventoryPlayer = parInventoryPlayer;
-		tileGrinder = parInventoryGrinder;
+		tileElectrolyzer = parInventoryElectrolyzer;
 	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		String s = tileGrinder.getDisplayName().getUnformattedText();
+		String s = tileElectrolyzer.getDisplayName().getUnformattedText();
 		fontRendererObj.drawString(s, xSize / 2 - fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
 		fontRendererObj.drawString(inventoryPlayer.getDisplayName().getUnformattedText(), 8, ySize - 96 + 2, 4210752);
 	}
@@ -34,7 +34,7 @@ public class GuiGrinder extends GuiContainer {
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-		mc.getTextureManager().bindTexture(grinderGuiTextures);
+		mc.getTextureManager().bindTexture(electrolyzerGuiTextures);
 		int marginHorizontal = (width - xSize) / 2;
 		int marginVertical = (height - ySize) / 2;
 		drawTexturedModalRect(marginHorizontal, marginVertical, 0, 0, xSize, ySize);
@@ -42,12 +42,12 @@ public class GuiGrinder extends GuiContainer {
 		int progressLevel = getProgressLevel(24);
 		drawTexturedModalRect(marginHorizontal + 79, marginVertical + 34, 176, 14, progressLevel + 1, 16);
 		//Fuelstate
-	    this.drawString(fontRendererObj, ((TileEntityGrinder)tileGrinder).getField(4) + " Fuel", marginHorizontal, marginVertical, 6143);
+	    this.drawString(fontRendererObj, ((TileEntityElectrolyzer)tileElectrolyzer).getField(4) + " Fuel", marginHorizontal, marginVertical, 6143);
 	}
 
 	private int getProgressLevel(int progressIndicatorPixelWidth) {
-		int ticksGrindingItemSoFar = tileGrinder.getField(2);
-		int ticksPerItem = tileGrinder.getField(3);
+		int ticksGrindingItemSoFar = tileElectrolyzer.getField(2);
+		int ticksPerItem = tileElectrolyzer.getField(3);
 		return ticksPerItem != 0 && ticksGrindingItemSoFar != 0
 				? ticksGrindingItemSoFar * progressIndicatorPixelWidth / ticksPerItem : 0;
 	}
