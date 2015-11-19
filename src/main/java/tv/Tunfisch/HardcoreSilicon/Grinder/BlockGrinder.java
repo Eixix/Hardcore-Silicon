@@ -30,7 +30,7 @@ public class BlockGrinder extends BlockContainer {
 
 	public BlockGrinder() {
 		super(Material.rock);
-		setUnlocalizedName("grinder");
+		setUnlocalizedName(tv.Tunfisch.HardcoreSilicon.Utility.getName(this));
 		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 		stepSound = soundTypeSnow;
 		blockParticleGravity = 1.0F;

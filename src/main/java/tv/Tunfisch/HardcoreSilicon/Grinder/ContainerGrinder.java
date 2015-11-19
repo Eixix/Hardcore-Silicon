@@ -2,6 +2,7 @@ package tv.Tunfisch.HardcoreSilicon.Grinder;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.IInventory;
@@ -23,10 +24,13 @@ public class ContainerGrinder extends Container {
 
 		tileGrinder = parIInventory;
 		sizeInventory = tileGrinder.getSizeInventory();
+		//Input-Slot
 		addSlotToContainer(new Slot(tileGrinder, TileEntityGrinder.slotEnum.INPUT_SLOT.ordinal(), 56, 35));
+		//Output-Slot
 		addSlotToContainer(new SlotGrinderOutput(parInventoryPlayer.player, tileGrinder,
 				TileEntityGrinder.slotEnum.OUTPUT_SLOT.ordinal(), 116, 35));
-
+        //Fuel-Slot
+		addSlotToContainer(new SlotGrinderFuel(tileGrinder, TileEntityGrinder.slotEnum.FUEL_SLOT.ordinal(), 26, 35));
 		// add player inventory slots
 		// note that the slot numbers are within the player inventory so can
 		// be same as the tile entity inventory
@@ -96,15 +100,23 @@ public class ContainerGrinder extends Container {
 		if (slot != null && slot.getHasStack()) {
 			ItemStack itemStack2 = slot.getStack();
 			itemStack1 = itemStack2.copy();
-
-			if (slotIndex == TileEntityGrinder.slotEnum.OUTPUT_SLOT.ordinal()) {
+			//Fuel Slot
+			if (slotIndex == TileEntityGrinder.slotEnum.FUEL_SLOT.ordinal()) {
 				if (!mergeItemStack(itemStack2, sizeInventory, sizeInventory + 36, true)) {
 					return null;
 				}
 
 				slot.onSlotChange(itemStack2, itemStack1);
+			//Output Slot	
+			}else if (slotIndex == TileEntityGrinder.slotEnum.OUTPUT_SLOT.ordinal()) {
+				if (!mergeItemStack(itemStack2, sizeInventory, sizeInventory + 36, true)) {
+					return null;
+				}
+
+				slot.onSlotChange(itemStack2, itemStack1);
+			//Input Slot	
 			} else if (slotIndex != TileEntityGrinder.slotEnum.INPUT_SLOT.ordinal()) {
-				// check if there is a grinding recipe for the stack
+				//Check if there is a grinding recipe for the stack
 				if (GrinderRecipes.instance().getGrindingResult(itemStack2) != null) {
 					if (!mergeItemStack(itemStack2, 0, 1, false)) {
 						return null;

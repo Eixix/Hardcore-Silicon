@@ -1,6 +1,6 @@
 
 {
-    "parent": "hardcoresilicon:block/grinder",
+    "parent": "hardcoresilicon:block/blockGrinder",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],
