@@ -4,7 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreChromite;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
+import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreSalt;
 import tv.Tunfisch.HardcoreSilicon.Grinder.BlockGrinder;
 
 /**
@@ -13,6 +15,8 @@ import tv.Tunfisch.HardcoreSilicon.Grinder.BlockGrinder;
 public class BlockRegister {
 	public static Block blockOreQuartz;
 	public static Block blockGrinder;
+	public static Block blockOreChromite;
+	public static Block blockOreSalt;
 	
 	/**
 	 * Initializes and registers all given blocks.
@@ -24,8 +28,19 @@ public class BlockRegister {
 		//Create an OreDictionary entry
 		OreDictionary.registerOre("oreQuartz", blockOreQuartz);
 		
+		blockOreChromite = new BlockOreChromite(Material.rock, 20.0F, 2.0F, 0.0F, "pickaxe", 2);
+		registerBlock(blockOreChromite);
+		//Create an OreDictionary entry
+		OreDictionary.registerOre("oreChrome", blockOreChromite);
+		
+		blockOreSalt = new BlockOreSalt(Material.rock, 5.0F, 1.0F, 0.0F, "pickaxe", 1);
+		registerBlock(blockOreSalt);
+		//Create an OreDicitonary entry
+		OreDictionary.registerOre("oreSalt", blockOreSalt);
+		
 		blockGrinder = new BlockGrinder();
 		registerBlock(blockGrinder);
+		
 	}
 	
 	/**

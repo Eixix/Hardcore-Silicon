@@ -33,7 +33,8 @@ public class CraftingHandler {
 	public static void registerCraftingRecipes() {
 		//Examples to replace
 		shapelessCrafting(Items.diamond, 8, new Object[]{Blocks.dirt, Blocks.bedrock});
-		shapedCrafting(Items.diamond, 8, new Object[]{" # ", " X ", " # ", '#', Blocks.dirt, 'X', BlockRegister.blockOreQuartz});
+		shapedCrafting(Items.diamond, 8, new Object[]{" # ", " X ", " # ", '#', Blocks.dirt, 'X', Blocks.bedrock});
+		GameRegistry.addSmelting(BlockRegister.blockOreChromite, new ItemStack(ItemRegister.itemChromite, 1), 1.0F);
 		//Real recipes
 	}
 }

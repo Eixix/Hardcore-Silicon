@@ -26,3 +26,5 @@ item.ItemAndesiteDust.name=Andesite Dust
 tile.BlockOreQuartz.name=Quartz Ore
 itemGroup.tabHardcoreSilicon=Hardcore Silicon
 itemGroup.tabHardcoreGenerators=Hardcore Generators
+container.grinder=Grinder
+tile.BlockGrinder.name=Grinder

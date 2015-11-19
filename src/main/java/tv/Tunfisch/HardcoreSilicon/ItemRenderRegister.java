@@ -40,6 +40,12 @@ public final class ItemRenderRegister {
 		itemRenderRegister(ItemRegister.itemOsmiumIron);
 		itemRenderRegister(ItemRegister.itemAndesiteDust);
 		itemRenderRegister(ItemRegister.itemCoalDust);
+		itemRenderRegister(ItemRegister.itemChromite);
+		itemRenderRegister(ItemRegister.itemChromate);
+		itemRenderRegister(ItemRegister.itemSodium);
+		itemRenderRegister(ItemRegister.itemSalt);
+		itemRenderRegister(ItemRegister.itemSodiumchromate);
+		itemRenderRegister(ItemRegister.itemSodiumdichromate);
     }
 	
 	/**

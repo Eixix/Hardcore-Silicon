@@ -9,6 +9,8 @@ import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAndesiteDust;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemChromate;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemChromite;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCircuitBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCoalBrush;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCoalDust;
@@ -21,10 +23,14 @@ import tv.Tunfisch.HardcoreSilicon.Items.ItemOsmiumIron;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemPickaxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemQuartzCrystal;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemQuartzDust;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemSalt;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSenseless;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemShovelStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSiliconCrystal;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSiliconRaw;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemSodium;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemSodiumchromate;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemSodiumdichromate;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemStainlessSteelDust;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemStainlessSteelIngot;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemStorageModule128;
@@ -66,6 +72,12 @@ public class ItemRegister {
 		public static Item itemOsmiumIron;
 		public static Item itemAndesiteDust;
 		public static Item itemCoalDust;
+		public static Item itemChromite;
+		public static Item itemChromate;
+		public static Item itemSodium;
+		public static Item itemSalt;
+		public static Item itemSodiumchromate;
+		public static Item itemSodiumdichromate;
         
 		
 		/**
@@ -158,6 +170,28 @@ public class ItemRegister {
 			
 			itemCoalDust = new ItemCoalDust();
 			registerItem(itemCoalDust);
+			
+			itemChromite = new ItemChromite();
+			registerItem(itemChromite);
+			//Create Ore Dictionary Entry
+			OreDictionary.registerOre("itemChromite", itemChromite);
+			
+			itemChromate = new ItemChromate();
+			registerItem(itemChromate);
+			
+			itemSodium = new ItemSodium();
+			registerItem(itemSodium);
+			
+			itemSalt = new ItemSalt();
+			registerItem(itemSalt);
+			//Create Ore Dictionary Entry
+			OreDictionary.registerOre("itemSalt", itemSalt);
+			
+			itemSodiumchromate = new ItemSodiumchromate();
+			registerItem(itemSodiumchromate);
+			
+			itemSodiumdichromate = new ItemSodiumdichromate();
+			registerItem(itemSodiumdichromate);
 		}
 		
 		/**

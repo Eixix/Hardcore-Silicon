@@ -16,6 +16,8 @@ public class BlockRenderRegister {
 	public static void registerBlocks(){
 		blockRenderRegister(BlockRegister.blockOreQuartz);
 		blockRenderRegister(BlockRegister.blockGrinder);
+		blockRenderRegister(BlockRegister.blockOreChromite);
+		blockRenderRegister(BlockRegister.blockOreSalt);
 	}
 	
 	/**

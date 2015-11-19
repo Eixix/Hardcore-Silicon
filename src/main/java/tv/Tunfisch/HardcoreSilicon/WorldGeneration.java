@@ -13,9 +13,13 @@ public class WorldGeneration implements IWorldGenerator {
 
 	//Quartz ore generation
 	private WorldGenerator quartzGenerator;
+	private WorldGenerator chromiteGenerator;
+	private WorldGenerator saltGenerator;
 	
 	public WorldGeneration(){
 		quartzGenerator = new WorldGenMinable(BlockRegister.blockOreQuartz.getDefaultState(), 4); //4 is the ore vein size
+		chromiteGenerator = new WorldGenMinable(BlockRegister.blockOreChromite.getDefaultState(), 6);
+		saltGenerator = new WorldGenMinable(BlockRegister.blockOreSalt.getDefaultState(), 10);
 	}
 	
 	@Override
@@ -27,6 +31,8 @@ public class WorldGeneration implements IWorldGenerator {
 		     case 0: 
 		     //Quartz spawns from y0 - 32 with up to 20 veins per Chunk
 		     this.runGenerator(quartzGenerator, world, random, chunkX, chunkZ, 20, 0, 32);
+		     this.runGenerator(chromiteGenerator, world, random, chunkX, chunkZ, 20, 0, 32);
+		     this.runGenerator(saltGenerator, world, random, chunkX, chunkZ, 30, 0, 60);
 		     break;
 		     //Nether	 
 		     case 1: break;
