@@ -32,7 +32,7 @@ public class WorldGeneration implements IWorldGenerator {
 		     //Quartz spawns from y0 - 32 with up to 20 veins per Chunk
 		     this.runGenerator(quartzGenerator, world, random, chunkX, chunkZ, 20, 0, 32);
 		     this.runGenerator(chromiteGenerator, world, random, chunkX, chunkZ, 20, 0, 32);
-		     this.runGenerator(saltGenerator, world, random, chunkX, chunkZ, 30, 0, 60);
+		     this.runGenerator(saltGenerator, world, random, chunkX, chunkZ, 30, 40, 60);
 		     break;
 		     //Nether	 
 		     case 1: break;
