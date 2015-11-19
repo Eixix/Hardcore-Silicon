@@ -5,12 +5,14 @@ import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
+import tv.Tunfisch.HardcoreSilicon.Grinder.BlockGrinder;
 
 /**
  * This class contains all mod blocks and registers them.
  */
 public class BlockRegister {
 	public static Block blockOreQuartz;
+	public static Block blockGrinder;
 	
 	/**
 	 * Initializes and registers all given blocks.
@@ -21,6 +23,9 @@ public class BlockRegister {
 		registerBlock(blockOreQuartz);
 		//Create an OreDictionary entry
 		OreDictionary.registerOre("oreQuartz", blockOreQuartz);
+		
+		blockGrinder = new BlockGrinder();
+		registerBlock(blockGrinder);
 	}
 	
 	/**

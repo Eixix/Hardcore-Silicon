@@ -15,6 +15,7 @@ public class BlockRenderRegister {
 	 */
 	public static void registerBlocks(){
 		blockRenderRegister(BlockRegister.blockOreQuartz);
+		blockRenderRegister(BlockRegister.blockGrinder);
 	}
 	
 	/**

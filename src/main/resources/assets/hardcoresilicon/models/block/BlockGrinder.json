@@ -1,0 +1,9 @@
+{
+    "parent": "block/orientable",
+    "textures": 
+    {
+        "top": "hardcoresilicon:blocks/grinder_top",
+        "front": "hardcoresilicon:blocks/grinder_front",
+        "side": "hardcoresilicon:blocks/grinder_side"
+    }
+}

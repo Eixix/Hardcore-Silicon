@@ -109,12 +109,12 @@ public class ItemRegister {
 			itemStainlessSteelDust = new ItemStainlessSteelDust();
 			registerItem(itemStainlessSteelDust);
 			//Create an OreDictionary entry
-			OreDictionary.registerOre("dustSteel", itemStainlessSteelDust);
+			OreDictionary.registerOre("dustStainlessSteel", itemStainlessSteelDust);
 			
 			itemStainlessSteelIngot = new ItemStainlessSteelIngot();
 			registerItem(itemStainlessSteelIngot);
 			//Create an OreDictionary entry
-			OreDictionary.registerOre("ingotSteel", itemStainlessSteelIngot);
+			OreDictionary.registerOre("ingotStainlessSteel", itemStainlessSteelIngot);
 			
 			itemCircuitBoard = new ItemCircuitBoard();
 			registerItem(itemCircuitBoard);

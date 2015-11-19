@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "hardcoresilicon:grinder" },
+        "facing=south": { "model": "hardcoresilicon:grinder", "y": 180 },
+        "facing=west":  { "model": "hardcoresilicon:grinder", "y": 270 },
+        "facing=east":  { "model": "hardcoresilicon:grinder", "y": 90 }
+    }
+}

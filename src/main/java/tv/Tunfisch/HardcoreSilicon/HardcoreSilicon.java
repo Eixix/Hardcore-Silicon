@@ -25,11 +25,14 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
+import tv.Tunfisch.HardcoreSilicon.Grinder.GuiHandler;
+import tv.Tunfisch.HardcoreSilicon.Grinder.TileEntityGrinder;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCircuitBoard;
@@ -84,6 +87,8 @@ public class HardcoreSilicon {
 		ItemRegister.registerItems();
 		//Register Blocks
 		BlockRegister.registerBlocks();
+		//Register TileEntities
+		GameRegistry.registerTileEntity(new TileEntityGrinder().getClass(), "tileEntityGrinder");
 		//Register Crafting
 		CraftingHandler.registerCraftingRecipes();
 	}	
@@ -96,6 +101,10 @@ public class HardcoreSilicon {
 		ItemRenderRegister.registerItemRenderer();
 		//Register WorldGeneration
 		GameRegistry.registerWorldGenerator(new WorldGeneration(), 0); //0 is the priority
+		//Register Network
+        NetworkRegistry.INSTANCE.registerGuiHandler(this.instance, new GuiHandler());  
+
+
 	}
 	
 	@EventHandler
