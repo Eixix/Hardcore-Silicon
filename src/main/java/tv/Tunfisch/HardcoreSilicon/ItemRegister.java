@@ -6,10 +6,12 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemAndesiteDust;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCircuitBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCoalBrush;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemCoalDust;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCoil;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemEmotor;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemGenerator;
@@ -62,6 +64,8 @@ public class ItemRegister {
 		public static Item itemEmotor;
 		public static Item itemIronOxide;
 		public static Item itemOsmiumIron;
+		public static Item itemAndesiteDust;
+		public static Item itemCoalDust;
         
 		
 		/**
@@ -148,6 +152,12 @@ public class ItemRegister {
 			
 			itemEmotor = new ItemEmotor().setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);
 			registerItem(itemEmotor);
+			
+			itemAndesiteDust = new ItemAndesiteDust();
+			registerItem(itemAndesiteDust);
+			
+			itemCoalDust = new ItemCoalDust();
+			registerItem(itemCoalDust);
 		}
 		
 		/**
