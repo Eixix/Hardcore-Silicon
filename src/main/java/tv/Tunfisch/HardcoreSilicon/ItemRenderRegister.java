@@ -54,6 +54,6 @@ public final class ItemRenderRegister {
 	 */
 	private static void itemRenderRegister(Item item) {
 	    Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-	    .register(item, 0, new ModelResourceLocation(Utility.getTextureName(item), "inventory"));
+	    .register(item, 0, new ModelResourceLocation(NameHelper.getTextureName(item), "inventory"));
 	}
 }

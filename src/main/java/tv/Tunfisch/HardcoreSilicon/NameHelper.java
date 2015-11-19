@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 /**
  * This class contain various useful methods.
  */
-public class Utility {
+public class NameHelper {
 
 	/**
 	 * This method builds the items texture name.

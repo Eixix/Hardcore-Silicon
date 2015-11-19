@@ -1,4 +1,4 @@
-package tv.Tunfisch.HardcoreSilicon.Grinder;
+package tv.Tunfisch.HardcoreSilicon.Electrolyzer;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,17 +18,15 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tv.Tunfisch.HardcoreSilicon.Reference;
 
-public class TileEntityGrinder extends TileEntityLockable
-
-implements IUpdatePlayerListBox, ISidedInventory {
+public class TileEntityElectrolyzer extends TileEntityLockable implements IUpdatePlayerListBox, ISidedInventory {
 	// enumerate the slots
 	public enum slotEnum {
-		INPUT_SLOT, OUTPUT_SLOT, FUEL_SLOT
+		INPUT_SLOT, OUTPUT_SLOT, INPUT2_SLOT
 	}
 
 	private static final int[] slotsTop = new int[] { slotEnum.INPUT_SLOT.ordinal() };
 	private static final int[] slotsBottom = new int[] { slotEnum.OUTPUT_SLOT.ordinal() };
-	private static final int[] slotsSides = new int[] { slotEnum.FUEL_SLOT.ordinal() };
+	private static final int[] slotsSides = new int[] { slotEnum.INPUT2_SLOT.ordinal() };
 	private ItemStack[] grinderItemStackArray = new ItemStack[3];
 	private int timeCanGrind;
 
@@ -252,21 +250,9 @@ implements IUpdatePlayerListBox, ISidedInventory {
 		// If nothing in input slot
 		if (grinderItemStackArray[slotEnum.INPUT_SLOT.ordinal()] == null) {
 			return false;
-		} else if(fuelValue == 0){
-			if(fuelValue == 0){
-				if(grinderItemStackArray[slotEnum.FUEL_SLOT.ordinal()] != null){
-					//If you can take an item away, take it away
-					if(grinderItemStackArray[slotEnum.FUEL_SLOT.ordinal()].stackSize > 1)
-					   --grinderItemStackArray[slotEnum.FUEL_SLOT.ordinal()].stackSize;
-					//If stacksize equals 0 delete itemStack
-					else grinderItemStackArray[slotEnum.FUEL_SLOT.ordinal()] = null;
-					fuelValue += 8;
-				}
-			}
-			return false;
 		} else  {	
 			// Check if it has a grinding recipe
-			ItemStack itemStackToOutput = GrinderRecipes.instance()
+			ItemStack itemStackToOutput = ElectrolyzerRecipes.instance()
 					.getGrindingResult(grinderItemStackArray[slotEnum.INPUT_SLOT.ordinal()]);
 			if (itemStackToOutput == null)
 				return false;
@@ -286,7 +272,7 @@ implements IUpdatePlayerListBox, ISidedInventory {
 	public void grindItem() {
 		if (this.canGrind()) {
 			// Fetch recipe
-			ItemStack itemstack = GrinderRecipes.instance()
+			ItemStack itemstack = ElectrolyzerRecipes.instance()
 					.getGrindingResult(grinderItemStackArray[slotEnum.INPUT_SLOT.ordinal()]);
 			// Check if output slot is empty
 			if (grinderItemStackArray[slotEnum.OUTPUT_SLOT.ordinal()] == null) {
@@ -346,7 +332,7 @@ implements IUpdatePlayerListBox, ISidedInventory {
 
 	@Override
 	public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
-		return new ContainerGrinder(playerInventory, this);
+		return new ContainerElectrolyzer(playerInventory, this);
 	}
 
 	@Override

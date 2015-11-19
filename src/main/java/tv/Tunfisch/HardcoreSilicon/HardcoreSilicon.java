@@ -31,7 +31,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
-import tv.Tunfisch.HardcoreSilicon.Grinder.GuiHandler;
+import tv.Tunfisch.HardcoreSilicon.Electrolyzer.TileEntityElectrolyzer;
 import tv.Tunfisch.HardcoreSilicon.Grinder.TileEntityGrinder;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
@@ -89,6 +89,7 @@ public class HardcoreSilicon {
 		BlockRegister.registerBlocks();
 		//Register TileEntities
 		GameRegistry.registerTileEntity(new TileEntityGrinder().getClass(), "tileEntityGrinder");
+		GameRegistry.registerTileEntity(new TileEntityElectrolyzer().getClass(), "tileEntityElectrolyzer");
 		//Register Crafting
 		CraftingHandler.registerCraftingRecipes();
 	}	

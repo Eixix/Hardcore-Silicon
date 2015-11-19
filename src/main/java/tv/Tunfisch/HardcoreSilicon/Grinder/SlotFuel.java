@@ -9,11 +9,11 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import tv.Tunfisch.HardcoreSilicon.ItemRegister;
-public class SlotGrinderFuel extends Slot{
+public class SlotFuel extends Slot{
 	
 	private ArrayList fuelList;
 	
-	public SlotGrinderFuel(IInventory parIInventory, int parSlotIndex,
+	public SlotFuel(IInventory parIInventory, int parSlotIndex,
 			int parXDisplayPosition, int parYDisplayPosition) {
 		super(parIInventory, parSlotIndex, parXDisplayPosition, parYDisplayPosition);
 		fuelList = new ArrayList();
@@ -22,7 +22,6 @@ public class SlotGrinderFuel extends Slot{
 		fuelList.add(ItemRegister.itemEmotor);
 	}
 	
-
 	@Override
 	public boolean isItemValid(ItemStack stack) {
 		for(int i = 0; i < fuelList.size(); i++){

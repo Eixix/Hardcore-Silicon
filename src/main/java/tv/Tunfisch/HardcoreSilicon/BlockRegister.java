@@ -7,6 +7,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreChromite;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreSalt;
+import tv.Tunfisch.HardcoreSilicon.Electrolyzer.BlockElectrolyzer;
 import tv.Tunfisch.HardcoreSilicon.Grinder.BlockGrinder;
 
 /**
@@ -17,6 +18,7 @@ public class BlockRegister {
 	public static Block blockGrinder;
 	public static Block blockOreChromite;
 	public static Block blockOreSalt;
+	public static Block blockElectrolyzer;
 	
 	/**
 	 * Initializes and registers all given blocks.
@@ -41,6 +43,8 @@ public class BlockRegister {
 		blockGrinder = new BlockGrinder();
 		registerBlock(blockGrinder);
 		
+		blockElectrolyzer = new BlockElectrolyzer();
+		registerBlock(blockElectrolyzer);
 	}
 	
 	/**
@@ -49,6 +53,6 @@ public class BlockRegister {
 	 */
 	private static void registerBlock(Block block){
 		block.setCreativeTab(HardcoreSilicon.tabHardcoreSilicon);
-		GameRegistry.registerBlock(block, Utility.getName(block));
+		GameRegistry.registerBlock(block, NameHelper.getName(block));
 	}
 }
