@@ -167,8 +167,8 @@ public class ItemRegister {
 		public static void registerItem(Item item){
 			//Default Tab: tabHardcoreSilicon
 			if(item.getCreativeTab() == null || item.getCreativeTab().getTabIndex() < 10)item.setCreativeTab(HardcoreSilicon.tabHardcoreSilicon);
-			item.setUnlocalizedName(Utility.getName(item));
-			GameRegistry.registerItem(item, Utility.getName(item));
+			item.setUnlocalizedName(NameHelper.getName(item));
+			GameRegistry.registerItem(item, NameHelper.getName(item));
 		}
 		
 }

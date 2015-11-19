@@ -24,6 +24,6 @@ public class BlockRenderRegister {
 	 */
 	public static void blockRenderRegister(Block block){
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-		.register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(Utility.getTextureName(block), "inventory"));
+		.register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(NameHelper.getTextureName(block), "inventory"));
 	}
 }

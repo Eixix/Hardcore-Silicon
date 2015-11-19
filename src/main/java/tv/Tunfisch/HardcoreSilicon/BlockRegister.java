@@ -34,6 +34,6 @@ public class BlockRegister {
 	 */
 	private static void registerBlock(Block block){
 		block.setCreativeTab(HardcoreSilicon.tabHardcoreSilicon);
-		GameRegistry.registerBlock(block, Utility.getName(block));
+		GameRegistry.registerBlock(block, NameHelper.getName(block));
 	}
 }
