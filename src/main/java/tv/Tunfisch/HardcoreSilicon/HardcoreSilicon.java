@@ -87,6 +87,8 @@ public class HardcoreSilicon {
 		ItemRegister.registerItems();
 		//Register Blocks
 		BlockRegister.registerBlocks();
+		//Register Fluids
+		FluidRegister.registerFluids();
 		//Register TileEntities
 		GameRegistry.registerTileEntity(new TileEntityGrinder().getClass(), "tileEntityGrinder");
 		GameRegistry.registerTileEntity(new TileEntityElectrolyzer().getClass(), "tileEntityElectrolyzer");

@@ -8,6 +8,7 @@ import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreChromite;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreSalt;
 import tv.Tunfisch.HardcoreSilicon.Electrolyzer.BlockElectrolyzer;
+import tv.Tunfisch.HardcoreSilicon.Fluids.SulfuricAcid;
 import tv.Tunfisch.HardcoreSilicon.Grinder.BlockGrinder;
 
 /**
@@ -19,6 +20,7 @@ public class BlockRegister {
 	public static Block blockOreChromite;
 	public static Block blockOreSalt;
 	public static Block blockElectrolyzer;
+	public static Block blockSulfuricAcid;
 	
 	/**
 	 * Initializes and registers all given blocks.
@@ -45,6 +47,9 @@ public class BlockRegister {
 		
 		blockElectrolyzer = new BlockElectrolyzer();
 		registerBlock(blockElectrolyzer);
+		
+		blockSulfuricAcid = new SulfuricAcid();
+		registerBlock(blockSulfuricAcid);
 	}
 	
 	/**
