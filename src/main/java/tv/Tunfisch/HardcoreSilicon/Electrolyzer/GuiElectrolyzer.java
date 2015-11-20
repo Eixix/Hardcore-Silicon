@@ -41,8 +41,6 @@ public class GuiElectrolyzer extends GuiContainer {
 		// Draw progress indicator
 		int progressLevel = getProgressLevel(24);
 		drawTexturedModalRect(marginHorizontal + 79, marginVertical + 34, 176, 14, progressLevel + 1, 16);
-		//Fuelstate
-	    this.drawString(fontRendererObj, ((TileEntityElectrolyzer)tileElectrolyzer).getField(4) + " Fuel", marginHorizontal, marginVertical, 6143);
 	}
 
 	private int getProgressLevel(int progressIndicatorPixelWidth) {

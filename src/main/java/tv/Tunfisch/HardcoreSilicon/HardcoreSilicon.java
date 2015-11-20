@@ -32,6 +32,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
 import tv.Tunfisch.HardcoreSilicon.Electrolyzer.TileEntityElectrolyzer;
+import tv.Tunfisch.HardcoreSilicon.Grinder.MachineRecipeHandler;
 import tv.Tunfisch.HardcoreSilicon.Grinder.TileEntityGrinder;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
@@ -77,7 +78,7 @@ public class HardcoreSilicon {
 		}
 	};
 	
-	
+	public static MachineRecipeHandler mrh;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){   
@@ -87,8 +88,6 @@ public class HardcoreSilicon {
 		ItemRegister.registerItems();
 		//Register Blocks
 		BlockRegister.registerBlocks();
-		//Register Fluids
-		FluidRegister.registerFluids();
 		//Register TileEntities
 		GameRegistry.registerTileEntity(new TileEntityGrinder().getClass(), "tileEntityGrinder");
 		GameRegistry.registerTileEntity(new TileEntityElectrolyzer().getClass(), "tileEntityElectrolyzer");
@@ -106,7 +105,8 @@ public class HardcoreSilicon {
 		GameRegistry.registerWorldGenerator(new WorldGeneration(), 0); //0 is the priority
 		//Register Network
         NetworkRegistry.INSTANCE.registerGuiHandler(this.instance, new GuiHandler());  
-
+        //Initalize MachineRecipeHandler
+        mrh = new MachineRecipeHandler();
 
 	}
 	
