@@ -35,5 +35,6 @@ tile.BlockOreSalt.name=Salt Ore
 tile.BlockElectrolyzer.name=Electrolyzer
 itemGroup.tabHardcoreSilicon=Hardcore Silicon
 itemGroup.tabHardcoreGenerators=Hardcore Generators
-container.grinder=Blast Furnace
-tile.BlockGrinder.name=Blast Furnace
+container.grinder=Universal Grinder
+tile.BlockGrinder.name=Universal Grinder
+
