@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "hardcoresilicon:BlockGrinder" },
+        "facing=south": { "model": "hardcoresilicon:BlockGrinder", "y": 180 },
+        "facing=west":  { "model": "hardcoresilicon:BlockGrinder", "y": 270 },
+        "facing=east":  { "model": "hardcoresilicon:BlockGrinder", "y": 90 }
+    }
+}
