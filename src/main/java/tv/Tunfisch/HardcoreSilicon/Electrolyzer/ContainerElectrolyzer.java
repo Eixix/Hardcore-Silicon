@@ -10,6 +10,9 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import tv.Tunfisch.HardcoreSilicon.BlockRegister;
+import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
+import tv.Tunfisch.HardcoreSilicon.NameHelper;
 import tv.Tunfisch.HardcoreSilicon.Grinder.SlotFuel;
 import tv.Tunfisch.HardcoreSilicon.Grinder.SlotGrinderOutput;
 
@@ -21,7 +24,6 @@ public class ContainerElectrolyzer extends Container {
 	private int timeCanGrind;
 
 	public ContainerElectrolyzer(InventoryPlayer parInventoryPlayer, IInventory parIInventory) {
-		System.out.println("ELECTROLYZE!!!");
 		tileGrinder = parIInventory;
 		sizeInventory = tileGrinder.getSizeInventory();
 		//Input-Slot
@@ -30,7 +32,7 @@ public class ContainerElectrolyzer extends Container {
 		addSlotToContainer(new SlotGrinderOutput(parInventoryPlayer.player, tileGrinder,
 				TileEntityElectrolyzer.slotEnum.OUTPUT_SLOT.ordinal(), 116, 35));
         //Fuel-Slot
-		addSlotToContainer(new SlotFuel(tileGrinder, TileEntityElectrolyzer.slotEnum.INPUT_SLOT.ordinal(), 36, 35));
+		addSlotToContainer(new Slot(tileGrinder, TileEntityElectrolyzer.slotEnum.INPUT2_SLOT.ordinal(), 36, 35));
 		// add player inventory slots
 		// note that the slot numbers are within the player inventory so can
 		// be same as the tile entity inventory
@@ -117,7 +119,8 @@ public class ContainerElectrolyzer extends Container {
 			//Input Slot	
 			} else if (slotIndex != TileEntityElectrolyzer.slotEnum.INPUT_SLOT.ordinal()) {
 				//Check if there is a grinding recipe for the stack
-				if (ElectrolyzerRecipes.instance().getGrindingResult(itemStack2) != null) {
+				ItemStack[] in = { itemStack2 };
+				if (HardcoreSilicon.mrh.getOutput(in , NameHelper.getName(BlockRegister.blockElectrolyzer)) != null) {
 					if (!mergeItemStack(itemStack2, 0, 1, false)) {
 						return null;
 					}
@@ -151,6 +154,6 @@ public class ContainerElectrolyzer extends Container {
 			slot.onPickupFromSlot(playerIn, itemStack2);
 		}
 
-		return itemStack1;
+		return itemStack1; 
 	}
 }
