@@ -31,9 +31,10 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
-import tv.Tunfisch.HardcoreSilicon.Electrolyzer.TileEntityElectrolyzer;
-import tv.Tunfisch.HardcoreSilicon.Grinder.MachineRecipeHandler;
-import tv.Tunfisch.HardcoreSilicon.Grinder.TileEntityGrinder;
+import tv.Tunfisch.HardcoreSilicon.Handler.CraftingHandler;
+import tv.Tunfisch.HardcoreSilicon.Handler.FuelHandler;
+import tv.Tunfisch.HardcoreSilicon.Handler.GuiHandler;
+import tv.Tunfisch.HardcoreSilicon.Handler.MachineRecipeHandler;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCircuitBoard;
@@ -56,6 +57,12 @@ import tv.Tunfisch.HardcoreSilicon.Items.ItemStorageModule128;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSwordStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemWaferEtched;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemWaferRaw;
+import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
+import tv.Tunfisch.HardcoreSilicon.Register.BlockRenderRegister;
+import tv.Tunfisch.HardcoreSilicon.Register.ItemRegister;
+import tv.Tunfisch.HardcoreSilicon.Register.ItemRenderRegister;
+import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityElectrolyzer;
+import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityGrinder;
 
 
 

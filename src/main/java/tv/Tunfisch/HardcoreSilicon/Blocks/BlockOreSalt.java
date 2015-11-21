@@ -6,8 +6,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
-import tv.Tunfisch.HardcoreSilicon.ItemRegister;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
+import tv.Tunfisch.HardcoreSilicon.Register.ItemRegister;
 
 public class BlockOreSalt extends Block {
 	public BlockOreSalt(Material materialIn, float hardness, float resistance, float lightLevel, String tool, int harvestLevel) {

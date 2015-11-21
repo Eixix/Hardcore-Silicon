@@ -9,10 +9,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import tv.Tunfisch.HardcoreSilicon.BlockRenderRegister;
 import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
-import tv.Tunfisch.HardcoreSilicon.ItemRegister;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
+import tv.Tunfisch.HardcoreSilicon.Register.BlockRenderRegister;
+import tv.Tunfisch.HardcoreSilicon.Register.ItemRegister;
 
 public class BlockOreQuartz extends Block {
 
