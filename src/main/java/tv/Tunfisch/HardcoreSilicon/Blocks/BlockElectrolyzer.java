@@ -27,9 +27,6 @@ import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
 import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityElectrolyzer;
 
 public class BlockElectrolyzer extends BlockBasicMachine {
-	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
-	private static boolean hasTileEntity;
-
 	public BlockElectrolyzer() {
 		super();
 	}

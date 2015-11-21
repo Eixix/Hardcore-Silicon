@@ -27,11 +27,10 @@ import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
 import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityGrinder;
 
 public class BlockGrinder extends BlockBasicMachine {
-	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
-	private static boolean hasTileEntity;
-
+	private boolean active;
 	public BlockGrinder() {
 		super();
+		active = false;
 	}
 
 	@Override

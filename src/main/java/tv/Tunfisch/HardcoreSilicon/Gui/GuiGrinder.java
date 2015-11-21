@@ -44,7 +44,7 @@ public class GuiGrinder extends GuiContainer {
 		int progressLevel = getProgressLevel(24);
 		drawTexturedModalRect(marginHorizontal + 79, marginVertical + 34, 176, 14, progressLevel + 1, 16);
 		//Fuelstate
-	    this.drawString(fontRendererObj, ((TileEntityGrinder)tileGrinder).getField(4) + " Fuel", marginHorizontal, marginVertical, 6143);
+	    this.drawString(fontRendererObj, tileGrinder.getField(4) + " Fuel", marginHorizontal, marginVertical, 6143);
 	}
 
 	private int getProgressLevel(int progressIndicatorPixelWidth) {
