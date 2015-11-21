@@ -1,0 +1,9 @@
+{
+    "parent": "block/orientable",
+    "textures": 
+    {
+        "top": "hardcoresilicon:blocks/Electrolyzer_Top",
+        "front": "hardcoresilicon:blocks/Electrolyzer_Front",
+        "side": "hardcoresilicon:blocks/Electrolyzer_Side"
+    }
+}

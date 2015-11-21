@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "hardcoresilicon:BlockElectrolyzer" },
+        "facing=south": { "model": "hardcoresilicon:BlockElectrolyzer", "y": 180 },
+        "facing=west":  { "model": "hardcoresilicon:BlockElectrolyzer", "y": 270 },
+        "facing=east":  { "model": "hardcoresilicon:BlockElectrolyzer", "y": 90 }
+    }
+}
