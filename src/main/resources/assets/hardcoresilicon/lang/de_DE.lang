@@ -37,4 +37,5 @@ tile.BlockGrinder.name=Universelles Mahlwerk
 itemGroup.tabHardcoreSilicon=Hardcore Silicon
 itemGroup.tabHardcoreGenerators=Hardcore Generators
 container.grinder=Universelles Mahlwerk
+container.electrolyzer=Elektrolysierer
 tile.BlockGrinder.name=Universelles Mahlwerk
