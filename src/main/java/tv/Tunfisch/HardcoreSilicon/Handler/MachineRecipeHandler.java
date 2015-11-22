@@ -30,6 +30,10 @@ public class MachineRecipeHandler {
 		ItemStack[] in = { new ItemStack(Items.coal), new ItemStack(Items.apple) };
 		ItemStack[] out = { new ItemStack(Items.diamond) };
 		this.addRecipe(in, out, NameHelper.getName(BlockRegister.blockElectrolyzer));
+		
+		ItemStack[] input = { new ItemStack(Items.water_bucket), new ItemStack(Items.apple) };
+		ItemStack[] output = { new ItemStack(Items.golden_apple) };
+		this.addRecipe(input, output, NameHelper.getName(BlockRegister.blockElectrolyzer));
 
 		ItemStack[] in2 = { new ItemStack(Blocks.cobblestone), new ItemStack(Blocks.cobblestone) };
 		ItemStack[] out2 = { new ItemStack(Items.apple) };

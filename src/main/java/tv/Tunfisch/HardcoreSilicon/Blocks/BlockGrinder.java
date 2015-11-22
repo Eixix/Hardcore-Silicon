@@ -27,10 +27,8 @@ import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
 import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityGrinder;
 
 public class BlockGrinder extends BlockBasicMachine {
-	private boolean active;
 	public BlockGrinder() {
 		super();
-		active = false;
 	}
 
 	@Override
@@ -61,13 +59,13 @@ public class BlockGrinder extends BlockBasicMachine {
 	}
 
 	@Override
-	public void setName() {
-		this.setUnlocalizedName(NameHelper.getName(this));
+	public String getName() {
+		return NameHelper.getName(this);
 	}
 
 	@Override
-	public void setID() {
-		this.getIdFromBlock(this);
+	public int getID() {
+		return this.getIdFromBlock(this);
 	}
 
 }

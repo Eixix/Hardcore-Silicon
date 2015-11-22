@@ -59,12 +59,12 @@ public class BlockElectrolyzer extends BlockBasicMachine {
 	}
 
 	@Override
-	public void setName() {
-		this.setUnlocalizedName(NameHelper.getName(this));
+	public String getName() {
+		return NameHelper.getName(this);
 	}
 
 	@Override
-	public void setID() {
-		this.id = this.getIdFromBlock(this);
+	public int getID() {
+		return this.getIdFromBlock(this);
 	}
 }
