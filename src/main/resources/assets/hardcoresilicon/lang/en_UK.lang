@@ -29,6 +29,7 @@ item.ItemSodium.name=Sodium
 item.ItemSalt.name=Salt
 item.ItemSodiumchromate.name=Sodiumchromate
 item.ItemSodiumdichromate.name=Sodiumdichromate
+item.ItemChromeIngot.name=Chrome Ingot
 tile.BlockOreQuartz.name=Quartz Ore
 tile.BlockOreChromite.name=Chromite Ore
 tile.BlockOreSalt.name=Salt Ore
