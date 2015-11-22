@@ -6,6 +6,8 @@ import java.util.Map.Entry;
 
 import com.google.common.collect.Maps;
 
+import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.BlockStone;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -25,6 +27,7 @@ public class GrinderRecipes {
 		addGrindingRecipe(new ItemStack(Item.getItemFromBlock(Blocks.cobblestone)), new ItemStack(Item.getItemFromBlock(Blocks.sand)), 0.7F);
 		addGrindingRecipe(new ItemStack(ItemRegister.itemStainlessSteelIngot), new ItemStack(ItemRegister.itemStainlessSteelDust), 0.7F);
 		addGrindingRecipe(new ItemStack(ItemRegister.itemQuartzCrystal), new ItemStack(ItemRegister.itemQuartzDust), 0.7F);
+		addGrindingRecipe(new ItemStack(Blocks.stone, 1, BlockStone.EnumType.ANDESITE.getMetadata()), new ItemStack(ItemRegister.itemAndesiteDust), 0.7F);
 	}
 
 	/**

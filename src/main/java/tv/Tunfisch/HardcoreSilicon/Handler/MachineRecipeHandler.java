@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import tv.Tunfisch.HardcoreSilicon.HSMachineRecipe;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
 import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
+import tv.Tunfisch.HardcoreSilicon.Register.ItemRegister;
 
 public class MachineRecipeHandler {
 
@@ -30,10 +31,18 @@ public class MachineRecipeHandler {
 		ItemStack[] in = { new ItemStack(Items.coal), new ItemStack(Items.apple) };
 		ItemStack[] out = { new ItemStack(Items.diamond) };
 		this.addRecipe(in, out, NameHelper.getName(BlockRegister.blockElectrolyzer));
+		
+		ItemStack[] input = { new ItemStack(Items.water_bucket), new ItemStack(Items.apple) };
+		ItemStack[] output = { new ItemStack(Items.golden_apple) };
+		this.addRecipe(input, output, NameHelper.getName(BlockRegister.blockElectrolyzer));
 
 		ItemStack[] in2 = { new ItemStack(Blocks.cobblestone), new ItemStack(Blocks.cobblestone) };
 		ItemStack[] out2 = { new ItemStack(Items.apple) };
 		this.addRecipe(in2, out2, NameHelper.getName(BlockRegister.blockElectrolyzer));
+		
+		ItemStack[] in3 = { new ItemStack(ItemRegister.itemSalt), new ItemStack(Items.water_bucket) };
+		ItemStack[] out3 = { new ItemStack(ItemRegister.itemSodium) };
+		this.addRecipe(in3, out3, NameHelper.getName(BlockRegister.blockElectrolyzer));
 	}
 
 	/**
