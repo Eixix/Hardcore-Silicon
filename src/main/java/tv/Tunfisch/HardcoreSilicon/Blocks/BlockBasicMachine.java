@@ -39,31 +39,30 @@ public abstract class BlockBasicMachine extends BlockContainer{
 		lightOpacity = 20; // cast a light shadow
 		setTickRandomly(false);
 		useNeighborBrightness = false;
-		this.setName();
-		this.setID();
+		this.setUnlocalizedName(this.getName());
+		id = this.getID();
 	}
 	
-	public abstract void setName();
+	public abstract String getName();
 	
-	public abstract void setID();
+	public abstract int getID();
 
 	@Override
 	public abstract Item getItemDropped(IBlockState state, Random rand, int fortune);
 	
 	@Override
 	public abstract TileEntity createNewTileEntity(World worldIn, int meta);
+	public abstract void breakThisBlock(World worldIn, BlockPos pos, IBlockState state);
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public abstract Item getItem(World worldIn, BlockPos pos);
 	
 	@Override
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state){
 		this.breakThisBlock(worldIn, pos, state);
 		super.breakBlock(worldIn, pos, state);
 	}
-	
-	public abstract void breakThisBlock(World worldIn, BlockPos pos, IBlockState state);
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public abstract Item getItem(World worldIn, BlockPos pos);
 
 	@Override
 	public void onBlockAdded(World parWorld, BlockPos parBlockPos, IBlockState parIBlockState) {

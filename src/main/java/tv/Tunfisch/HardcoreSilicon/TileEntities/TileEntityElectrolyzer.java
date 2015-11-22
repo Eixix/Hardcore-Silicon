@@ -3,6 +3,7 @@ package tv.Tunfisch.HardcoreSilicon.TileEntities;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
@@ -23,13 +24,11 @@ import tv.Tunfisch.HardcoreSilicon.Container.ContainerElectrolyzer;
 import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
 
 public class TileEntityElectrolyzer extends TileEntityLockable implements IUpdatePlayerListBox, ISidedInventory {
-	// enumerate the slots
-	public enum slotEnum {
-		INPUT_SLOT, OUTPUT_SLOT, INPUT2_SLOT
-	}
+	// Enumerate the slots
+	public static final int INPUT1 = 0, INPUT2 = 1, OUTPUT = 2;
 
-	private static final int[] slotsTop = new int[] { slotEnum.INPUT_SLOT.ordinal(),  slotEnum.INPUT2_SLOT.ordinal()  };
-	private static final int[] slotsBottom = new int[] { slotEnum.OUTPUT_SLOT.ordinal() };
+	private static final int[] slotsTop = new int[] { INPUT1, INPUT2 };
+	private static final int[] slotsBottom = new int[] { OUTPUT };
 	private static final int[] slotsSides = new int[] {};
 	private ItemStack[] grinderItemStackArray = new ItemStack[3];
 	private int timeCanGrind;
@@ -67,7 +66,6 @@ public class TileEntityElectrolyzer extends TileEntityLockable implements IUpdat
 				return itemstack;
 			} else {
 				itemstack = grinderItemStackArray[index].splitStack(count);
-
 				if (grinderItemStackArray[index].stackSize == 0) {
 					grinderItemStackArray[index] = null;
 				}
@@ -108,7 +106,7 @@ public class TileEntityElectrolyzer extends TileEntityLockable implements IUpdat
 		}
 
 		// if input slot, reset the grinding timers
-		if (index == slotEnum.INPUT_SLOT.ordinal() && !isSameItemStackAlreadyInSlot) {
+		if (index == INPUT1 && !isSameItemStackAlreadyInSlot) {
 			ticksPerItem = timeToGrindOneItem(stack);
 			ticksGrindingItemSoFar = 0;
 			markDirty();
@@ -208,7 +206,7 @@ public class TileEntityElectrolyzer extends TileEntityLockable implements IUpdat
 
 		if (!worldObj.isRemote) {
 			// if something in the input slots
-			if (grinderItemStackArray[slotEnum.INPUT_SLOT.ordinal()] != null && grinderItemStackArray[slotEnum.INPUT2_SLOT.ordinal()] != null) {
+			if (grinderItemStackArray[INPUT1] != null && grinderItemStackArray[INPUT2] != null) {
 				// start grinding
 				if (!grindingSomething() && canGrind()) {
 
@@ -252,52 +250,78 @@ public class TileEntityElectrolyzer extends TileEntityLockable implements IUpdat
 	 */
 	private boolean canGrind() {
 		// If nothing in input slot
-		if (grinderItemStackArray[slotEnum.INPUT_SLOT.ordinal()] == null && grinderItemStackArray[slotEnum.INPUT2_SLOT.ordinal()] == null) {
+		if (grinderItemStackArray[INPUT1] == null && grinderItemStackArray[INPUT2] == null) {
 			return false;
-		} else  {	
+		} else {
 			// Check if it has a grinding recipe
-			ItemStack[] in = {grinderItemStackArray[slotEnum.INPUT_SLOT.ordinal()], grinderItemStackArray[slotEnum.INPUT2_SLOT.ordinal()]};
+			ItemStack[] in = { grinderItemStackArray[INPUT1], grinderItemStackArray[INPUT2] };
 			String machine = NameHelper.getName(BlockRegister.blockElectrolyzer);
 			ItemStack[] itemstack = HardcoreSilicon.mrh.getOutput(in, machine);
-			if(itemstack == null) return false;
-			for(int i = 0; i < itemstack.length; i++){
-			     if(itemstack[i] == null) return false;
+			if (itemstack == null)
+				return false;
+			for (int i = 0; i < itemstack.length; i++) {
+				if (itemstack[i] == null)
+					return false;
 			}
 			// Check if there is space for the output
-			if (grinderItemStackArray[slotEnum.OUTPUT_SLOT.ordinal()] == null)
+			if (grinderItemStackArray[OUTPUT] == null)
 				return true;
-			// Check if items in the output are the same as the ones to be produced
-			if (!grinderItemStackArray[slotEnum.OUTPUT_SLOT.ordinal()].isItemEqual(itemstack[0]))
+			// Check if items in the output are the same as the ones to be
+			// produced
+			if (!grinderItemStackArray[OUTPUT].isItemEqual(itemstack[0]))
 				return false;
 			// Check if the max stack size is reached
-			int result = grinderItemStackArray[slotEnum.OUTPUT_SLOT.ordinal()].stackSize + itemstack[0].stackSize;
-			return result <= getInventoryStackLimit()
-					&& result <= grinderItemStackArray[slotEnum.OUTPUT_SLOT.ordinal()].getMaxStackSize();
+			int result = grinderItemStackArray[OUTPUT].stackSize + itemstack[0].stackSize;
+			return result <= getInventoryStackLimit() && result <= grinderItemStackArray[OUTPUT].getMaxStackSize();
 		}
 	}
 
 	public void grindItem() {
 		if (this.canGrind()) {
 			// Fetch recipe output
-			ItemStack[] in = {grinderItemStackArray[slotEnum.INPUT_SLOT.ordinal()], grinderItemStackArray[slotEnum.INPUT2_SLOT.ordinal()]}; 
-			ItemStack[] itemstack = HardcoreSilicon.mrh.getOutput(in, NameHelper.getName(BlockRegister.blockElectrolyzer));
+			ItemStack[] in = { grinderItemStackArray[INPUT1], grinderItemStackArray[INPUT2] };
+			ItemStack[] itemstack = HardcoreSilicon.mrh.getOutput(in,
+					NameHelper.getName(BlockRegister.blockElectrolyzer));
 			// Check if output slot is empty
-			if (grinderItemStackArray[slotEnum.OUTPUT_SLOT.ordinal()] == null) {
-				grinderItemStackArray[slotEnum.OUTPUT_SLOT.ordinal()] = itemstack[0].copy();
-			} else if (grinderItemStackArray[slotEnum.OUTPUT_SLOT.ordinal()].getItem() == itemstack[0].getItem()) {
-				grinderItemStackArray[slotEnum.OUTPUT_SLOT.ordinal()].stackSize += itemstack[0].stackSize;
+			if (grinderItemStackArray[OUTPUT] == null) {
+				grinderItemStackArray[OUTPUT] = itemstack[0].copy();
+			} else if (grinderItemStackArray[OUTPUT].getItem() == itemstack[0].getItem()) {
+				grinderItemStackArray[OUTPUT].stackSize += itemstack[0].stackSize;
 			}
 			// Reduce input stack size by 1
-			grinderItemStackArray[slotEnum.INPUT_SLOT.ordinal()].stackSize--;
-			if(grinderItemStackArray[slotEnum.INPUT2_SLOT.ordinal()] != null) grinderItemStackArray[slotEnum.INPUT2_SLOT.ordinal()].stackSize--;
+			grinderItemStackArray[INPUT1].stackSize--;
+			if (grinderItemStackArray[INPUT2] != null)
+				grinderItemStackArray[INPUT2].stackSize--;
 			// Reduce fuel value
 			fuelValue--;
-			// Check if there is still input left
-			if (grinderItemStackArray[slotEnum.INPUT_SLOT.ordinal()].stackSize <= 0) {
-				grinderItemStackArray[slotEnum.INPUT_SLOT.ordinal()] = null;
-			}if (grinderItemStackArray[slotEnum.INPUT2_SLOT.ordinal()] != null && grinderItemStackArray[slotEnum.INPUT2_SLOT.ordinal()].stackSize <= 0) {
-				grinderItemStackArray[slotEnum.INPUT2_SLOT.ordinal()] = null;
-			}		}
+			// Check if there is still input left and return buckets
+			if (grinderItemStackArray[INPUT1].stackSize <= 0) {
+				if(this.isBucket(grinderItemStackArray[INPUT1])){
+					grinderItemStackArray[INPUT1] = new ItemStack(Items.bucket);
+				}else{
+					grinderItemStackArray[INPUT1] = null;
+				}
+				
+			}
+			//No item left 
+			if (grinderItemStackArray[INPUT2].stackSize <= 0) {
+				if(this.isBucket(grinderItemStackArray[INPUT2])){
+					grinderItemStackArray[INPUT2] = new ItemStack(Items.bucket);
+				}else{
+					grinderItemStackArray[INPUT2] = null;
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Checks if the given stacks is an bucket with a fluid inside.
+	 * @param stack The stack to be checked
+	 * @return true if lava or water bucket
+	 */
+	private boolean isBucket(ItemStack stack){
+		return stack.isItemEqual(new ItemStack(Items.water_bucket)) || 
+			   stack.isItemEqual(new ItemStack(Items.lava_bucket));
 	}
 
 	@Override
@@ -316,7 +340,7 @@ public class TileEntityElectrolyzer extends TileEntityLockable implements IUpdat
 
 	@Override
 	public boolean isItemValidForSlot(int index, ItemStack stack) {
-		return index == slotEnum.INPUT_SLOT.ordinal() ? true : false;
+		return index == INPUT1 ? true : false;
 	}
 
 	@Override

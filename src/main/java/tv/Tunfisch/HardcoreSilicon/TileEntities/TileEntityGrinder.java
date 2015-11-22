@@ -20,9 +20,7 @@ import tv.Tunfisch.HardcoreSilicon.GrinderRecipes;
 import tv.Tunfisch.HardcoreSilicon.Reference;
 import tv.Tunfisch.HardcoreSilicon.Container.ContainerGrinder;
 
-public class TileEntityGrinder extends TileEntityLockable
-
-implements IUpdatePlayerListBox, ISidedInventory {
+public class TileEntityGrinder extends TileEntityLockable implements IUpdatePlayerListBox, ISidedInventory {
 	// enumerate the slots
 	public enum slotEnum {
 		INPUT_SLOT, OUTPUT_SLOT, FUEL_SLOT

@@ -22,6 +22,7 @@ public class ContainerGrinder extends Container {
 	private int ticksGrindingItemSoFar;
 	private int ticksPerItem;
 	private int timeCanGrind;
+	private int fuel;
 
 	public ContainerGrinder(InventoryPlayer parInventoryPlayer, IInventory parIInventory) {
 		tileGrinder = parIInventory;
@@ -76,11 +77,16 @@ public class ContainerGrinder extends Container {
 			if (ticksPerItem != tileGrinder.getField(3)) {
 				icrafting.sendProgressBarUpdate(this, 3, tileGrinder.getField(3));
 			}
+			
+			if(fuel != tileGrinder.getField(4)){
+				icrafting.sendProgressBarUpdate(this, 4, tileGrinder.getField(4));
+			}
 		}
 
 		ticksGrindingItemSoFar = tileGrinder.getField(2);
 		timeCanGrind = tileGrinder.getField(0);
 		ticksPerItem = tileGrinder.getField(3);
+		fuel = tileGrinder.getField(4);
 	}
 
 	@Override
