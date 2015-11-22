@@ -1,5 +1,6 @@
 package tv.Tunfisch.HardcoreSilicon.Handler;
 
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -28,6 +29,10 @@ public class CraftingHandler {
 	public static void shapedCrafting(Item item, int quantity, Object[] recipe){
 		GameRegistry.addShapedRecipe(new ItemStack(item, quantity), recipe);
 	}
+	
+	public static void shapedCrafting(Block item , int quantity, Object[] recipe){
+		GameRegistry.addShapedRecipe(new ItemStack(item, quantity), recipe);
+	}
 
 	/**
 	 * Registers all Crafting Recipes
@@ -38,5 +43,13 @@ public class CraftingHandler {
 		shapedCrafting(Items.diamond, 8, new Object[]{" # ", " X ", " # ", '#', Blocks.dirt, 'X', Blocks.bedrock});
 		GameRegistry.addSmelting(BlockRegister.blockOreChromite, new ItemStack(ItemRegister.itemChromite, 1), 1.0F);
 		//Real recipes
+		shapedCrafting(ItemRegister.swordStainless, 1, new Object[]{" S ", " S ", " I ", 'S', ItemRegister.itemStainlessSteelIngot, 'I', Items.iron_ingot});
+		shapedCrafting(ItemRegister.pickaxeStainless, 1, new Object[]{"SSS", " I ", " I ", 'S', ItemRegister.itemStainlessSteelIngot, 'I', Items.iron_ingot});
+		shapedCrafting(ItemRegister.axeStainless, 1, new Object[]{"SS ", "SI ", " I ", 'S', ItemRegister.itemStainlessSteelIngot, 'I', Items.iron_ingot});
+		shapedCrafting(ItemRegister.shovelStainless, 1, new Object[]{" S ", " I ", " I ", 'S', ItemRegister.itemStainlessSteelIngot, 'I', Items.iron_ingot});
+		shapedCrafting(BlockRegister.blockGrinder, 1, new Object[]{"IHI", "PFP", "IEI", 'P', Items.iron_pickaxe, 'E', ItemRegister.itemEmotor, 'F', Blocks.furnace, 'H', Blocks.hopper, 'I', Items.iron_ingot});
+		shapedCrafting(BlockRegister.blockElectrolyzer, 1, new Object[]{"IHI", "GBG", "IEI", 'G', Blocks.glass, 'E', ItemRegister.itemEmotor, 'B', Items.bucket, 'H', Blocks.hopper, 'I', Items.iron_ingot});
+		
 	}
+	
 }
