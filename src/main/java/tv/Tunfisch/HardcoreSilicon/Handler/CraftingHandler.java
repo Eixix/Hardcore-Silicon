@@ -48,7 +48,8 @@ public class CraftingHandler {
 		shapedCrafting(ItemRegister.axeStainless, 1, new Object[]{"SS ", "SI ", " I ", 'S', ItemRegister.itemStainlessSteelIngot, 'I', Items.iron_ingot});
 		shapedCrafting(ItemRegister.shovelStainless, 1, new Object[]{" S ", " I ", " I ", 'S', ItemRegister.itemStainlessSteelIngot, 'I', Items.iron_ingot});
 		shapedCrafting(BlockRegister.blockGrinder, 1, new Object[]{"IHI", "PFP", "IEI", 'P', Items.iron_pickaxe, 'E', ItemRegister.itemEmotor, 'F', Blocks.furnace, 'H', Blocks.hopper, 'I', Items.iron_ingot});
-		shapedCrafting(BlockRegister.blockElectrolyzer, 1, new Object[]{"IHI", "GBG", "IEI", 'G', Blocks.glass, 'E', ItemRegister.itemEmotor, 'B', Items.bucket, 'H', Blocks.hopper, 'I', Items.iron_ingot});
+		shapedCrafting(BlockRegister.blockElectrolyzer, 1, new Object[]{"IHI", "GBG", "IEI", 'G', Blocks.glass, 'E', ItemRegister.itemEmotor, 'B', Blocks.cauldron, 'H', Blocks.hopper, 'I', Items.iron_ingot});
+		
 		
 	}
 	

@@ -28,6 +28,7 @@ public class GrinderRecipes {
 		addGrindingRecipe(new ItemStack(ItemRegister.itemStainlessSteelIngot), new ItemStack(ItemRegister.itemStainlessSteelDust), 0.7F);
 		addGrindingRecipe(new ItemStack(ItemRegister.itemQuartzCrystal), new ItemStack(ItemRegister.itemQuartzDust), 0.7F);
 		addGrindingRecipe(new ItemStack(Blocks.stone, 1, BlockStone.EnumType.ANDESITE.getMetadata()), new ItemStack(ItemRegister.itemAndesiteDust), 0.7F);
+		addGrindingRecipe(new ItemStack(Blocks.dirt), new ItemStack(ItemRegister.itemSenseless), 10.7F);
 	}
 
 	/**

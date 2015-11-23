@@ -13,6 +13,7 @@ import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAndesiteDust;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemBatteryBasic;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromate;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromeIngot;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromite;
@@ -84,6 +85,7 @@ public class ItemRegister {
 		public static Item itemSodiumchromate;
 		public static Item itemSodiumdichromate;
 		public static Item itemChromeIngot;
+		public static Item itemBatteryBasic;
 		
 
 		
@@ -160,10 +162,10 @@ public class ItemRegister {
 			itemOsmiumIron = new ItemOsmiumIron();
 			registerItem(itemOsmiumIron);
 			
-			itemCoil = new ItemCoil();
+			itemCoil = new ItemCoil().setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);
 			registerItem(itemCoil);
 			
-			itemCoalBrush = new ItemCoalBrush();
+			itemCoalBrush = new ItemCoalBrush().setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);
 			registerItem(itemCoalBrush);
 			
 			itemGenerator = new ItemGenerator().setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);
@@ -203,6 +205,8 @@ public class ItemRegister {
 			itemChromeIngot = new ItemChromeIngot();
 			registerItem(itemChromeIngot);
 			
+			itemBatteryBasic = new ItemBatteryBasic();
+			registerItem(itemBatteryBasic);
 		}
 		
 		/**

@@ -19,7 +19,7 @@ public class SlotFuel extends Slot{
 		fuelList = new ArrayList();
 		//Fill fuelList
 		fuelList.add(Items.coal);
-		fuelList.add(ItemRegister.itemEmotor);
+		fuelList.add(ItemRegister.itemBatteryBasic);
 	}
 	
 	@Override

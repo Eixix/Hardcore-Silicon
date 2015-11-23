@@ -30,6 +30,7 @@ item.ItemSalt.name=Salz
 item.ItemSodiumchromate.name=Natriumchromat
 item.ItemSodiumdichromate.name=Natriumdichromat
 item.ItemChromeIngot.name=Chrombarren
+item.ItemBatteryBasic.name=Basisbatterie
 tile.BlockOreQuartz.name=Quarzerz
 tile.BlockOreChromite.name=Chromiterz
 tile.BlockOreSalt.name=Salzerz
