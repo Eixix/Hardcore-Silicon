@@ -10,11 +10,14 @@ import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemAluminiumIngot;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAndesiteDust;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBatteryBasic;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemBauxite;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromate;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemChromeIIIOxide;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromeIngot;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromite;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCircuitBoard;
@@ -86,7 +89,9 @@ public class ItemRegister {
 		public static Item itemSodiumdichromate;
 		public static Item itemChromeIngot;
 		public static Item itemBatteryBasic;
-		
+		public static Item itemBauxite;
+		public static Item itemChromeIIIOxide;
+		public static Item itemAluminiumIngot;
 
 		
 		/**
@@ -207,6 +212,17 @@ public class ItemRegister {
 			
 			itemBatteryBasic = new ItemBatteryBasic();
 			registerItem(itemBatteryBasic);
+			
+			itemBauxite = new ItemBauxite();
+			registerItem(itemBauxite);
+			//Create Ore Dictionary Entry
+			OreDictionary.registerOre("itemBauxite", itemBauxite);
+			
+			itemChromeIIIOxide = new ItemChromeIIIOxide();
+			registerItem(itemChromeIIIOxide);
+			
+			itemAluminiumIngot = new ItemAluminiumIngot();
+			registerItem(itemAluminiumIngot);
 		}
 		
 		/**

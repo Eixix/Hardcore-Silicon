@@ -20,6 +20,9 @@ public class BlockRenderRegister {
 		blockRenderRegister(BlockRegister.blockOreChromite);
 		blockRenderRegister(BlockRegister.blockOreSalt);
 		blockRenderRegister(BlockRegister.blockElectrolyzer);
+		blockRenderRegister(BlockRegister.blockOreBauxite);
+		//Fluids
+		blockRenderRegister(BlockRegister.blockSulfuricAcid);
 	}
 	
 	/**

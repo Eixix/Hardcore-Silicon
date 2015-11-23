@@ -8,9 +8,11 @@ import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockElectrolyzer;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockGrinder;
+import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreBauxite;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreChromite;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreSalt;
+import tv.Tunfisch.HardcoreSilicon.Fluids.SulfuricAcid;
 
 /**
  * This class contains all mod blocks and registers them.
@@ -21,6 +23,9 @@ public class BlockRegister {
 	public static Block blockOreChromite;
 	public static Block blockOreSalt;
 	public static Block blockElectrolyzer;
+	public static Block blockOreBauxite;
+	//Fluids
+	public static Block blockSulfuricAcid;
 	
 	/**
 	 * Initializes and registers all given blocks.
@@ -47,6 +52,12 @@ public class BlockRegister {
 		
 		blockElectrolyzer = new BlockElectrolyzer();
 		registerBlock(blockElectrolyzer);
+		
+		blockOreBauxite = new BlockOreBauxite(Material.rock, 10.0F, 5.0F, 0.0F, "pickaxe", 1);
+		registerBlock(blockOreBauxite);
+		
+		blockSulfuricAcid = new SulfuricAcid();
+		registerBlock(blockSulfuricAcid);
 	}
 	
 	/**

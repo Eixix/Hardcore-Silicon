@@ -49,6 +49,9 @@ public final class ItemRenderRegister {
 		itemRenderRegister(ItemRegister.itemSodiumdichromate);
 		itemRenderRegister(ItemRegister.itemChromeIngot);
 		itemRenderRegister(ItemRegister.itemBatteryBasic);
+		itemRenderRegister(ItemRegister.itemBauxite);
+		itemRenderRegister(ItemRegister.itemChromeIIIOxide);
+		itemRenderRegister(ItemRegister.itemAluminiumIngot);
     }
 	
 	/**
