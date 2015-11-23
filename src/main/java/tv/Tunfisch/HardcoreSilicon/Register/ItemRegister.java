@@ -2,7 +2,9 @@ package tv.Tunfisch.HardcoreSilicon.Register;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
@@ -12,6 +14,7 @@ import tv.Tunfisch.HardcoreSilicon.Items.ItemAndesiteDust;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromate;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemChromeIngot;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromite;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCircuitBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCoalBrush;
@@ -80,7 +83,9 @@ public class ItemRegister {
 		public static Item itemSalt;
 		public static Item itemSodiumchromate;
 		public static Item itemSodiumdichromate;
-        
+		public static Item itemChromeIngot;
+		
+
 		
 		/**
 		 * Initializes all given items and registers them in the Registry.
@@ -194,6 +199,10 @@ public class ItemRegister {
 			
 			itemSodiumdichromate = new ItemSodiumdichromate();
 			registerItem(itemSodiumdichromate);
+			
+			itemChromeIngot = new ItemChromeIngot();
+			registerItem(itemChromeIngot);
+			
 		}
 		
 		/**
