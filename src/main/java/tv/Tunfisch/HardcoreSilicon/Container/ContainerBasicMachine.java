@@ -11,6 +11,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tv.Tunfisch.HardcoreSilicon.Slots.SlotFuel;
 import tv.Tunfisch.HardcoreSilicon.Slots.SlotGrinderOutput;
+import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityElectrolyzer;
 import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityGrinder;
 
 public abstract class ContainerBasicMachine extends Container {
@@ -19,6 +20,7 @@ public abstract class ContainerBasicMachine extends Container {
 	protected int ticksProcessingItemSoFar;
 	protected int ticksPerItem;
 	protected int timeCanProcess;
+	protected int fuel;
 
 	public ContainerBasicMachine(InventoryPlayer playerInventory, IInventory inventory) {
 		tileMachine = inventory;
@@ -27,23 +29,29 @@ public abstract class ContainerBasicMachine extends Container {
 		// add player inventory slots
 		// note that the slot numbers are within the player inventory so can
 		// be same as the tile entity inventory
-		int i;
-		for (i = 0; i < 3; ++i) {
+		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 9; ++j) {
 				addSlotToContainer(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
 			}
 		}
 		// add hotbar slots
-		for (i = 0; i < 9; ++i) {
+		for (int i = 0; i < 9; i++) {
 			addSlotToContainer(new Slot(playerInventory, i, 8 + i * 18, 142));
 		}
 	}
-	
+
+	/**
+	 * Add your custom slots here
+	 * @param inventory the players inventory
+	 */
 	protected abstract void addSlots(InventoryPlayer inventory);
-	
+
 	@Override
+	/**
+	 * Implement this or crash. Your choice.
+	 */
 	public abstract ItemStack transferStackInSlot(EntityPlayer playerIn, int slotIndex);
-	
+
 	@Override
 	public void addCraftingToCrafters(ICrafting listener) {
 		super.addCraftingToCrafters(listener);
@@ -71,22 +79,27 @@ public abstract class ContainerBasicMachine extends Container {
 			if (ticksPerItem != tileMachine.getField(3)) {
 				icrafting.sendProgressBarUpdate(this, 3, tileMachine.getField(3));
 			}
+
+			if (fuel != tileMachine.getField(4)) {
+				icrafting.sendProgressBarUpdate(this, 4, tileMachine.getField(4));
+			}
 		}
 
 		ticksProcessingItemSoFar = tileMachine.getField(2);
 		timeCanProcess = tileMachine.getField(0);
 		ticksPerItem = tileMachine.getField(3);
+		fuel = tileMachine.getField(4);
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void updateProgressBar(int id, int data) {
 		tileMachine.setField(id, data);
 	}
-	
+
 	@Override
 	public boolean canInteractWith(EntityPlayer playerIn) {
 		return tileMachine.isUseableByPlayer(playerIn);
 	}
-	
+
 }

@@ -43,19 +43,44 @@ public abstract class BlockBasicMachine extends BlockContainer{
 		id = this.getID();
 	}
 	
+	/**
+	 * NameHelper, your job!
+	 * @return NameHelper name
+	 */
 	public abstract String getName();
 	
+	/**
+	 * As simple as effective.
+	 * @return this.getIdFromBlock(this);
+	 */
 	public abstract int getID();
 
 	@Override
+	/**
+	 * Which Item should be dropped? The machine or some troll IC2 stuff?
+	 */
 	public abstract Item getItemDropped(IBlockState state, Random rand, int fortune);
 	
 	@Override
+	/**
+	 * Returns the fitting TileEntity
+	 */
 	public abstract TileEntity createNewTileEntity(World worldIn, int meta);
+	
+	/**
+	 * Drop all contents ASAP
+	 * @param worldIn
+	 * @param pos
+	 * @param state
+	 */
 	public abstract void breakThisBlock(World worldIn, BlockPos pos, IBlockState state);
 	
 	@Override
 	@SideOnly(Side.CLIENT)
+	/**
+	 * EZ-PZ lemon - you know ;)
+	 * return Item.getItemFromBlock(this);
+	 */
 	public abstract Item getItem(World worldIn, BlockPos pos);
 	
 	@Override

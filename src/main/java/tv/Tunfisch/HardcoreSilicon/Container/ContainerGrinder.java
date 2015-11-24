@@ -10,96 +10,34 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import tv.Tunfisch.HardcoreSilicon.GrinderRecipes;
+import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
+import tv.Tunfisch.HardcoreSilicon.NameHelper;
+import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
 import tv.Tunfisch.HardcoreSilicon.Slots.SlotFuel;
 import tv.Tunfisch.HardcoreSilicon.Slots.SlotGrinderOutput;
 import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityGrinder;
-import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityGrinder.slotEnum;
 
-public class ContainerGrinder extends Container {
-	private final IInventory tileGrinder;
-	private final int sizeInventory;
-	private int ticksGrindingItemSoFar;
-	private int ticksPerItem;
-	private int timeCanGrind;
-	private int fuel;
+public class ContainerGrinder extends ContainerBasicMachine {
 
-	public ContainerGrinder(InventoryPlayer parInventoryPlayer, IInventory parIInventory) {
-		tileGrinder = parIInventory;
-		sizeInventory = tileGrinder.getSizeInventory();
-		//Input-Slot
-		addSlotToContainer(new Slot(tileGrinder, TileEntityGrinder.slotEnum.INPUT_SLOT.ordinal(), 56, 35));
-		//Output-Slot
-		addSlotToContainer(new SlotGrinderOutput(parInventoryPlayer.player, tileGrinder,
-				TileEntityGrinder.slotEnum.OUTPUT_SLOT.ordinal(), 116, 35));
-        //Fuel-Slot
-		addSlotToContainer(new SlotFuel(tileGrinder, TileEntityGrinder.slotEnum.FUEL_SLOT.ordinal(), 26, 35));
-		// add player inventory slots
-		// note that the slot numbers are within the player inventory so can
-		// be same as the tile entity inventory
-		int i;
-		for (i = 0; i < 3; ++i) {
-			for (int j = 0; j < 9; ++j) {
-				addSlotToContainer(new Slot(parInventoryPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
-			}
-		}
 
-		// add hotbar slots
-		for (i = 0; i < 9; ++i) {
-			addSlotToContainer(new Slot(parInventoryPlayer, i, 8 + i * 18, 142));
-		}
+	public ContainerGrinder(InventoryPlayer playerInventory, IInventory inventory) {
+		super(playerInventory, inventory);
 	}
 
 	@Override
-	public void addCraftingToCrafters(ICrafting listener) {
-		super.addCraftingToCrafters(listener);
-		listener.func_175173_a(this, tileGrinder);
+	protected void addSlots(InventoryPlayer inventory) {
+		// Input-Slot
+		addSlotToContainer(new Slot(tileMachine, TileEntityGrinder.INPUT, 56, 35));
+		// Output-Slot
+		addSlotToContainer(new SlotGrinderOutput(inventory.player, tileMachine,
+				TileEntityGrinder.OUTPUT, 116, 35));
+		// Fuel-Slot
+		addSlotToContainer(new SlotFuel(tileMachine, TileEntityGrinder.FUEL, 26, 35));
 	}
 
 	/**
-	 * Looks for changes made in the container, sends them to every listener.
+	 * aka." shiftClickHandler - implement it or crash the game"
 	 */
-	@Override
-	public void detectAndSendChanges() {
-		super.detectAndSendChanges();
-
-		for (int i = 0; i < crafters.size(); ++i) {
-			ICrafting icrafting = (ICrafting) crafters.get(i);
-
-			if (ticksGrindingItemSoFar != tileGrinder.getField(2)) {
-				icrafting.sendProgressBarUpdate(this, 2, tileGrinder.getField(2));
-			}
-
-			if (timeCanGrind != tileGrinder.getField(0)) {
-				icrafting.sendProgressBarUpdate(this, 0, tileGrinder.getField(0));
-			}
-
-			if (ticksPerItem != tileGrinder.getField(3)) {
-				icrafting.sendProgressBarUpdate(this, 3, tileGrinder.getField(3));
-			}
-			
-			if(fuel != tileGrinder.getField(4)){
-				icrafting.sendProgressBarUpdate(this, 4, tileGrinder.getField(4));
-			}
-		}
-
-		ticksGrindingItemSoFar = tileGrinder.getField(2);
-		timeCanGrind = tileGrinder.getField(0);
-		ticksPerItem = tileGrinder.getField(3);
-		fuel = tileGrinder.getField(4);
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void updateProgressBar(int id, int data) {
-		tileGrinder.setField(id, data);
-	}
-
-	@Override
-	public boolean canInteractWith(EntityPlayer playerIn) {
-		return tileGrinder.isUseableByPlayer(playerIn);
-	}
-
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer playerIn, int slotIndex) {
 		ItemStack itemStack1 = null;
@@ -108,34 +46,36 @@ public class ContainerGrinder extends Container {
 		if (slot != null && slot.getHasStack()) {
 			ItemStack itemStack2 = slot.getStack();
 			itemStack1 = itemStack2.copy();
-			//Fuel Slot
-			if (slotIndex == TileEntityGrinder.slotEnum.FUEL_SLOT.ordinal()) {
+			// Output Slot
+			if (slotIndex == TileEntityGrinder.OUTPUT) {
 				if (!mergeItemStack(itemStack2, sizeInventory, sizeInventory + 36, true)) {
 					return null;
 				}
 
 				slot.onSlotChange(itemStack2, itemStack1);
-			//Output Slot	
-			}else if (slotIndex == TileEntityGrinder.slotEnum.OUTPUT_SLOT.ordinal()) {
-				if (!mergeItemStack(itemStack2, sizeInventory, sizeInventory + 36, true)) {
-					return null;
-				}
-
-				slot.onSlotChange(itemStack2, itemStack1);
-			//Input Slot	
-			} else if (slotIndex != TileEntityGrinder.slotEnum.INPUT_SLOT.ordinal()) {
-				//Check if there is a grinding recipe for the stack
-				if (GrinderRecipes.instance().getGrindingResult(itemStack2) != null) {
+				// Input Slot
+			} else if (slotIndex != TileEntityGrinder.INPUT
+					&& slotIndex != TileEntityGrinder.FUEL) {
+				// Check if there is a grinding recipe for the stack
+				ItemStack[] in = { itemStack2 };
+				String machine = NameHelper.getName(BlockRegister.blockGrinder);
+				if (!((Slot)inventorySlots.get(TileEntityGrinder.INPUT)).getHasStack()) {
 					if (!mergeItemStack(itemStack2, 0, 1, false)) {
 						return null;
 					}
-				} else if (slotIndex >= sizeInventory && slotIndex < sizeInventory + 27){
+					// If fuel, place in fuel slot
+				} else if (SlotFuel.isFuel(itemStack2)) {
+					if (!mergeItemStack(itemStack2, 2, 3, false)) {
+						return null;
+					}
+				} else if (slotIndex >= sizeInventory && slotIndex < sizeInventory + 27) {
 					if (!mergeItemStack(itemStack2, sizeInventory + 27, sizeInventory + 36, false)) {
 						return null;
 					}
-				} else if (slotIndex >= sizeInventory + 27 && slotIndex < sizeInventory + 36
-						&& !mergeItemStack(itemStack2, sizeInventory + 1, sizeInventory + 27, false)){
-					return null;
+				} else if (slotIndex >= sizeInventory + 27 && slotIndex < sizeInventory + 36) {
+					if (!mergeItemStack(itemStack2, sizeInventory + 1, sizeInventory + 27, false)) {
+						return null;
+					}
 				}
 			} else if (!mergeItemStack(itemStack2, sizeInventory, sizeInventory + 36, false)) {
 				return null;
@@ -156,4 +96,5 @@ public class ContainerGrinder extends Container {
 
 		return itemStack1;
 	}
+
 }

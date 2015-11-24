@@ -77,6 +77,14 @@ public class HSMachineRecipe {
 			return counter >= output.length;
 		}
 	}
+	
+	public boolean containsInput(ItemStack inputItem, String machine){
+		for(int i = 0; i < input.length;i++){
+			if(input[i].isItemEqual(inputItem) && this.machine == machine) return true;
+			else System.out.println(input[i].getDisplayName() + " ist nicht " + inputItem.getDisplayName());
+		}	
+		return false;
+	}
 
 	/**
 	 * Checks if the given itemStacks match a recipe. Makes use of the private

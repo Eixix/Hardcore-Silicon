@@ -28,9 +28,8 @@ public class MachineRecipeHandler {
 		recipes = new ArrayList();
 		// Because coal and an apple turn into diamond via electrolysis.
 		// REALISM!
-		ItemStack[] in = { new ItemStack(Items.coal), new ItemStack(Items.apple) };
-		ItemStack[] out = { new ItemStack(Items.diamond) };
-		this.addRecipe(in, out, NameHelper.getName(BlockRegister.blockElectrolyzer));
+		//Electrolyzer
+		this.addElectrolyzerRecipe(new ItemStack(Items.coal), new ItemStack(Items.apple), new ItemStack(Items.diamond));
 		
 		ItemStack[] input = { new ItemStack(Items.water_bucket), new ItemStack(Items.apple) };
 		ItemStack[] output = { new ItemStack(Items.golden_apple) };
@@ -47,6 +46,8 @@ public class MachineRecipeHandler {
 		ItemStack[] in4 = { new ItemStack(ItemRegister.itemChromeIngot), new ItemStack(Items.iron_ingot) };
 		ItemStack[] out4 = { new ItemStack(ItemRegister.itemStainlessSteelIngot) };
 		this.addRecipe(in4, out4, NameHelper.getName(BlockRegister.blockElectrolyzer));
+		//Grinder
+		this.addGrinderRecipe(new ItemStack(Items.coal), new ItemStack(Items.apple));
 	}
 
 	/**
@@ -58,7 +59,30 @@ public class MachineRecipeHandler {
 	public void addRecipe(ItemStack[] input, ItemStack[] output, String machine) {
 		recipes.add(new HSMachineRecipe(input, output, machine));
 	}
-
+	
+	/**
+	 * Adds an recipe for the Electrolyzer. Easier to use but not as universal
+	 * @param input1 ItemStack one input (order does not matter)
+	 * @param input2 ItemStack two input (order does not matter)
+	 * @param output ItemStack three output
+	 */
+	public void addElectrolyzerRecipe(ItemStack input1, ItemStack input2, ItemStack output){
+		ItemStack[] in = {input1, input2};
+		ItemStack[] out = {output};
+	    recipes.add(new HSMachineRecipe(in, out, NameHelper.getName(BlockRegister.blockElectrolyzer)));	
+	}
+	
+	/**
+	 * Adds an recipe for the Grinder. Easier to use but not as universal
+	 * @param input ItemStack one input
+	 * @param output ItemStack two output
+	 */
+	public void addGrinderRecipe(ItemStack input, ItemStack output){
+		ItemStack[] in = {input};
+		ItemStack[] out = {output};
+	    recipes.add(new HSMachineRecipe(in, out, NameHelper.getName(BlockRegister.blockGrinder)));	
+	}
+	
 	/**
 	 * Checks if the given recipe is valid by comparing it to all saved recipes
 	 * @param input ItemStack-Array input
@@ -94,6 +118,14 @@ public class MachineRecipeHandler {
 		// ItemStack[] out = {new ItemStack(Blocks.diamond_block), new
 		// ItemStack(Blocks.diamond_block)};
 		return null;
+	}
+	
+	public boolean containsInput(ItemStack inputItem, String machine){
+		for(int i = 0; i < recipes.size(); i++){
+			HSMachineRecipe recipe = recipes.get(i);
+			if(recipe.containsInput(inputItem, machine)) return true;
+		}
+		return false;
 	}
 
 }
