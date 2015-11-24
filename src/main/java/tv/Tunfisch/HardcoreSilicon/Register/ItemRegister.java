@@ -12,6 +12,7 @@ import tv.Tunfisch.HardcoreSilicon.Items.ItemAndesiteDust;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromate;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemChromeIngot;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromite;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCircuitBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCoalBrush;
@@ -75,6 +76,7 @@ public class ItemRegister {
 		public static Item itemAndesiteDust;
 		public static Item itemCoalDust;
 		public static Item itemChromite;
+		public static Item itemChromeIngot;
 		public static Item itemChromate;
 		public static Item itemSodium;
 		public static Item itemSalt;
@@ -177,6 +179,9 @@ public class ItemRegister {
 			registerItem(itemChromite);
 			//Create Ore Dictionary Entry
 			OreDictionary.registerOre("itemChromite", itemChromite);
+			
+			itemChromeIngot = new ItemChromeIngot();
+			registerItem(itemChromeIngot);
 			
 			itemChromate = new ItemChromate();
 			registerItem(itemChromate);
