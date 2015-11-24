@@ -52,6 +52,7 @@ public final class ItemRenderRegister {
 		itemRenderRegister(ItemRegister.itemBauxite);
 		itemRenderRegister(ItemRegister.itemChromeIIIOxide);
 		itemRenderRegister(ItemRegister.itemAluminiumIngot);
+		itemRenderRegister(ItemRegister.itemBauxiteDustTiny);
     }
 	
 	/**

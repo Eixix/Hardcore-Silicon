@@ -16,6 +16,7 @@ import tv.Tunfisch.HardcoreSilicon.Items.ItemAxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBatteryBasic;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBauxite;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemBauxiteDustTiny;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromate;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromeIIIOxide;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromeIngot;
@@ -92,6 +93,7 @@ public class ItemRegister {
 		public static Item itemBauxite;
 		public static Item itemChromeIIIOxide;
 		public static Item itemAluminiumIngot;
+		public static Item itemBauxiteDustTiny;
 
 		
 		/**
@@ -223,6 +225,11 @@ public class ItemRegister {
 			
 			itemAluminiumIngot = new ItemAluminiumIngot();
 			registerItem(itemAluminiumIngot);
+			
+			itemBauxiteDustTiny = new ItemBauxiteDustTiny();
+			registerItem(itemBauxiteDustTiny);
+			
+			
 		}
 		
 		/**
