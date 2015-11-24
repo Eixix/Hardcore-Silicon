@@ -18,7 +18,6 @@ public class SlotFuel extends Slot{
 		super(parIInventory, parSlotIndex, parXDisplayPosition, parYDisplayPosition);
 		fuelList = new ArrayList();
 		//Fill fuelList
-		fuelList.add(Items.coal);
 		fuelList.add(ItemRegister.itemBatteryBasic);
 	}
 	

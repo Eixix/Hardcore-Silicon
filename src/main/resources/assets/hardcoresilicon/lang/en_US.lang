@@ -37,6 +37,7 @@ tile.BlockOreQuartz.name=Quartz Ore
 tile.BlockOreChromite.name=Chromite Ore
 tile.BlockOreSalt.name=Salt Ore
 tile.BlockElectrolyzer.name=Electrolyzer
+tile.BlockLimestone.name=Limestone
 itemGroup.tabHardcoreSilicon=Hardcore Silicon
 itemGroup.tabHardcoreGenerators=Hardcore Generators
 container.grinder=Universal Grinder

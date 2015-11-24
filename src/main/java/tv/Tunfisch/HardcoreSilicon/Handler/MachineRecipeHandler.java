@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import net.minecraft.block.BlockStone;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import tv.Tunfisch.HardcoreSilicon.HSMachineRecipe;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemQuartzCrystal;
 import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
 import tv.Tunfisch.HardcoreSilicon.Register.ItemRegister;
 
@@ -30,9 +32,15 @@ public class MachineRecipeHandler {
 		// REALISM!
 		//Electrolyzer
 		this.addElectrolyzerRecipe(new ItemStack(Items.coal), new ItemStack(Items.apple), new ItemStack(Items.diamond));
+		this.addElectrolyzerRecipe(new ItemStack(Items.water_bucket), new ItemStack(ItemRegister.itemSalt), new ItemStack(ItemRegister.itemSodium));
 
 		//Grinder
 		this.addGrinderRecipe(new ItemStack(Items.coal), new ItemStack(Items.apple));
+		this.addGrinderRecipe(new ItemStack(Blocks.stone, 2, BlockStone.EnumType.ANDESITE.getMetadata()), new ItemStack(ItemRegister.itemAndesiteDust));
+		this.addGrinderRecipe(new ItemStack(BlockRegister.blockOreChromite), new ItemStack(ItemRegister.itemChromite));
+		this.addGrinderRecipe(new ItemStack(ItemRegister.itemStainlessSteelIngot), new ItemStack(ItemRegister.itemStainlessSteelDust));
+		this.addGrinderRecipe(new ItemStack(ItemRegister.itemQuartzCrystal), new ItemStack(ItemRegister.itemQuartzDust));
+		//this.addGrinderRecipe(new ItemStack(), new ItemStack());
 	}
 
 	/**
