@@ -2,16 +2,23 @@ package tv.Tunfisch.HardcoreSilicon.Register;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemAluminiumIngot;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAndesiteDust;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemBatteryBasic;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemBauxite;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemBauxiteDustTiny;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromate;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemChromeIIIOxide;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromeIngot;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemChromite;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemCircuitBoard;
@@ -76,13 +83,18 @@ public class ItemRegister {
 		public static Item itemAndesiteDust;
 		public static Item itemCoalDust;
 		public static Item itemChromite;
-		public static Item itemChromeIngot;
 		public static Item itemChromate;
 		public static Item itemSodium;
 		public static Item itemSalt;
 		public static Item itemSodiumchromate;
 		public static Item itemSodiumdichromate;
-        
+		public static Item itemChromeIngot;
+		public static Item itemBatteryBasic;
+		public static Item itemBauxite;
+		public static Item itemChromeIIIOxide;
+		public static Item itemAluminiumIngot;
+		public static Item itemBauxiteDustTiny;
+
 		
 		/**
 		 * Initializes all given items and registers them in the Registry.
@@ -157,10 +169,10 @@ public class ItemRegister {
 			itemOsmiumIron = new ItemOsmiumIron();
 			registerItem(itemOsmiumIron);
 			
-			itemCoil = new ItemCoil();
+			itemCoil = new ItemCoil().setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);
 			registerItem(itemCoil);
 			
-			itemCoalBrush = new ItemCoalBrush();
+			itemCoalBrush = new ItemCoalBrush().setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);
 			registerItem(itemCoalBrush);
 			
 			itemGenerator = new ItemGenerator().setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);
@@ -199,6 +211,25 @@ public class ItemRegister {
 			
 			itemSodiumdichromate = new ItemSodiumdichromate();
 			registerItem(itemSodiumdichromate);
+			
+			itemBatteryBasic = new ItemBatteryBasic();
+			registerItem(itemBatteryBasic);
+			
+			itemBauxite = new ItemBauxite();
+			registerItem(itemBauxite);
+			//Create Ore Dictionary Entry
+			OreDictionary.registerOre("itemBauxite", itemBauxite);
+			
+			itemChromeIIIOxide = new ItemChromeIIIOxide();
+			registerItem(itemChromeIIIOxide);
+			
+			itemAluminiumIngot = new ItemAluminiumIngot();
+			registerItem(itemAluminiumIngot);
+			
+			itemBauxiteDustTiny = new ItemBauxiteDustTiny();
+			registerItem(itemBauxiteDustTiny);
+			
+			
 		}
 		
 		/**

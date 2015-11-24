@@ -30,22 +30,7 @@ public class MachineRecipeHandler {
 		// REALISM!
 		//Electrolyzer
 		this.addElectrolyzerRecipe(new ItemStack(Items.coal), new ItemStack(Items.apple), new ItemStack(Items.diamond));
-		
-		ItemStack[] input = { new ItemStack(Items.water_bucket), new ItemStack(Items.apple) };
-		ItemStack[] output = { new ItemStack(Items.golden_apple) };
-		this.addRecipe(input, output, NameHelper.getName(BlockRegister.blockElectrolyzer));
 
-		ItemStack[] in2 = { new ItemStack(Blocks.cobblestone), new ItemStack(Blocks.cobblestone) };
-		ItemStack[] out2 = { new ItemStack(Items.apple) };
-		this.addRecipe(in2, out2, NameHelper.getName(BlockRegister.blockElectrolyzer));
-		
-		ItemStack[] in3 = { new ItemStack(ItemRegister.itemSalt), new ItemStack(Items.water_bucket) };
-		ItemStack[] out3 = { new ItemStack(ItemRegister.itemSodium) };
-		this.addRecipe(in3, out3, NameHelper.getName(BlockRegister.blockElectrolyzer));
-		
-		ItemStack[] in4 = { new ItemStack(ItemRegister.itemChromeIngot), new ItemStack(Items.iron_ingot) };
-		ItemStack[] out4 = { new ItemStack(ItemRegister.itemStainlessSteelIngot) };
-		this.addRecipe(in4, out4, NameHelper.getName(BlockRegister.blockElectrolyzer));
 		//Grinder
 		this.addGrinderRecipe(new ItemStack(Items.coal), new ItemStack(Items.apple));
 	}

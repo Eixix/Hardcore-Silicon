@@ -42,13 +42,15 @@ public class CraftingHandler {
 		shapelessCrafting(Items.diamond, 8, new Object[]{Blocks.dirt, Blocks.bedrock});
 		shapedCrafting(Items.diamond, 8, new Object[]{" # ", " X ", " # ", '#', Blocks.dirt, 'X', Blocks.bedrock});
 		GameRegistry.addSmelting(BlockRegister.blockOreChromite, new ItemStack(ItemRegister.itemChromite, 1), 1.0F);
+		GameRegistry.addSmelting(ItemRegister.itemBauxite, new ItemStack(ItemRegister.itemAluminiumIngot, 1), 1.0F);
 		//Real recipes
 		shapedCrafting(ItemRegister.swordStainless, 1, new Object[]{" S ", " S ", " I ", 'S', ItemRegister.itemStainlessSteelIngot, 'I', Items.iron_ingot});
 		shapedCrafting(ItemRegister.pickaxeStainless, 1, new Object[]{"SSS", " I ", " I ", 'S', ItemRegister.itemStainlessSteelIngot, 'I', Items.iron_ingot});
 		shapedCrafting(ItemRegister.axeStainless, 1, new Object[]{"SS ", "SI ", " I ", 'S', ItemRegister.itemStainlessSteelIngot, 'I', Items.iron_ingot});
 		shapedCrafting(ItemRegister.shovelStainless, 1, new Object[]{" S ", " I ", " I ", 'S', ItemRegister.itemStainlessSteelIngot, 'I', Items.iron_ingot});
 		shapedCrafting(BlockRegister.blockGrinder, 1, new Object[]{"IHI", "PFP", "IEI", 'P', Items.iron_pickaxe, 'E', ItemRegister.itemEmotor, 'F', Blocks.furnace, 'H', Blocks.hopper, 'I', Items.iron_ingot});
-		shapedCrafting(BlockRegister.blockElectrolyzer, 1, new Object[]{"IHI", "GBG", "IEI", 'G', Blocks.glass, 'E', ItemRegister.itemEmotor, 'B', Items.bucket, 'H', Blocks.hopper, 'I', Items.iron_ingot});
+		shapedCrafting(BlockRegister.blockElectrolyzer, 1, new Object[]{"IHI", "GBG", "IEI", 'G', Blocks.glass, 'E', ItemRegister.itemEmotor, 'B', Blocks.cauldron, 'H', Blocks.hopper, 'I', Items.iron_ingot});
+		
 		
 	}
 	

@@ -13,7 +13,6 @@ public class SulfuricAcid extends BlockFluidClassic{
 	public SulfuricAcid(){
 		super(FluidRegistry.WATER , Material.water);
 		setCreativeTab(HardcoreSilicon.tabHardcoreSilicon);
-		System.out.println("Penis");
 	}
 
 	
