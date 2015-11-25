@@ -78,6 +78,23 @@ public class MachineRecipeHandler {
 	    recipes.add(new HSMachineRecipe(in, out, chanches, NameHelper.getName(BlockRegister.blockGrinder)));	
 	}
 	
+	
+	/**
+	 * Adds an recipe for the Blast Furnace. Easier to use but not as universal
+	 * @param input1  ItemStack one input (order does not matter)
+	 * @param input2  ItemStack two input (order does not matter)
+	 * @param input3  ItemStack three input (order does not matter)
+	 * @param output1 ItemStack four output
+	 * @param output2 ItemStack five output
+	 */
+	
+	public void addBlastFurnaceRecipe(ItemStack input1, ItemStack input2, ItemStack input3, ItemStack output1, ItemStack output2, double outputChanche){
+		ItemStack[] in = {input1, input2, input3};
+		ItemStack[] out = {output1, output2};
+		double[] chanches = {outputChanche};
+	    recipes.add(new HSMachineRecipe(in, out, chanches, NameHelper.getName(BlockRegister.blockBlastFurnace)));	
+	}
+	
 	/**
 	 * Checks if the given recipe is valid by comparing it to all saved recipes
 	 * @param input ItemStack-Array input

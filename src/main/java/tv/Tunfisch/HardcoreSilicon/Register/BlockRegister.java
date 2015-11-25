@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
+import tv.Tunfisch.HardcoreSilicon.Blocks.BlockBlastFurnace;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockElectrolyzer;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockGrinder;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockLimestone;
@@ -26,6 +27,7 @@ public class BlockRegister {
 	public static Block blockElectrolyzer;
 	public static Block blockOreBauxite;
 	public static Block blockLimestone;
+	public static Block blockBlastFurnace;
 	//Fluids
 	public static Block blockSulfuricAcid;
 	
@@ -65,6 +67,9 @@ public class BlockRegister {
 		
 		blockSulfuricAcid = new SulfuricAcid();
 		registerBlock(blockSulfuricAcid);
+		
+		blockBlastFurnace = new BlockBlastFurnace();
+		registerBlock(blockBlastFurnace);
 	}
 	
 	/**
