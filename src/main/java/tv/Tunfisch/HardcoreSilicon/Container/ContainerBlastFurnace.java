@@ -92,5 +92,5 @@ public class ContainerBlastFurnace extends ContainerBasicMachine {
 		}
 		return itemStack1;
 	}
-
+	
 }

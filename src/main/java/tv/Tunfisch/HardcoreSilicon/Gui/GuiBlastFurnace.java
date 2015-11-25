@@ -11,11 +11,10 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import tv.Tunfisch.HardcoreSilicon.Reference;
 import tv.Tunfisch.HardcoreSilicon.Container.ContainerBlastFurnace;
-import tv.Tunfisch.HardcoreSilicon.Container.ContainerBlastFurnace;
 
 @SideOnly(Side.CLIENT)
 public class GuiBlastFurnace extends GuiContainer {
-	private static final ResourceLocation BlastFurnaceGuiTextures = new ResourceLocation(
+	private static final ResourceLocation blastfurnaceGuiTextures = new ResourceLocation(
 			Reference.MOD_ID + ":textures/gui/container/blastfurnace.png");
 	private final InventoryPlayer inventoryPlayer;
 	private final IInventory tileBlastFurnace;
@@ -36,7 +35,7 @@ public class GuiBlastFurnace extends GuiContainer {
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-		mc.getTextureManager().bindTexture(BlastFurnaceGuiTextures);
+		mc.getTextureManager().bindTexture(blastfurnaceGuiTextures);
 		int marginHorizontal = (width - xSize) / 2;
 		int marginVertical = (height - ySize) / 2;
 		drawTexturedModalRect(marginHorizontal, marginVertical, 0, 0, xSize, ySize);
