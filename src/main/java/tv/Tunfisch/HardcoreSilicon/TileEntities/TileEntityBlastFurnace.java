@@ -30,7 +30,7 @@ public class TileEntityBlastFurnace extends TileEntityBasicMachine {
 
 	private static final int[] slotsTop = new int[] { INPUT1, INPUT2, INPUT3 };
 	private static final int[] slotsBottom = new int[] { OUTPUT1, OUTPUT2 };
-	private static final int[] slotsSides = new int[] { INPUT1, INPUT2, INPUT3 };
+	private static final int[] slotsSides = new int[] {};
 
 	/**
 	 * The output is the last custom slot so, starting by zero it has to be 
@@ -38,7 +38,7 @@ public class TileEntityBlastFurnace extends TileEntityBasicMachine {
 	 */
 	@Override
 	public int getCustomSlotsCount(){
-		return OUTPUT1 +1;
+		return OUTPUT2 +1;
 		
 	}
 	

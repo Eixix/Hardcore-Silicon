@@ -8,8 +8,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import tv.Tunfisch.HardcoreSilicon.Container.ContainerBlastFurnace;
 import tv.Tunfisch.HardcoreSilicon.Container.ContainerElectrolyzer;
 import tv.Tunfisch.HardcoreSilicon.Container.ContainerGrinder;
+import tv.Tunfisch.HardcoreSilicon.Gui.GuiBlastFurnace;
 import tv.Tunfisch.HardcoreSilicon.Gui.GuiElectrolyzer;
 import tv.Tunfisch.HardcoreSilicon.Gui.GuiGrinder;
 import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
@@ -26,6 +28,8 @@ public class GuiHandler implements IGuiHandler {
                 return new ContainerGrinder(player.inventory, (IInventory)tileEntity);
             }else if (tileEntity.getBlockType() == BlockRegister.blockElectrolyzer){
                 return new ContainerElectrolyzer(player.inventory,(IInventory)tileEntity);
+            }else if (tileEntity.getBlockType() == BlockRegister.blockBlastFurnace){
+                return new ContainerBlastFurnace(player.inventory,(IInventory)tileEntity);
             }
         }
         return null;
@@ -40,6 +44,8 @@ public class GuiHandler implements IGuiHandler {
                 return new GuiGrinder(player.inventory,(IInventory)tileEntity);
             }else if (tileEntity.getBlockType() == BlockRegister.blockElectrolyzer){
                 return new GuiElectrolyzer(player.inventory,(IInventory)tileEntity);
+            }else if (tileEntity.getBlockType() == BlockRegister.blockBlastFurnace){
+                return new GuiBlastFurnace(player.inventory,(IInventory)tileEntity);
             }
         }    
         return null;

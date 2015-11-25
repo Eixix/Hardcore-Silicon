@@ -61,6 +61,7 @@ import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
 import tv.Tunfisch.HardcoreSilicon.Register.BlockRenderRegister;
 import tv.Tunfisch.HardcoreSilicon.Register.ItemRegister;
 import tv.Tunfisch.HardcoreSilicon.Register.ItemRenderRegister;
+import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityBlastFurnace;
 import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityElectrolyzer;
 import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityGrinder;
 
@@ -98,6 +99,7 @@ public class HardcoreSilicon {
 		//Register TileEntities
 		GameRegistry.registerTileEntity(new TileEntityGrinder().getClass(), "tileEntityGrinder");
 		GameRegistry.registerTileEntity(new TileEntityElectrolyzer().getClass(), "tileEntityElectrolyzer");
+		GameRegistry.registerTileEntity(new TileEntityBlastFurnace().getClass(), "tileEntityBlastFurnace");
 		//Register Crafting
 		CraftingHandler.registerCraftingRecipes();
 	}	
