@@ -31,15 +31,15 @@ public class MachineRecipeHandler {
 		// Because coal and an apple turn into diamond via electrolysis.
 		// REALISM!
 		//Electrolyzer
-		this.addElectrolyzerRecipe(new ItemStack(Items.coal), new ItemStack(Items.apple), new ItemStack(Items.diamond));
-		this.addElectrolyzerRecipe(new ItemStack(Items.water_bucket), new ItemStack(ItemRegister.itemSalt), new ItemStack(ItemRegister.itemSodium));
+		this.addElectrolyzerRecipe(new ItemStack(Items.coal), new ItemStack(Items.apple), new ItemStack(Items.diamond), 0.5);
+		this.addElectrolyzerRecipe(new ItemStack(Items.water_bucket), new ItemStack(ItemRegister.itemSalt), new ItemStack(ItemRegister.itemSodium),1);
 
 		//Grinder
-		this.addGrinderRecipe(new ItemStack(Items.coal), new ItemStack(Items.apple));
-		this.addGrinderRecipe(new ItemStack(Blocks.stone, 2, BlockStone.EnumType.ANDESITE.getMetadata()), new ItemStack(ItemRegister.itemAndesiteDust));
-		this.addGrinderRecipe(new ItemStack(BlockRegister.blockOreChromite), new ItemStack(ItemRegister.itemChromite));
-		this.addGrinderRecipe(new ItemStack(ItemRegister.itemStainlessSteelIngot), new ItemStack(ItemRegister.itemStainlessSteelDust));
-		this.addGrinderRecipe(new ItemStack(ItemRegister.itemQuartzCrystal), new ItemStack(ItemRegister.itemQuartzDust));
+		this.addGrinderRecipe(new ItemStack(Items.coal), new ItemStack(Items.apple, 5),0.5);
+		this.addGrinderRecipe(new ItemStack(Blocks.stone, 2, BlockStone.EnumType.ANDESITE.getMetadata()), new ItemStack(ItemRegister.itemAndesiteDust),1);
+		this.addGrinderRecipe(new ItemStack(BlockRegister.blockOreChromite), new ItemStack(ItemRegister.itemChromite),1);
+		this.addGrinderRecipe(new ItemStack(ItemRegister.itemStainlessSteelIngot), new ItemStack(ItemRegister.itemStainlessSteelDust),1);
+		this.addGrinderRecipe(new ItemStack(ItemRegister.itemQuartzCrystal), new ItemStack(ItemRegister.itemQuartzDust),1);
 		//this.addGrinderRecipe(new ItemStack(), new ItemStack());
 	}
 
@@ -49,8 +49,8 @@ public class MachineRecipeHandler {
 	 * @param output As many ItemStacks as the machine can handle for the output [Array]
 	 * @param machine The name of the machine. To avoid conflicts, just use the NameHelper
 	 */
-	public void addRecipe(ItemStack[] input, ItemStack[] output, String machine) {
-		recipes.add(new HSMachineRecipe(input, output, machine));
+	public void addRecipe(ItemStack[] input, ItemStack[] output, double[] outputChanches, String machine) {
+		recipes.add(new HSMachineRecipe(input, output, outputChanches, machine));
 	}
 	
 	/**
@@ -59,10 +59,11 @@ public class MachineRecipeHandler {
 	 * @param input2 ItemStack two input (order does not matter)
 	 * @param output ItemStack three output
 	 */
-	public void addElectrolyzerRecipe(ItemStack input1, ItemStack input2, ItemStack output){
+	public void addElectrolyzerRecipe(ItemStack input1, ItemStack input2, ItemStack output, double outputChanche){
 		ItemStack[] in = {input1, input2};
 		ItemStack[] out = {output};
-	    recipes.add(new HSMachineRecipe(in, out, NameHelper.getName(BlockRegister.blockElectrolyzer)));	
+		double[] chanches = {outputChanche};
+	    recipes.add(new HSMachineRecipe(in, out, chanches, NameHelper.getName(BlockRegister.blockElectrolyzer)));	
 	}
 	
 	/**
@@ -70,10 +71,11 @@ public class MachineRecipeHandler {
 	 * @param input ItemStack one input
 	 * @param output ItemStack two output
 	 */
-	public void addGrinderRecipe(ItemStack input, ItemStack output){
+	public void addGrinderRecipe(ItemStack input, ItemStack output, double outputChanche){
 		ItemStack[] in = {input};
 		ItemStack[] out = {output};
-	    recipes.add(new HSMachineRecipe(in, out, NameHelper.getName(BlockRegister.blockGrinder)));	
+		double[] chanches = {outputChanche};
+	    recipes.add(new HSMachineRecipe(in, out, chanches, NameHelper.getName(BlockRegister.blockGrinder)));	
 	}
 	
 	/**
@@ -113,12 +115,15 @@ public class MachineRecipeHandler {
 		return null;
 	}
 	
-	public boolean containsInput(ItemStack inputItem, String machine){
-		for(int i = 0; i < recipes.size(); i++){
-			HSMachineRecipe recipe = recipes.get(i);
-			if(recipe.containsInput(inputItem, machine)) return true;
+	public double getOutputChanche(ItemStack[] input, ItemStack output, String machine){
+		HSMachineRecipe recipe;
+		for (int i = 0; i < recipes.size(); i++) {
+			recipe = recipes.get(i);
+			// Checks if there is an output
+			if (recipe.isRecipeValid(input, recipe.getOutput(), machine))
+				return recipe.getOutputChanche(output);
 		}
-		return false;
+		return 0.0;
 	}
 
 }

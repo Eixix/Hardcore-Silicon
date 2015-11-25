@@ -66,12 +66,7 @@ public class TileEntityGrinder extends TileEntityBasicMachine {
 	public String getName() {
 		return NameHelper.getName(BlockRegister.blockGrinder);
 	}
-
-	@Override
-	public boolean needsFuel() {
-		return true;
-	}
-
+	
 	@Override
 	public int timeToProcessOneItem(ItemStack parItemStack) {
 		return 200;

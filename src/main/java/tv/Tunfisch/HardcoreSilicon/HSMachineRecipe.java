@@ -1,17 +1,25 @@
 package tv.Tunfisch.HardcoreSilicon;
 
+import java.util.HashMap;
+
 import net.minecraft.item.ItemStack;
 
 public class HSMachineRecipe {
 
 	private ItemStack[] input;
 	private ItemStack[] output;
+	private HashMap<ItemStack, Double> outputToChanche = new HashMap<ItemStack, Double>();
 	private String machine;
 
-	public HSMachineRecipe(ItemStack[] inputStacks, ItemStack[] outputStacks, String machineName) {
+	public HSMachineRecipe(ItemStack[] inputStacks, ItemStack[] outputStacks, double[] outputChanche, String machineName) {
+		//Copy parameters
 		input = inputStacks.clone();
 		output = outputStacks.clone();
 		machine = machineName;
+		//Get chances
+		for(int i = 0; i < output.length; i++){
+			outputToChanche.put(output[i], outputChanche[i]);
+		}
 	}
 
 	/**
@@ -78,14 +86,6 @@ public class HSMachineRecipe {
 		}
 	}
 	
-	public boolean containsInput(ItemStack inputItem, String machine){
-		for(int i = 0; i < input.length;i++){
-			if(input[i].isItemEqual(inputItem) && this.machine == machine) return true;
-			else System.out.println(input[i].getDisplayName() + " ist nicht " + inputItem.getDisplayName());
-		}	
-		return false;
-	}
-
 	/**
 	 * Checks if the given itemStacks match a recipe. Makes use of the private
 	 * methods to look easy and clean.
@@ -107,14 +107,6 @@ public class HSMachineRecipe {
 		boolean machineValid = machine.equals(machineName);
 		boolean valid = inputValid && outputValid && machineValid;
 		boolean shiftedValid = inputShiftedValid && outputShiftedValid && machineValid;
-        //System.out.println(outputShiftedValid + " and " + inputShiftedValid);
-		//boolean valid = inputValid || inputShiftedValid && outputValid || outputShiftedValid && machineValid;
-		/*
-		 * DEBUG if(inputValid) System.out.println("Input valid");
-		 * if(outputValid) System.out.println("Output valid"); if(machineValid)
-		 * System.out.println("Machine valid"); if(valid) System.out.println(
-		 * "Recipe valid"); else System.out.println("Recipe invalid");
-		 */
 		return valid || shiftedValid;
 	}
 
@@ -128,6 +120,13 @@ public class HSMachineRecipe {
 
 	public String getMachineName() {
 		return machine;
+	}
+	
+	public double getOutputChanche(ItemStack outputStack){
+		for(int i = 0; i< output.length;i++){
+			if(output[i].getIsItemStackEqual(outputStack)) return outputToChanche.get(output[i]);
+		}
+		return 0.0;
 	}
 
 }

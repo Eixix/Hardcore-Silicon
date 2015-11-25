@@ -36,30 +36,25 @@ public class TileEntityElectrolyzer extends TileEntityBasicMachine {
 	 * The output is the last custom slot so, starting by zero it has to be 
 	 * the output slots number plus one.
 	 */
+	@Override
 	public int getCustomSlotsCount(){
 		return OUTPUT +1;
 	}
-
-	public boolean needsFuel(){
-		return false;
-	}
-
+	
 	@Override
 	public String getName() {
 		return NameHelper.getName(BlockRegister.blockElectrolyzer);
 	}
 	
+	@Override
 	public int timeToProcessOneItem(ItemStack parItemStack) {
 		return 200;
 	}
 
+	@Override
 	public ItemStack[] getInputs(){
 		ItemStack[] stackarray = {machineItemStacks[INPUT1], machineItemStacks[INPUT2]};
 		return stackarray;
-	}
-
-	public int getInputCount(){
-		return 2;
 	}
 
 	@Override
@@ -88,6 +83,11 @@ public class TileEntityElectrolyzer extends TileEntityBasicMachine {
 	@Override
 	public int getFuelSlotNumber() {
 		return -1;
+	}
+
+	@Override
+	public int getInputCount() {
+		return 2;
 	}
 
 }

@@ -1,5 +1,7 @@
 package tv.Tunfisch.HardcoreSilicon.TileEntities;
 
+import java.util.Random;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -32,50 +34,53 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 
 	/**
 	 * Gets the number of custom slots added by the TileEntity
+	 * 
 	 * @return Number of custom Slots
 	 */
 	public abstract int getCustomSlotsCount();
 
 	/**
-	 * Gets the number of the fuel Slot. If the machine does not need fuel, ignore this.
+	 * Gets the number of the fuel Slot. If the machine does not need fuel, set
+	 * -1.
+	 * 
 	 * @return Fuel Slot number
 	 */
 	public abstract int getFuelSlotNumber();
 
 	/**
 	 * Gets the amount of input slots.
+	 * 
 	 * @return Input Slot count
 	 */
 	public abstract int getInputCount();
 
 	/**
-	 * Gets the first Output slot number. As the amount of other custom slots is unknown,
-	 * the first output slot number is needed to iterate through all outputs
+	 * Gets the first Output slot number. As the amount of other custom slots is
+	 * unknown, the first output slot number is needed to iterate through all
+	 * outputs
+	 * 
 	 * @return Number of the first output slot
 	 */
 	public abstract int getFirstOutputSlotNumber();
 
 	@Override
 	/**
-	 * Just let the NameHelper do its thing 
+	 * Just let the NameHelper do its thing
 	 */
 	public abstract String getName();
 
 	/**
-	 * Does this machine need fuel?
-	 * @return true if it needs some fuel
-	 */
-	public abstract boolean needsFuel();
-
-	/**
 	 * Time in millisecond to process or to process some particular item
-	 * @param parItemStack Some item that is softer/harder
+	 * 
+	 * @param parItemStack
+	 *            Some item that is softer/harder
 	 * @return Time to Process in millis
 	 */
 	public abstract int timeToProcessOneItem(ItemStack parItemStack);
 
 	/**
-	 * Gets the content of all Inputs of the TileEntity 
+	 * Gets the content of all Inputs of the TileEntity
+	 * 
 	 * @return Alle ItemStacks form all Inputs
 	 */
 	public abstract ItemStack[] getInputs();
@@ -133,7 +138,7 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 		// If nothing in input slot
 		if (this.allInputsEmpty()) {
 			return false;
-		} else if (this.needsFuel() && fuelValue == 0) {
+		} else if (this.getFuelSlotNumber() != -1 && fuelValue == 0) {
 			if (machineItemStacks[this.getFuelSlotNumber()] != null) {
 				// If you can take an item away, take it away
 				if (machineItemStacks[this.getFuelSlotNumber()].stackSize > 1)
@@ -194,33 +199,46 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 			// Check if output slot/s is/are empty
 			int j = 0;
 			for (int i = this.getFirstOutputSlotNumber(); i < this.getCustomSlotsCount(); i++) {
-				if (machineItemStacks[i] == null) {
-					machineItemStacks[i] = itemstack[j].copy();
-				} else if (machineItemStacks[i].getItem() == itemstack[j].getItem()) {
-					machineItemStacks[i].stackSize += itemstack[j].stackSize;
-				}
-				j++;
-			}
-
-			// Reduce input stack size by 1
-			for (int i = 0; i < this.getInputCount(); i++) {
-				if (machineItemStacks[i] != null)
-					machineItemStacks[i].stackSize--;
-			}
-			// Reduce fuel value if needed
-			if (this.needsFuel())
-				fuelValue--;
-			// Check if there is still input left and return buckets
-			for (int i = 0; i < this.getInputCount(); i++) {
-				if (machineItemStacks[i].stackSize <= 0) {
-					if (this.isBucket(machineItemStacks[i])) {
-						machineItemStacks[i] = new ItemStack(Items.bucket);
-					} else {
-						machineItemStacks[i] = null;
+				// Calculate Stacksize
+				double chanche = HardcoreSilicon.mrh.getOutputChanche(in, itemstack[j], this.getName());
+				int stacksize = itemstack[j].stackSize;
+			    if (stacksize >= 1 && chanche < 1) {
+					for(int k = 0; k < itemstack[j].stackSize; k++){
+						// Check if the Crafter is unlucky
+						if(Math.random() > chanche) stacksize--;
 					}
+				}
+				// Put the output in the output Slot, if there is any
+				if(stacksize > 0){
+					if (machineItemStacks[i] == null) {
+						machineItemStacks[i] = new ItemStack(itemstack[j].getItem(), stacksize);
+					} else if (machineItemStacks[i].getItem() == (itemstack[j].getItem())) {
+						machineItemStacks[i].stackSize += stacksize;
+					}	
+			}
+			j++;
+		}
+
+		// Reduce input stack size by 1
+		for (int i = 0; i < this.getInputCount(); i++) {
+			if (machineItemStacks[i] != null)
+				machineItemStacks[i].stackSize--;
+		}
+		// Reduce fuel value if needed
+		if (this.getFuelSlotNumber() != -1)
+			fuelValue--;
+		// Check if there is still input left and return buckets
+		for (int i = 0; i < this.getInputCount(); i++) {
+			if (machineItemStacks[i].stackSize <= 0) {
+				if (this.isBucket(machineItemStacks[i])) {
+					machineItemStacks[i] = new ItemStack(Items.bucket);
+				} else {
+					machineItemStacks[i] = null;
 				}
 			}
 		}
+	}
+
 	}
 
 	/**
