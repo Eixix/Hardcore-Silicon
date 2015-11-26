@@ -47,12 +47,6 @@ public abstract class ContainerBasicMachine extends Container {
 	protected abstract void addSlots(InventoryPlayer inventory);
 
 	@Override
-	/**
-	 * Implement this or crash. Your choice.
-	 */
-	public abstract ItemStack transferStackInSlot(EntityPlayer playerIn, int slotIndex);
-
-	@Override
 	public void addCraftingToCrafters(ICrafting listener) {
 		super.addCraftingToCrafters(listener);
 		listener.func_175173_a(this, tileMachine);
@@ -100,6 +94,87 @@ public abstract class ContainerBasicMachine extends Container {
 	@Override
 	public boolean canInteractWith(EntityPlayer playerIn) {
 		return tileMachine.isUseableByPlayer(playerIn);
+	}
+	
+	/**
+	 * aka." shiftClickHandler - implement it or crash the game"
+	 */
+	@Override
+	public ItemStack transferStackInSlot(EntityPlayer playerIn, int slotIndex){
+		ItemStack itemStack1 = null;
+		Slot slot = (Slot) inventorySlots.get(slotIndex);
+		// only try moving items if the slot is valid and has items
+		if (slot != null && slot.getHasStack()) {
+			ItemStack itemStack2 = slot.getStack();
+			itemStack1 = itemStack2.copy();
+			// Item to be transferred is in the output slot. Try inserting it to
+			// the players inventory
+			if (this.slotIndexIsOutput(slotIndex)) {
+				if (!mergeItemStack(itemStack2, sizeInventory, sizeInventory + 36, true)) {
+					return null;
+				}
+				slot.onSlotChange(itemStack2, itemStack1);
+				// The item is in the players inventory and has to be inserted
+				// into a free input slot
+			} else if (this.slotIndexIsNotInput(slotIndex)) {
+				// Check if the input slots are free
+				if (this.isOneInputSlotEmpty(slotIndex)) {
+					if (!mergeItemStack(itemStack2, 0, tileMachine.getField(7), false)) {
+						return null;
+					}
+					// The item is in the players inventory, but not in the
+					// action bar. try putting it in the action bar
+				} else if (slotIndex >= sizeInventory && slotIndex < sizeInventory + 27) {
+					if (!mergeItemStack(itemStack2, sizeInventory + 27, sizeInventory + 36, false)) {
+						return null;
+					}
+					// Item is in the action bar, try putting it in the
+					// inventory
+				} else if (slotIndex >= sizeInventory + 27 && slotIndex < sizeInventory + 36) {
+					if (!mergeItemStack(itemStack2, sizeInventory + 1, sizeInventory + 27, false)) {
+						return null;
+					}
+				}
+				// The item is in one of the machine slots, try placing it in
+				// the players inventory or action bar
+			} else if (!mergeItemStack(itemStack2, sizeInventory, sizeInventory + 36, false)) {
+				return null;
+			}
+
+			if (itemStack2.stackSize == 0) {
+				slot.putStack((ItemStack) null);
+			} else {
+				slot.onSlotChanged();
+			}
+
+			if (itemStack2.stackSize == itemStack1.stackSize) {
+				return null;
+			}
+
+			slot.onPickupFromSlot(playerIn, itemStack2);
+		}
+		return itemStack1;	
+	}
+
+	private boolean slotIndexIsOutput(int slotIndex){
+		for(int i = tileMachine.getField(6); i < tileMachine.getField(5); i++){
+			if(slotIndex == i) return true;
+		}
+		return false;
+	}
+	
+	private boolean slotIndexIsNotInput(int slotIndex){
+		for(int i= 0; i < tileMachine.getField(7);i++){
+			if(slotIndex == i) return false;
+		}
+		return true;
+	}
+	
+	private boolean isOneInputSlotEmpty(int slotIndex){
+		for(int i= 0; i < tileMachine.getField(7);i++){
+			if(!((Slot) inventorySlots.get(i)).getHasStack()) return true;
+		}
+		return false;
 	}
 
 }

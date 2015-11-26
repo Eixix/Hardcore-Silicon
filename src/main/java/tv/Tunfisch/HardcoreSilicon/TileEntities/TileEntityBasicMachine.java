@@ -419,6 +419,12 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 			return ticksPerItem;
 		case 4:
 			return fuelValue;
+		case 5:
+			return this.getCustomSlotsCount();	
+		case 6:
+			return this.getFirstOutputSlotNumber();	
+		case 7:
+			return this.getInputCount();	
 		default:
 			return 0;
 		}
@@ -448,7 +454,7 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 
 	@Override
 	public int getFieldCount() {
-		return 5;
+		return 8;
 	}
 
 	@Override
