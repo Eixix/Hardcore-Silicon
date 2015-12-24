@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import net.minecraft.block.BlockStone;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import tv.Tunfisch.HardcoreSilicon.HSMachineRecipe;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemQuartzCrystal;
 import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
 import tv.Tunfisch.HardcoreSilicon.Register.ItemRegister;
 
@@ -28,25 +30,17 @@ public class MachineRecipeHandler {
 		recipes = new ArrayList();
 		// Because coal and an apple turn into diamond via electrolysis.
 		// REALISM!
-		ItemStack[] in = { new ItemStack(Items.coal), new ItemStack(Items.apple) };
-		ItemStack[] out = { new ItemStack(Items.diamond) };
-		this.addRecipe(in, out, NameHelper.getName(BlockRegister.blockElectrolyzer));
-		
-		ItemStack[] input = { new ItemStack(Items.water_bucket), new ItemStack(Items.apple) };
-		ItemStack[] output = { new ItemStack(Items.golden_apple) };
-		this.addRecipe(input, output, NameHelper.getName(BlockRegister.blockElectrolyzer));
+		//Electrolyzer
+		this.addElectrolyzerRecipe(new ItemStack(Items.coal), new ItemStack(Items.apple), new ItemStack(Items.diamond), 0.5);
+		this.addElectrolyzerRecipe(new ItemStack(Items.water_bucket), new ItemStack(ItemRegister.itemSalt), new ItemStack(ItemRegister.itemSodium),1);
 
-		ItemStack[] in2 = { new ItemStack(Blocks.cobblestone), new ItemStack(Blocks.cobblestone) };
-		ItemStack[] out2 = { new ItemStack(Items.apple) };
-		this.addRecipe(in2, out2, NameHelper.getName(BlockRegister.blockElectrolyzer));
-		
-		ItemStack[] in3 = { new ItemStack(ItemRegister.itemSalt), new ItemStack(Items.water_bucket) };
-		ItemStack[] out3 = { new ItemStack(ItemRegister.itemSodium) };
-		this.addRecipe(in3, out3, NameHelper.getName(BlockRegister.blockElectrolyzer));
-		
-		ItemStack[] in4 = { new ItemStack(ItemRegister.itemChromeIngot), new ItemStack(Items.iron_ingot) };
-		ItemStack[] out4 = { new ItemStack(ItemRegister.itemStainlessSteelIngot) };
-		this.addRecipe(in4, out4, NameHelper.getName(BlockRegister.blockElectrolyzer));
+		//Grinder
+		this.addGrinderRecipe(new ItemStack(Items.coal), new ItemStack(Items.apple, 5),0.5);
+		this.addGrinderRecipe(new ItemStack(Blocks.stone, 2, BlockStone.EnumType.ANDESITE.getMetadata()), new ItemStack(ItemRegister.itemAndesiteDust),1);
+		this.addGrinderRecipe(new ItemStack(BlockRegister.blockOreChromite), new ItemStack(ItemRegister.itemChromite),1);
+		this.addGrinderRecipe(new ItemStack(ItemRegister.itemStainlessSteelIngot), new ItemStack(ItemRegister.itemStainlessSteelDust),1);
+		this.addGrinderRecipe(new ItemStack(ItemRegister.itemQuartzCrystal), new ItemStack(ItemRegister.itemQuartzDust),1);
+		//this.addGrinderRecipe(new ItemStack(), new ItemStack());
 	}
 
 	/**
@@ -55,10 +49,52 @@ public class MachineRecipeHandler {
 	 * @param output As many ItemStacks as the machine can handle for the output [Array]
 	 * @param machine The name of the machine. To avoid conflicts, just use the NameHelper
 	 */
-	public void addRecipe(ItemStack[] input, ItemStack[] output, String machine) {
-		recipes.add(new HSMachineRecipe(input, output, machine));
+	public void addRecipe(ItemStack[] input, ItemStack[] output, double[] outputChanches, String machine) {
+		recipes.add(new HSMachineRecipe(input, output, outputChanches, machine));
 	}
-
+	
+	/**
+	 * Adds an recipe for the Electrolyzer. Easier to use but not as universal
+	 * @param input1 ItemStack one input (order does not matter)
+	 * @param input2 ItemStack two input (order does not matter)
+	 * @param output ItemStack three output
+	 */
+	public void addElectrolyzerRecipe(ItemStack input1, ItemStack input2, ItemStack output, double outputChanche){
+		ItemStack[] in = {input1, input2};
+		ItemStack[] out = {output};
+		double[] chanches = {outputChanche};
+	    recipes.add(new HSMachineRecipe(in, out, chanches, NameHelper.getName(BlockRegister.blockElectrolyzer)));	
+	}
+	
+	/**
+	 * Adds an recipe for the Grinder. Easier to use but not as universal
+	 * @param input ItemStack one input
+	 * @param output ItemStack two output
+	 */
+	public void addGrinderRecipe(ItemStack input, ItemStack output, double outputChanche){
+		ItemStack[] in = {input};
+		ItemStack[] out = {output};
+		double[] chanches = {outputChanche};
+	    recipes.add(new HSMachineRecipe(in, out, chanches, NameHelper.getName(BlockRegister.blockGrinder)));	
+	}
+	
+	
+	/**
+	 * Adds an recipe for the Blast Furnace. Easier to use but not as universal
+	 * @param input1  ItemStack one input (order does not matter)
+	 * @param input2  ItemStack two input (order does not matter)
+	 * @param input3  ItemStack three input (order does not matter)
+	 * @param output1 ItemStack four output
+	 * @param output2 ItemStack five output
+	 */
+	
+	public void addBlastFurnaceRecipe(ItemStack input1, ItemStack input2, ItemStack input3, ItemStack output1, ItemStack output2, double outputChanche){
+		ItemStack[] in = {input1, input2, input3};
+		ItemStack[] out = {output1, output2};
+		double[] chanches = {outputChanche};
+	    recipes.add(new HSMachineRecipe(in, out, chanches, NameHelper.getName(BlockRegister.blockBlastFurnace)));	
+	}
+	
 	/**
 	 * Checks if the given recipe is valid by comparing it to all saved recipes
 	 * @param input ItemStack-Array input
@@ -94,6 +130,17 @@ public class MachineRecipeHandler {
 		// ItemStack[] out = {new ItemStack(Blocks.diamond_block), new
 		// ItemStack(Blocks.diamond_block)};
 		return null;
+	}
+	
+	public double getOutputChanche(ItemStack[] input, ItemStack output, String machine){
+		HSMachineRecipe recipe;
+		for (int i = 0; i < recipes.size(); i++) {
+			recipe = recipes.get(i);
+			// Checks if there is an output
+			if (recipe.isRecipeValid(input, recipe.getOutput(), machine))
+				return recipe.getOutputChanche(output);
+		}
+		return 0.0;
 	}
 
 }

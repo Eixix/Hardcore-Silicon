@@ -6,8 +6,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
+import tv.Tunfisch.HardcoreSilicon.Blocks.BlockBlastFurnace;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockElectrolyzer;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockGrinder;
+import tv.Tunfisch.HardcoreSilicon.Blocks.BlockLimestone;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreBauxite;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreChromite;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
@@ -24,6 +26,8 @@ public class BlockRegister {
 	public static Block blockOreSalt;
 	public static Block blockElectrolyzer;
 	public static Block blockOreBauxite;
+	public static Block blockLimestone;
+	public static Block blockBlastFurnace;
 	//Fluids
 	public static Block blockSulfuricAcid;
 	
@@ -56,8 +60,16 @@ public class BlockRegister {
 		blockOreBauxite = new BlockOreBauxite(Material.rock, 10.0F, 5.0F, 0.0F, "pickaxe", 1);
 		registerBlock(blockOreBauxite);
 		
+		blockLimestone = new BlockLimestone(Material.rock, 5.0F, 3.0F, 0.0F, "pickaxe", 1);
+		registerBlock(blockLimestone);
+		//Create an OreDicitonary entry
+		OreDictionary.registerOre("limestone", blockLimestone);
+		
 		blockSulfuricAcid = new SulfuricAcid();
 		registerBlock(blockSulfuricAcid);
+		
+		blockBlastFurnace = new BlockBlastFurnace();
+		registerBlock(blockBlastFurnace);
 	}
 	
 	/**

@@ -6,7 +6,6 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
-import tv.Tunfisch.HardcoreSilicon.GrinderRecipes;
 
 public class SlotGrinderOutput extends Slot {
 	/** The player that is using the GUI where this slot resides. */
@@ -49,7 +48,7 @@ public class SlotGrinderOutput extends Slot {
 	protected void onCrafting(ItemStack parItemStack) {
 		if (!thePlayer.worldObj.isRemote) {
 			int expEarned = numGrinderOutput;
-			float expFactor = GrinderRecipes.instance().getGrindingExperience(parItemStack);
+			float expFactor = 1.0f;
 
 			if (expFactor == 0.0F) {
 				expEarned = 0;

@@ -43,6 +43,7 @@ public final class ItemRenderRegister {
 		itemRenderRegister(ItemRegister.itemCoalDust);
 		itemRenderRegister(ItemRegister.itemChromite);
 		itemRenderRegister(ItemRegister.itemChromate);
+		itemRenderRegister(ItemRegister.itemChromeIngot);
 		itemRenderRegister(ItemRegister.itemSodium);
 		itemRenderRegister(ItemRegister.itemSalt);
 		itemRenderRegister(ItemRegister.itemSodiumchromate);
@@ -53,6 +54,7 @@ public final class ItemRenderRegister {
 		itemRenderRegister(ItemRegister.itemChromeIIIOxide);
 		itemRenderRegister(ItemRegister.itemAluminiumIngot);
 		itemRenderRegister(ItemRegister.itemBauxiteDustTiny);
+		itemRenderRegister(ItemRegister.itemNuggetChrome);
     }
 	
 	/**

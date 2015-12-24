@@ -23,13 +23,13 @@ import tv.Tunfisch.HardcoreSilicon.Reference;
 import tv.Tunfisch.HardcoreSilicon.Container.ContainerElectrolyzer;
 import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
 
-public class TileEntityElectrolyzer extends TileEntityBasicMachine {
+public class TileEntityBlastFurnace extends TileEntityBasicMachine {
 	// Enumerate the slots
 	//Convention: Start counting by 0. 0 has to be an input slot and the last slot is always the output slot
-	public static final int INPUT1 = 0, INPUT2 = 1, OUTPUT = 2;
+	public static final int INPUT1 = 0, INPUT2 = 1, INPUT3 = 2, OUTPUT1 = 3, OUTPUT2 = 4;
 
-	private static final int[] slotsTop = new int[] { INPUT1, INPUT2 };
-	private static final int[] slotsBottom = new int[] { OUTPUT };
+	private static final int[] slotsTop = new int[] { INPUT1, INPUT2, INPUT3 };
+	private static final int[] slotsBottom = new int[] { OUTPUT1, OUTPUT2 };
 	private static final int[] slotsSides = new int[] {};
 
 	/**
@@ -38,22 +38,23 @@ public class TileEntityElectrolyzer extends TileEntityBasicMachine {
 	 */
 	@Override
 	public int getCustomSlotsCount(){
-		return OUTPUT +1;
+		return OUTPUT2 +1;
+		
 	}
 	
 	@Override
 	public String getName() {
-		return NameHelper.getName(BlockRegister.blockElectrolyzer);
+		return NameHelper.getName(BlockRegister.blockBlastFurnace);
 	}
 	
 	@Override
 	public int timeToProcessOneItem(ItemStack parItemStack) {
-		return 200;
+		return 500;
 	}
 
 	@Override
 	public ItemStack[] getInputs(){
-		ItemStack[] stackarray = {machineItemStacks[INPUT1], machineItemStacks[INPUT2]};
+		ItemStack[] stackarray = {machineItemStacks[INPUT1], machineItemStacks[INPUT2], machineItemStacks[INPUT3]};
 		return stackarray;
 	}
 
@@ -64,7 +65,7 @@ public class TileEntityElectrolyzer extends TileEntityBasicMachine {
 
 	@Override
 	public String getGuiID() {
-		return Reference.MOD_ID + ":electrolyzer";
+		return Reference.MOD_ID + ":blastfurnace";
 	}
 
 	@Override
@@ -74,7 +75,7 @@ public class TileEntityElectrolyzer extends TileEntityBasicMachine {
 
 	@Override
 	public int getFirstOutputSlotNumber() {
-		return OUTPUT;
+		return OUTPUT1;
 	}
 
 	/**
@@ -87,7 +88,7 @@ public class TileEntityElectrolyzer extends TileEntityBasicMachine {
 
 	@Override
 	public int getInputCount() {
-		return 2;
+		return 3;
 	}
 
 }

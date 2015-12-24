@@ -1,0 +1,9 @@
+{
+    "parent": "block/orientable",
+    "textures": 
+    {
+        "top": "hardcoresilicon:blocks/BlastFurnace_Top",
+        "front": "hardcoresilicon:blocks/BlastFurnace_Front",
+        "side": "hardcoresilicon:blocks/BlastFurnace_Side"
+    }
+}

@@ -29,6 +29,7 @@ import tv.Tunfisch.HardcoreSilicon.Items.ItemEmotor;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemGenerator;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemIronOxide;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemNandSwitch;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemNuggetChrome;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemOsmiumIron;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemPickaxeStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemQuartzCrystal;
@@ -94,6 +95,7 @@ public class ItemRegister {
 		public static Item itemChromeIIIOxide;
 		public static Item itemAluminiumIngot;
 		public static Item itemBauxiteDustTiny;
+		public static Item itemNuggetChrome;
 
 		
 		/**
@@ -192,6 +194,11 @@ public class ItemRegister {
 			//Create Ore Dictionary Entry
 			OreDictionary.registerOre("itemChromite", itemChromite);
 			
+			itemChromeIngot = new ItemChromeIngot();
+			registerItem(itemChromeIngot);
+			//Create Ore Dictionary Entry
+			OreDictionary.registerOre("itemChromeIngot", itemChromeIngot);
+			
 			itemChromate = new ItemChromate();
 			registerItem(itemChromate);
 			
@@ -209,9 +216,6 @@ public class ItemRegister {
 			itemSodiumdichromate = new ItemSodiumdichromate();
 			registerItem(itemSodiumdichromate);
 			
-			itemChromeIngot = new ItemChromeIngot();
-			registerItem(itemChromeIngot);
-			
 			itemBatteryBasic = new ItemBatteryBasic();
 			registerItem(itemBatteryBasic);
 			
@@ -228,6 +232,11 @@ public class ItemRegister {
 			
 			itemBauxiteDustTiny = new ItemBauxiteDustTiny();
 			registerItem(itemBauxiteDustTiny);
+			
+			itemNuggetChrome = new ItemNuggetChrome();
+			registerItem(itemNuggetChrome);
+			//Create Ore Dictionary Entry
+			OreDictionary.registerOre("itemChromeNugget", itemNuggetChrome);
 			
 			
 		}
