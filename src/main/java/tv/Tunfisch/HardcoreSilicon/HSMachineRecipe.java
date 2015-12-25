@@ -33,14 +33,16 @@ public class HSMachineRecipe {
 	 */
 	private boolean isRecipeInputEqualTo(ItemStack[] inputStacks) {
 		// Check if the length is the same
-		if (input.length != inputStacks.length) return false;
+		if (input.length != inputStacks.length)
+			return false;
 		// Check if ItemStacks are equal
 		for (int i = 0; i < input.length; i++) {
-			if (!input[i].isItemEqual(inputStacks[i])) return false;
-		}	
-		return true;	
+			if (!input[i].isItemEqual(inputStacks[i]))
+				return false;
+		}
+		return true;
 	}
-	
+
 	/**
 	 * Compares the given output to the saved output by comparing the length and
 	 * the content of the Arrays
@@ -51,12 +53,45 @@ public class HSMachineRecipe {
 	 */
 	private boolean isRecipeOutputEqualTo(ItemStack[] outputStacks) {
 		// Check if the length is the same
-		if (output.length != outputStacks.length) return false;
+		if (output.length != outputStacks.length)
+			return false;
 		// Check if ItemStacks are equal
 		for (int i = 0; i < output.length; i++) {
-			if (!output[i].isItemEqual(outputStacks[i])) return false;
+			if (!output[i].isItemEqual(outputStacks[i]))
+				return false;
 		}
 		return true;
+	}
+
+	/**
+	 * Checks iterative and recursively if the Recipe is correct.
+	 * @param in InputStack
+	 * @param input true if input, false if output
+	 * @param shifted true if it has been shifted
+	 * @return true on a correct recipe
+	 */
+	private boolean isRecipeEqual(ItemStack[] in, boolean input, boolean shifted) {
+		ItemStack[] stack = in.clone();
+		//Check all ItemStacks
+		for (int i = 0; i < in.length; i++) {
+			if (input) {
+				if (isRecipeInputEqualTo(stack))
+					return true;
+			} else {
+				if (isRecipeOutputEqualTo(stack))
+					return true;
+			}
+			//Shift positions
+			stack = this.shiftPosition(stack);
+		}
+		// Switch out last two itemstacks and do it again
+		if (stack.length > 2 && !shifted) {
+			ItemStack temp = stack[stack.length - 1];
+			stack[stack.length - 1] = stack[stack.length - 2];
+			stack[stack.length - 2] = temp;
+			return this.isRecipeEqual(stack, input, true);
+		}
+		return false;
 	}
 
 	/**
@@ -90,15 +125,10 @@ public class HSMachineRecipe {
 	 * @return true if the input, the output and the machineName are met
 	 */
 	public boolean isRecipeValid(ItemStack[] inputStacks, ItemStack[] outputStacks, String machineName) {
-		boolean inputValid = this.isRecipeInputEqualTo(inputStacks);
-		// This makes the recipe symmetrical
-		boolean inputShiftedValid = this.isRecipeInputEqualTo(this.shiftPosition(inputStacks));
-		boolean outputValid = this.isRecipeOutputEqualTo(outputStacks);
-		boolean outputShiftedValid = this.isRecipeOutputEqualTo(this.shiftPosition(outputStacks));
+		boolean inputValid = this.isRecipeEqual(inputStacks, true, false);
+		boolean outputValid = this.isRecipeEqual(outputStacks, false, false);
 		boolean machineValid = machine.equals(machineName);
-		boolean valid = inputValid && outputValid && machineValid;
-		boolean shiftedValid = inputShiftedValid && outputShiftedValid && machineValid;
-		return valid || shiftedValid;
+		return inputValid && outputValid && machineValid;
 	}
 
 	public ItemStack[] getInput() {
