@@ -44,7 +44,7 @@ public class TileEntityBlastFurnace extends TileEntityBasicMachine {
 	
 	@Override
 	public String getName() {
-		return NameHelper.getName(BlockRegister.blockBlastFurnace);
+		return "tile.BlockBlastFurnace.name";
 	}
 	
 	@Override
