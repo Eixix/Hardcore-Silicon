@@ -41,6 +41,22 @@ public class MachineRecipeHandler {
 		this.addGrinderRecipe(new ItemStack(ItemRegister.itemStainlessSteelIngot), new ItemStack(ItemRegister.itemStainlessSteelDust),1);
 		this.addGrinderRecipe(new ItemStack(ItemRegister.itemQuartzCrystal), new ItemStack(ItemRegister.itemQuartzDust),1);
 		//this.addGrinderRecipe(new ItemStack(), new ItemStack());
+		//Blast Furnace
+		this.addBlastFurnaceRecipe(new ItemStack(Blocks.stone, 2, BlockStone.EnumType.ANDESITE.getMetadata()),
+				                   new ItemStack(Blocks.stone, 2, BlockStone.EnumType.DIORITE.getMetadata()),
+				                   new ItemStack(Blocks.stone, 2, BlockStone.EnumType.GRANITE.getMetadata()),
+								   new ItemStack(Blocks.stone, 10), new ItemStack(Blocks.sand, 10), 0.5, 0.25);
+		
+		//Iron
+		this.addBlastFurnaceRecipe(new ItemStack(BlockRegister.blockLimestone, 2),
+                					new ItemStack(Blocks.iron_ore),
+                					new ItemStack(Items.coal),
+                					new ItemStack(Items.iron_ingot, 3), new ItemStack(ItemRegister.itemSlag, 3), 1.0, 0.75);
+		//Gold
+		this.addBlastFurnaceRecipe(new ItemStack(BlockRegister.blockLimestone, 2),
+				new ItemStack(Blocks.gold_ore),
+				new ItemStack(Items.coal),
+				new ItemStack(Items.gold_ingot, 3), new ItemStack(ItemRegister.itemSlag, 3), 1.0, 0.75);
 	}
 
 	/**
@@ -88,10 +104,10 @@ public class MachineRecipeHandler {
 	 * @param output2 ItemStack five output
 	 */
 	
-	public void addBlastFurnaceRecipe(ItemStack input1, ItemStack input2, ItemStack input3, ItemStack output1, ItemStack output2, double outputChanche){
+	public void addBlastFurnaceRecipe(ItemStack input1, ItemStack input2, ItemStack input3, ItemStack output1, ItemStack output2, double outputChanche1, double outputChanche2){
 		ItemStack[] in = {input1, input2, input3};
 		ItemStack[] out = {output1, output2};
-		double[] chanches = {outputChanche};
+		double[] chanches = {outputChanche1, outputChanche2};
 	    recipes.add(new HSMachineRecipe(in, out, chanches, NameHelper.getName(BlockRegister.blockBlastFurnace)));	
 	}
 	

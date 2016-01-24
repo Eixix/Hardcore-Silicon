@@ -1,7 +1,6 @@
 package tv.Tunfisch.HardcoreSilicon.TileEntities;
 
 import java.util.Random;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -23,7 +22,7 @@ import tv.Tunfisch.HardcoreSilicon.NameHelper;
 import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
 
 public abstract class TileEntityBasicMachine extends TileEntityLockable
-		implements IUpdatePlayerListBox, ISidedInventory {
+		implements IUpdatePlayerListBox, ISidedInventory{
 	protected int timeCanProcess;
 	protected int currentItemProcessTime;
 	protected int ticksProcessingItemSoFar;
@@ -96,7 +95,7 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 
 		if (!worldObj.isRemote) {
 			// if something in the input slots
-			if (!this.allInputsEmpty()) {
+			if (!this.oneInputEmpty()) {
 				// start Processing
 				if (!processingSomething() && canProcess()) {
 
@@ -136,7 +135,7 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 	 */
 	private boolean canProcess() {
 		// If nothing in input slot
-		if (this.allInputsEmpty()) {
+		if (this.oneInputEmpty()) {
 			return false;
 		} else if (this.getFuelSlotNumber() != -1 && fuelValue == 0) {
 			if (machineItemStacks[this.getFuelSlotNumber()] != null) {
@@ -174,7 +173,7 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 			// produced
 			int j = 0;
 			for (int i = this.getFirstOutputSlotNumber(); i < this.getCustomSlotsCount(); i++) {
-				if (machineItemStacks[i].getItem() != itemstack[j].getItem()) {
+				if (machineItemStacks[i] != null && machineItemStacks[i].getItem() != itemstack[j].getItem()) {
 					return false;
 				}
 				j++;
@@ -182,9 +181,12 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 			// Check if the max stack size is reached
 			int k = 0;
 			for (int i = this.getFirstOutputSlotNumber(); i < this.getCustomSlotsCount(); i++) {
-				int result = machineItemStacks[i].stackSize + itemstack[k].stackSize;
-				if (result > getInventoryStackLimit() || result > machineItemStacks[i].getMaxStackSize())
-					return false;
+				int result;
+				if(machineItemStacks[i] != null){
+					result = machineItemStacks[i].stackSize + itemstack[k].stackSize;
+					if (result > getInventoryStackLimit() || result > machineItemStacks[i].getMaxStackSize())
+						return false;
+				}
 				k++;
 			}
 			return true;
@@ -419,6 +421,12 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 			return ticksPerItem;
 		case 4:
 			return fuelValue;
+		case 5:
+			return this.getCustomSlotsCount();	
+		case 6:
+			return this.getFirstOutputSlotNumber();	
+		case 7:
+			return this.getInputCount();	
 		default:
 			return 0;
 		}
@@ -448,7 +456,7 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 
 	@Override
 	public int getFieldCount() {
-		return 5;
+		return 8;
 	}
 
 	@Override
@@ -486,13 +494,11 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 		return false;
 	}
 
-	public boolean allInputsEmpty() {
-		int counter = 0;
+	public boolean oneInputEmpty() {
 		for (int i = 0; i < this.getInputCount(); i++) {
-			if (machineItemStacks[i] == null)
-				counter++;
+			if (machineItemStacks[i] == null) return true;
 		}
-		return counter == this.getInputCount();
+		return false;
 	}
 
 }

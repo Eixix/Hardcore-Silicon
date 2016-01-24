@@ -34,6 +34,7 @@ item.ItemBatteryBasic.name=Basisbatterie
 item.ItemBauxite.name=Bauxit
 item.ItemBauxiteDustTiny.name=Kleiner Haufen Bauxitstaub 
 item.ItemAluminiumIngot.name=Aluminiumbarren
+item.ItemSlag.name=Schlacke
 tile.BlockOreQuartz.name=Quarzerz
 tile.BlockOreChromite.name=Chromiterz
 tile.BlockOreSalt.name=Salzerz
