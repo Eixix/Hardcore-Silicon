@@ -39,6 +39,7 @@ import tv.Tunfisch.HardcoreSilicon.Items.ItemSenseless;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemShovelStainlessSteel;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSiliconCrystal;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSiliconRaw;
+import tv.Tunfisch.HardcoreSilicon.Items.ItemSlag;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSodium;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSodiumchromate;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSodiumdichromate;
@@ -96,6 +97,7 @@ public class ItemRegister {
 		public static Item itemAluminiumIngot;
 		public static Item itemBauxiteDustTiny;
 		public static Item itemNuggetChrome;
+		public static Item itemSlag;
 
 		
 		/**
@@ -237,6 +239,11 @@ public class ItemRegister {
 			registerItem(itemNuggetChrome);
 			//Create Ore Dictionary Entry
 			OreDictionary.registerOre("itemChromeNugget", itemNuggetChrome);
+			
+			itemSlag = new ItemSlag();
+			registerItem(itemSlag);
+			//Create Ore Dictionary Entry
+			OreDictionary.registerOre("itemSlag", itemSlag);
 			
 			
 		}

@@ -46,6 +46,19 @@ public class MachineRecipeHandler {
 				                   new ItemStack(Blocks.stone, 2, BlockStone.EnumType.DIORITE.getMetadata()),
 				                   new ItemStack(Blocks.stone, 2, BlockStone.EnumType.GRANITE.getMetadata()),
 								   new ItemStack(Blocks.stone, 10), new ItemStack(Blocks.sand, 10), 0.5, 0.25);
+
+		
+		//Iron
+		this.addBlastFurnaceRecipe(new ItemStack(BlockRegister.blockLimestone, 2),
+                					new ItemStack(Blocks.iron_ore),
+                					new ItemStack(Items.coal),
+                					new ItemStack(Items.iron_ingot, 3), new ItemStack(ItemRegister.itemSlag, 3), 1.0, 0.75);
+		//Gold
+		this.addBlastFurnaceRecipe(new ItemStack(BlockRegister.blockLimestone, 2),
+				new ItemStack(Blocks.gold_ore),
+				new ItemStack(Items.coal),
+				new ItemStack(Items.gold_ingot, 3), new ItemStack(ItemRegister.itemSlag, 3), 1.0, 0.75);
+
 	}
 
 	/**

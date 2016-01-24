@@ -52,6 +52,8 @@ public class CraftingHandler {
 		shapedCrafting(BlockRegister.blockElectrolyzer, 1, new Object[]{"IHI", "GBG", "IEI", 'G', Blocks.glass, 'E', ItemRegister.itemEmotor, 'B', Items.cauldron, 'H', Blocks.hopper, 'I', Items.iron_ingot});
 		shapedCrafting(ItemRegister.itemChromeIngot, 1, new Object[]{"CCC", "CCC", "CCC", 'C', ItemRegister.itemNuggetChrome});
 		
+		shapedCrafting(BlockRegister.blockBlastFurnace, 1, new Object[]{"SHS", "NFN", "SFS", 'S', ItemRegister.itemStainlessSteelIngot, 'N', Blocks.nether_brick, 'F', Blocks.furnace, 'H', Blocks.hopper});
+		
 		
 		//Shapeless
 		shapelessCrafting(ItemRegister.itemNuggetChrome, 9, new Object[]{ItemRegister.itemChromeIngot});
