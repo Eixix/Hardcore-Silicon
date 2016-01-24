@@ -64,7 +64,7 @@ public class TileEntityGrinder extends TileEntityBasicMachine {
 
 	@Override
 	public String getName() {
-		return NameHelper.getName(BlockRegister.blockGrinder);
+		return "tile.BlockGrinder.name";
 	}
 	
 	@Override

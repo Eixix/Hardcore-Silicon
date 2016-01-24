@@ -14,6 +14,7 @@ import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -43,7 +44,7 @@ public class TileEntityElectrolyzer extends TileEntityBasicMachine {
 	
 	@Override
 	public String getName() {
-		return NameHelper.getName(BlockRegister.blockElectrolyzer);
+		return "tile.BlockElectrolyzer.name";
 	}
 	
 	@Override
