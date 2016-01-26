@@ -9,28 +9,16 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import tv.Tunfisch.HardcoreSilicon.Register.ItemRegister;
-public class SlotFuel extends Slot{
+public class SlotWater extends Slot{
+
 	
-	private static ArrayList fuelList;
-	
-	public SlotFuel(IInventory parIInventory, int parSlotIndex,
+	public SlotWater(IInventory parIInventory, int parSlotIndex,
 			int parXDisplayPosition, int parYDisplayPosition) {
 		super(parIInventory, parSlotIndex, parXDisplayPosition, parYDisplayPosition);
-		fuelList = new ArrayList();
-		//Fill fuelList
-		fuelList.add(ItemRegister.itemBatteryBasic);
 	}
 	
 	@Override
 	public boolean isItemValid(ItemStack stack) {
-		return isFuel(stack);
+			return stack.getItem() == Items.water_bucket;
 	}
-	
-	public static boolean isFuel(ItemStack stack){
-		for(int i = 0; i < fuelList.size(); i++){
-			if(stack.getItem() == (net.minecraft.item.Item)fuelList.get(i)) return true;
-		}
-		return false;
-	}
-
 }

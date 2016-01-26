@@ -41,6 +41,8 @@ public class MachineRecipeHandler {
 		this.addGrinderRecipe(new ItemStack(ItemRegister.itemStainlessSteelIngot), new ItemStack(ItemRegister.itemStainlessSteelDust),1);
 		this.addGrinderRecipe(new ItemStack(ItemRegister.itemQuartzCrystal), new ItemStack(ItemRegister.itemQuartzDust),1);
 		//this.addGrinderRecipe(new ItemStack(), new ItemStack());
+		//Crystalizer
+		this.addCrystalizerRecipe(new ItemStack(Items.coal), new ItemStack(Items.diamond), 1);
 		//Blast Furnace
 		this.addBlastFurnaceRecipe(new ItemStack(Blocks.stone, 2, BlockStone.EnumType.ANDESITE.getMetadata()),
 				                   new ItemStack(Blocks.stone, 2, BlockStone.EnumType.DIORITE.getMetadata()),
@@ -81,7 +83,19 @@ public class MachineRecipeHandler {
 		ItemStack[] in = {input1, input2};
 		ItemStack[] out = {output};
 		double[] chanches = {outputChanche};
-	    recipes.add(new HSMachineRecipe(in, out, chanches, NameHelper.getName(BlockRegister.blockElectrolyzer)));	
+	    recipes.add(new HSMachineRecipe(in, out, chanches, "tile.BlockElectrolyzer.name"));	
+	}
+	
+	/**
+	 * Adds an recipe for the Crystalizer. Easier to use but not as universal
+	 * @param input ItemStack one input (order does not matter)
+	 * @param output ItemStack three output
+	 */
+	public void addCrystalizerRecipe(ItemStack input, ItemStack output, double outputChanche){
+		ItemStack[] in = {input};
+		ItemStack[] out = {output};
+		double[] chanches = {outputChanche};
+	    recipes.add(new HSMachineRecipe(in, out, chanches, "tile.BlockCrystalizer.name"));	
 	}
 	
 	/**
@@ -93,7 +107,7 @@ public class MachineRecipeHandler {
 		ItemStack[] in = {input};
 		ItemStack[] out = {output};
 		double[] chanches = {outputChanche};
-	    recipes.add(new HSMachineRecipe(in, out, chanches, NameHelper.getName(BlockRegister.blockGrinder)));	
+	    recipes.add(new HSMachineRecipe(in, out, chanches, "tile.BlockGrinder.name"));	
 	}
 	
 	
@@ -110,7 +124,7 @@ public class MachineRecipeHandler {
 		ItemStack[] in = {input1, input2, input3};
 		ItemStack[] out = {output1, output2};
 		double[] chanches = {outputChanche1, outputChanche2};
-	    recipes.add(new HSMachineRecipe(in, out, chanches, NameHelper.getName(BlockRegister.blockBlastFurnace)));	
+	    recipes.add(new HSMachineRecipe(in, out, chanches, "tile.BlockBlastFurnace.name"));	
 	}
 	
 	/**

@@ -20,9 +20,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
 import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
+import tv.Tunfisch.HardcoreSilicon.Register.ItemRegister;
 
 public abstract class TileEntityBasicMachine extends TileEntityLockable
-		implements IUpdatePlayerListBox, ISidedInventory{
+		implements IUpdatePlayerListBox, ISidedInventory {
 	protected int timeCanProcess;
 	protected int currentItemProcessTime;
 	protected int ticksProcessingItemSoFar;
@@ -139,15 +140,22 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 			return false;
 		} else if (this.getFuelSlotNumber() != -1 && fuelValue == 0) {
 			if (machineItemStacks[this.getFuelSlotNumber()] != null) {
-				// If you can take an item away, take it away
-				if (machineItemStacks[this.getFuelSlotNumber()].stackSize > 1)
-					--machineItemStacks[this.getFuelSlotNumber()].stackSize;
-				// If stacksize equals 0 delete itemStack
-				else
-					machineItemStacks[this.getFuelSlotNumber()] = null;
-				fuelValue += 8;
+				if (machineItemStacks[this.getFuelSlotNumber()]
+						.isItemEqual(new ItemStack(ItemRegister.itemBatteryBasic))) {
+					// If you can take an item away, take it away
+					if (machineItemStacks[this.getFuelSlotNumber()].stackSize > 1)
+						--machineItemStacks[this.getFuelSlotNumber()].stackSize;
+					// If stacksize equals 0 delete itemStack
+					else
+						machineItemStacks[this.getFuelSlotNumber()] = null;
+					fuelValue += 8;
+				} else if (machineItemStacks[this.getFuelSlotNumber()].isItemEqual(new ItemStack(Items.water_bucket))) {
+					// Empty water bucket
+					machineItemStacks[this.getFuelSlotNumber()] = new ItemStack(Items.bucket);
+					fuelValue += 100;
+				}
 			}
-			return false;
+			return false; 
 		} else {
 			// Check if it has a Processing recipe
 			ItemStack[] in = this.getInputs();
@@ -182,7 +190,7 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 			int k = 0;
 			for (int i = this.getFirstOutputSlotNumber(); i < this.getCustomSlotsCount(); i++) {
 				int result;
-				if(machineItemStacks[i] != null){
+				if (machineItemStacks[i] != null) {
 					result = machineItemStacks[i].stackSize + itemstack[k].stackSize;
 					if (result > getInventoryStackLimit() || result > machineItemStacks[i].getMaxStackSize())
 						return false;
@@ -204,42 +212,43 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 				// Calculate Stacksize
 				double chanche = HardcoreSilicon.mrh.getOutputChanche(in, itemstack[j], this.getName());
 				int stacksize = itemstack[j].stackSize;
-			    if (stacksize >= 1 && chanche < 1) {
-					for(int k = 0; k < itemstack[j].stackSize; k++){
+				if (stacksize >= 1 && chanche < 1) {
+					for (int k = 0; k < itemstack[j].stackSize; k++) {
 						// Check if the Crafter is unlucky
-						if(Math.random() > chanche) stacksize--;
+						if (Math.random() > chanche)
+							stacksize--;
 					}
 				}
 				// Put the output in the output Slot, if there is any
-				if(stacksize > 0){
+				if (stacksize > 0) {
 					if (machineItemStacks[i] == null) {
 						machineItemStacks[i] = new ItemStack(itemstack[j].getItem(), stacksize);
 					} else if (machineItemStacks[i].getItem() == (itemstack[j].getItem())) {
 						machineItemStacks[i].stackSize += stacksize;
-					}	
+					}
+				}
+				j++;
 			}
-			j++;
-		}
 
-		// Reduce input stack size by 1
-		for (int i = 0; i < this.getInputCount(); i++) {
-			if (machineItemStacks[i] != null)
-				machineItemStacks[i].stackSize--;
-		}
-		// Reduce fuel value if needed
-		if (this.getFuelSlotNumber() != -1)
-			fuelValue--;
-		// Check if there is still input left and return buckets
-		for (int i = 0; i < this.getInputCount(); i++) {
-			if (machineItemStacks[i].stackSize <= 0) {
-				if (this.isBucket(machineItemStacks[i])) {
-					machineItemStacks[i] = new ItemStack(Items.bucket);
-				} else {
-					machineItemStacks[i] = null;
+			// Reduce input stack size by 1
+			for (int i = 0; i < this.getInputCount(); i++) {
+				if (machineItemStacks[i] != null)
+					machineItemStacks[i].stackSize--;
+			}
+			// Reduce fuel value if needed
+			if (this.getFuelSlotNumber() != -1)
+				fuelValue--;
+			// Check if there is still input left and return buckets
+			for (int i = 0; i < this.getInputCount(); i++) {
+				if (machineItemStacks[i].stackSize <= 0) {
+					if (this.isBucket(machineItemStacks[i])) {
+						machineItemStacks[i] = new ItemStack(Items.bucket);
+					} else {
+						machineItemStacks[i] = null;
+					}
 				}
 			}
 		}
-	}
 
 	}
 
@@ -422,11 +431,11 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 		case 4:
 			return fuelValue;
 		case 5:
-			return this.getCustomSlotsCount();	
+			return this.getCustomSlotsCount();
 		case 6:
-			return this.getFirstOutputSlotNumber();	
+			return this.getFirstOutputSlotNumber();
 		case 7:
-			return this.getInputCount();	
+			return this.getInputCount();
 		default:
 			return 0;
 		}
@@ -496,9 +505,9 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 
 	public boolean oneInputEmpty() {
 		for (int i = 0; i < this.getInputCount(); i++) {
-			if (machineItemStacks[i] == null) return true;
+			if (machineItemStacks[i] == null)
+				return true;
 		}
 		return false;
 	}
-
 }
