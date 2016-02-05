@@ -65,7 +65,7 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 
 	@Override
 	/**
-	 * Just let the NameHelper do its thing
+	 * Name pls
 	 */
 	public abstract String getName();
 
@@ -146,15 +146,15 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 					if (machineItemStacks[this.getFuelSlotNumber()].stackSize > 1)
 						--machineItemStacks[this.getFuelSlotNumber()].stackSize;
 					// If stacksize equals 0 delete itemStack
-					else
-						machineItemStacks[this.getFuelSlotNumber()] = null;
+					else machineItemStacks[this.getFuelSlotNumber()] = null;
 					fuelValue += 8;
 				} else if (machineItemStacks[this.getFuelSlotNumber()].isItemEqual(new ItemStack(Items.water_bucket))) {
 					// Empty water bucket
 					machineItemStacks[this.getFuelSlotNumber()] = new ItemStack(Items.bucket);
-					fuelValue += 100;
+					fuelValue += 4;
 				}
 			}
+			
 			return false; 
 		} else {
 			// Check if it has a Processing recipe

@@ -89,7 +89,7 @@ public class TileEntityCrystalizer extends TileEntityBasicMachine {
 
 	@Override
 	public int getInputCount() {
-		return 2;
+		return 1;
 	}
 
 }

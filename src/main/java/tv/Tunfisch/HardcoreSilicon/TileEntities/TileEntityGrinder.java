@@ -49,7 +49,7 @@ public class TileEntityGrinder extends TileEntityBasicMachine {
 
 	@Override
 	public int getCustomSlotsCount() {
-		return 3;
+		return OUTPUT + 1;
 	}
 
 	@Override

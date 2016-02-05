@@ -43,7 +43,7 @@ public class GuiCrystalizer extends GuiContainer {
 		int progressLevel = getProgressLevel(24);
 		drawTexturedModalRect(marginHorizontal + 79, marginVertical + 34, 176, 14, progressLevel + 1, 16);
 		// Draw Water level
-		drawTexturedModalRect(marginHorizontal, marginVertical, 14, 176, tileCrystalizer.getField(4), 16);
+		drawGradientRect(marginHorizontal + 10, marginVertical + 80 - 15 * tileCrystalizer.getField(4), marginHorizontal + 30, marginVertical + 60, Color.CYAN.getRGB(), Color.BLUE.getRGB());
 	}
 
 	private int getProgressLevel(int progressIndicatorPixelWidth) {

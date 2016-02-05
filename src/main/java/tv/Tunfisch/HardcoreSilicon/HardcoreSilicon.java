@@ -116,7 +116,7 @@ public class HardcoreSilicon {
 		GameRegistry.registerWorldGenerator(new WorldGeneration(), 0); //0 is the priority
 		//Register Network
         NetworkRegistry.INSTANCE.registerGuiHandler(this.instance, new GuiHandler());  
-        //Initalize MachineRecipeHandler
+        //Initialize MachineRecipeHandler
         mrh = new MachineRecipeHandler();
 
 	}
