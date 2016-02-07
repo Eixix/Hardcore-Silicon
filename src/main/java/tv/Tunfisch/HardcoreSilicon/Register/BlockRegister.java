@@ -6,11 +6,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
+import tv.Tunfisch.HardcoreSilicon.Blocks.BlockAssembler;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockBlastFurnace;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockCrystalizer;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockElectrolyzer;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockGrinder;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockLimestone;
+import tv.Tunfisch.HardcoreSilicon.Blocks.BlockMillingMachine;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreBauxite;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreChromite;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
@@ -32,6 +34,8 @@ public class BlockRegister {
 	public static Block blockBlastFurnace;
 	public static Block blockCrystalizer;
 	public static Block blockUVR;
+	public static Block blockMillingMachine;
+	public static Block blockAssembler;
 	//Fluids
 	public static Block blockSulfuricAcid;
 	
@@ -80,6 +84,12 @@ public class BlockRegister {
 		
 		blockUVR = new BlockUVR();
 		registerBlock(blockUVR);
+		
+		blockMillingMachine = new BlockMillingMachine();
+		registerBlock(blockMillingMachine);
+		
+		blockAssembler = new BlockAssembler();
+		registerBlock(blockAssembler);
 	}
 	
 	/**

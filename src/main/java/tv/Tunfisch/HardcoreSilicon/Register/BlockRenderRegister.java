@@ -25,6 +25,8 @@ public class BlockRenderRegister {
 		blockRenderRegister(BlockRegister.blockBlastFurnace);
 		blockRenderRegister(BlockRegister.blockCrystalizer);
 		blockRenderRegister(BlockRegister.blockUVR);
+		blockRenderRegister(BlockRegister.blockMillingMachine);
+		blockRenderRegister(BlockRegister.blockAssembler);
 		//Fluids
 		blockRenderRegister(BlockRegister.blockSulfuricAcid);
 	}

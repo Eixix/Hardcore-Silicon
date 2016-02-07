@@ -6,15 +6,15 @@ import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import tv.Tunfisch.HardcoreSilicon.Reference;
-import tv.Tunfisch.HardcoreSilicon.Container.ContainerBlastFurnace;
+import tv.Tunfisch.HardcoreSilicon.Container.ContainerAssembler;
 
-public class TileEntityBlastFurnace extends TileEntityBasicMachine {
+public class TileEntityAssembler extends TileEntityBasicMachine {
 	// Enumerate the slots
 	//Convention: Start counting by 0. 0 has to be an input slot and the last slot is always the output slot
-	public static final int INPUT1 = 0, INPUT2 = 1, INPUT3 = 2, OUTPUT1 = 3, OUTPUT2 = 4;
+	public static final int INPUT1 = 0, INPUT2 = 1, INPUT3 = 2, OUTPUT = 3;
 
 	private static final int[] slotsTop = new int[] { INPUT1, INPUT2, INPUT3 };
-	private static final int[] slotsBottom = new int[] { OUTPUT1, OUTPUT2 };
+	private static final int[] slotsBottom = new int[] { OUTPUT };
 	private static final int[] slotsSides = new int[] {};
 
 	/**
@@ -23,18 +23,18 @@ public class TileEntityBlastFurnace extends TileEntityBasicMachine {
 	 */
 	@Override
 	public int getCustomSlotsCount(){
-		return OUTPUT2 +1;
+		return OUTPUT +1;
 		
 	}
 	
 	@Override
 	public String getName() {
-		return "tile.BlockBlastFurnace.name";
+		return "tile.BlockAssembler.name";
 	}
 	
 	@Override
 	public int timeToProcessOneItem(ItemStack parItemStack) {
-		return 500;
+		return 200;
 	}
 
 	@Override
@@ -50,17 +50,17 @@ public class TileEntityBlastFurnace extends TileEntityBasicMachine {
 
 	@Override
 	public String getGuiID() {
-		return Reference.MOD_ID + ":blastfurnace";
+		return Reference.MOD_ID + ":assembler";
 	}
 
 	@Override
 	public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
-		return new ContainerBlastFurnace(playerInventory, this);
+		return new ContainerAssembler(playerInventory, this);
 	}
 
 	@Override
 	public int getFirstOutputSlotNumber() {
-		return OUTPUT1;
+		return OUTPUT;
 	}
 
 	/**

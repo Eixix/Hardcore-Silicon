@@ -6,15 +6,15 @@ import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import tv.Tunfisch.HardcoreSilicon.Reference;
-import tv.Tunfisch.HardcoreSilicon.Container.ContainerBlastFurnace;
+import tv.Tunfisch.HardcoreSilicon.Container.ContainerMillingMachine;
 
-public class TileEntityBlastFurnace extends TileEntityBasicMachine {
+public class TileEntityMillingMachine extends TileEntityBasicMachine {
 	// Enumerate the slots
 	//Convention: Start counting by 0. 0 has to be an input slot and the last slot is always the output slot
-	public static final int INPUT1 = 0, INPUT2 = 1, INPUT3 = 2, OUTPUT1 = 3, OUTPUT2 = 4;
+	public static final int INPUT1 = 0, INPUT2 = 1, OUTPUT1 = 2, OUTPUT2 = 3, OUTPUT3 = 4;
 
-	private static final int[] slotsTop = new int[] { INPUT1, INPUT2, INPUT3 };
-	private static final int[] slotsBottom = new int[] { OUTPUT1, OUTPUT2 };
+	private static final int[] slotsTop = new int[] { INPUT1, INPUT2 };
+	private static final int[] slotsBottom = new int[] { OUTPUT1, OUTPUT2, OUTPUT3 };
 	private static final int[] slotsSides = new int[] {};
 
 	/**
@@ -23,23 +23,22 @@ public class TileEntityBlastFurnace extends TileEntityBasicMachine {
 	 */
 	@Override
 	public int getCustomSlotsCount(){
-		return OUTPUT2 +1;
-		
+		return OUTPUT3 +1;
 	}
 	
 	@Override
 	public String getName() {
-		return "tile.BlockBlastFurnace.name";
+		return "tile.BlockMillingMachine.name";
 	}
 	
 	@Override
 	public int timeToProcessOneItem(ItemStack parItemStack) {
-		return 500;
+		return 200;
 	}
 
 	@Override
 	public ItemStack[] getInputs(){
-		ItemStack[] stackarray = {machineItemStacks[INPUT1], machineItemStacks[INPUT2], machineItemStacks[INPUT3]};
+		ItemStack[] stackarray = {machineItemStacks[INPUT1], machineItemStacks[INPUT2]};
 		return stackarray;
 	}
 
@@ -50,12 +49,12 @@ public class TileEntityBlastFurnace extends TileEntityBasicMachine {
 
 	@Override
 	public String getGuiID() {
-		return Reference.MOD_ID + ":blastfurnace";
+		return Reference.MOD_ID + ":millingMachine";
 	}
 
 	@Override
 	public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
-		return new ContainerBlastFurnace(playerInventory, this);
+		return new ContainerMillingMachine(playerInventory, this);
 	}
 
 	@Override
@@ -73,7 +72,7 @@ public class TileEntityBlastFurnace extends TileEntityBasicMachine {
 
 	@Override
 	public int getInputCount() {
-		return 3;
+		return 2;
 	}
 
 }

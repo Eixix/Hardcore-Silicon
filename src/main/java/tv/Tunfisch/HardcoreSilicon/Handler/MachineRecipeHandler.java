@@ -63,7 +63,11 @@ public class MachineRecipeHandler {
 				new ItemStack(Blocks.gold_ore),
 				new ItemStack(Items.coal),
 				new ItemStack(Items.gold_ingot, 3), new ItemStack(ItemRegister.itemSlag, 3), 1.0, 0.75);
-
+		//MillingMachine
+		this.addMillingMachineRecipe(new ItemStack(Items.apple), new ItemStack(Items.apple),
+									 new ItemStack(Items.clock), new ItemStack(Items.apple), new ItemStack(Items.apple), 0.5, 0.7, 0.1);
+		//Assembler
+		this.addAssemblerRecipe(new ItemStack(Items.coal), new ItemStack(Blocks.coal_block), new ItemStack(ItemRegister.itemCoalDust), new ItemStack(Items.diamond), 1);
 	}
 
 	/**
@@ -141,6 +145,38 @@ public class MachineRecipeHandler {
 		ItemStack[] out = {output1, output2};
 		double[] chanches = {outputChanche1, outputChanche2};
 	    recipes.add(new HSMachineRecipe(in, out, chanches, "tile.BlockBlastFurnace.name"));	
+	}
+	
+	/**
+	 * Adds an recipe for the Blast Furnace. Easier to use but not as universal
+	 * @param input1  ItemStack one input (order does not matter)
+	 * @param input2  ItemStack two input (order does not matter)
+	 * @param output1 ItemStack three output
+	 * @param output2 ItemStack four output
+	 * @param output3 ItemStack five output
+	 */
+	
+	private void addMillingMachineRecipe(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2, ItemStack output3, double outputChanche1, double outputChanche2, double outputChanche3){
+		ItemStack[] in = {input1, input2};
+		ItemStack[] out = {output1, output2, output3};
+		double[] chanches = {outputChanche1, outputChanche2, outputChanche3};
+	    recipes.add(new HSMachineRecipe(in, out, chanches, "tile.BlockMillingMachine.name"));	
+	}
+	
+	/**
+	 * Adds an recipe for the Blast Furnace. Easier to use but not as universal
+	 * @param input1  ItemStack one input (order does not matter)
+	 * @param input2  ItemStack two input (order does not matter)
+	 * @param input3  ItemStack three input (order does not matter)
+	 * @param output1 ItemStack four output
+	 * @param output2 ItemStack five output
+	 */
+	
+	private void addAssemblerRecipe(ItemStack input1, ItemStack input2, ItemStack input3, ItemStack output, double outputChanche){
+		ItemStack[] in = {input1, input2, input3};
+		ItemStack[] out = {output};
+		double[] chanches = {outputChanche};
+	    recipes.add(new HSMachineRecipe(in, out, chanches, "tile.BlockAssembler.name"));	
 	}
 
 	/**
