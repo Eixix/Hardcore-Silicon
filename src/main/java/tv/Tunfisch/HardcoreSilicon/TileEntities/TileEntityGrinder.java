@@ -29,11 +29,6 @@ public class TileEntityGrinder extends TileEntityBasicMachine {
 	}
 
 	@Override
-	public String getGuiID() {
-		return Reference.MOD_ID + ":grinder";
-	}
-
-	@Override
 	public int getCustomSlotsCount() {
 		return OUTPUT + 1;
 	}
@@ -48,10 +43,6 @@ public class TileEntityGrinder extends TileEntityBasicMachine {
 		return OUTPUT;
 	}
 
-	@Override
-	public String getName() {
-		return "tile.BlockGrinder.name";
-	}
 	
 	@Override
 	public int timeToProcessOneItem(ItemStack parItemStack) {

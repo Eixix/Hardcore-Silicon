@@ -25,12 +25,7 @@ public class TileEntityUVR extends TileEntityBasicMachine {
 	public int getCustomSlotsCount(){
 		return OUTPUT +1;
 	}
-	
-	@Override
-	public String getName() {
-		return "tile.BlockUVR.name";
-	}
-	
+
 	@Override
 	public int timeToProcessOneItem(ItemStack parItemStack) {
 		return 200;
@@ -45,11 +40,6 @@ public class TileEntityUVR extends TileEntityBasicMachine {
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
 		return side == EnumFacing.DOWN ? slotsBottom : (side == EnumFacing.UP ? slotsTop : slotsSides);
-	}
-
-	@Override
-	public String getGuiID() {
-		return Reference.MOD_ID + ":uvr";
 	}
 
 	@Override

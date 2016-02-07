@@ -39,27 +39,9 @@ public abstract class BlockBasicMachine extends BlockContainer{
 		lightOpacity = 20; // cast a light shadow
 		setTickRandomly(false);
 		useNeighborBrightness = false;
-		this.setUnlocalizedName(this.getName());
-		id = this.getID();
+		this.setUnlocalizedName(NameHelper.getName(this));
+		id = this.getIdFromBlock(this);
 	}
-	
-	/**
-	 * NameHelper, your job!
-	 * @return NameHelper name
-	 */
-	public abstract String getName();
-	
-	/**
-	 * As simple as effective.
-	 * @return this.getIdFromBlock(this);
-	 */
-	public abstract int getID();
-
-	@Override
-	/**
-	 * Which Item should be dropped? The machine or some troll IC2 stuff?
-	 */
-	public abstract Item getItemDropped(IBlockState state, Random rand, int fortune);
 	
 	@Override
 	/**
@@ -75,13 +57,17 @@ public abstract class BlockBasicMachine extends BlockContainer{
 	 */
 	public abstract void breakThisBlock(World worldIn, BlockPos pos, IBlockState state);
 	
+
+	@Override
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+		return Item.getItemFromBlock(this);
+	}
+	
 	@Override
 	@SideOnly(Side.CLIENT)
-	/**
-	 * EZ-PZ lemon - you know ;)
-	 * return Item.getItemFromBlock(this);
-	 */
-	public abstract Item getItem(World worldIn, BlockPos pos);
+	public Item getItem(World worldIn, BlockPos pos) {
+		return Item.getItemFromBlock(this);
+	}
 	
 	@Override
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state){

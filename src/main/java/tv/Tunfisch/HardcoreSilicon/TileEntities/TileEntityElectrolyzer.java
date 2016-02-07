@@ -25,12 +25,7 @@ public class TileEntityElectrolyzer extends TileEntityBasicMachine {
 	public int getCustomSlotsCount(){
 		return OUTPUT +1;
 	}
-	
-	@Override
-	public String getName() {
-		return "tile.BlockElectrolyzer.name";
-	}
-	
+
 	@Override
 	public int timeToProcessOneItem(ItemStack parItemStack) {
 		return 200;
@@ -45,11 +40,6 @@ public class TileEntityElectrolyzer extends TileEntityBasicMachine {
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
 		return side == EnumFacing.DOWN ? slotsBottom : (side == EnumFacing.UP ? slotsTop : slotsSides);
-	}
-
-	@Override
-	public String getGuiID() {
-		return Reference.MOD_ID + ":electrolyzer";
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import tv.Tunfisch.HardcoreSilicon.NameHelper;
 import tv.Tunfisch.HardcoreSilicon.Reference;
 import tv.Tunfisch.HardcoreSilicon.Container.ContainerBlastFurnace;
 
@@ -28,11 +29,6 @@ public class TileEntityBlastFurnace extends TileEntityBasicMachine {
 	}
 	
 	@Override
-	public String getName() {
-		return "tile.BlockBlastFurnace.name";
-	}
-	
-	@Override
 	public int timeToProcessOneItem(ItemStack parItemStack) {
 		return 500;
 	}
@@ -46,11 +42,6 @@ public class TileEntityBlastFurnace extends TileEntityBasicMachine {
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
 		return side == EnumFacing.DOWN ? slotsBottom : (side == EnumFacing.UP ? slotsTop : slotsSides);
-	}
-
-	@Override
-	public String getGuiID() {
-		return Reference.MOD_ID + ":blastfurnace";
 	}
 
 	@Override

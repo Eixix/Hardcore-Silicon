@@ -27,11 +27,6 @@ public class TileEntityCrystalizer extends TileEntityBasicMachine {
 	}
 	
 	@Override
-	public String getName() {
-		return "tile.BlockCrystalizer.name";
-	}
-	
-	@Override
 	public int timeToProcessOneItem(ItemStack parItemStack) {
 		return 200;
 	}
@@ -45,11 +40,6 @@ public class TileEntityCrystalizer extends TileEntityBasicMachine {
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
 		return side == EnumFacing.DOWN ? slotsBottom : (side == EnumFacing.UP ? slotsTop : slotsSides);
-	}
-
-	@Override
-	public String getGuiID() {
-		return Reference.MOD_ID + ":crystalizer";
 	}
 
 	@Override

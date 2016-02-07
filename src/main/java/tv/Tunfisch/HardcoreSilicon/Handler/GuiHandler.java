@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import tv.Tunfisch.HardcoreSilicon.NameHelper;
 import tv.Tunfisch.HardcoreSilicon.Container.ContainerBasicMachine;
 import tv.Tunfisch.HardcoreSilicon.Container.ContainerBlastFurnace;
 import tv.Tunfisch.HardcoreSilicon.Container.ContainerCrystalizer;
@@ -35,10 +36,8 @@ public class GuiHandler implements IGuiHandler {
         TileEntity tileEntity = world.getTileEntity(new BlockPos(x, y, z));
 
         if (tileEntity != null && tileEntity instanceof TileEntityBasicMachine){
-        	//name is e.g. "tile.blockCrystalizer.name"
-        	String name = ((TileEntityBasicMachine) tileEntity).getName();
-        	//cut name to e.g. "Crystalizer"
-        	name = name.substring(name.indexOf("k") + 1, name.lastIndexOf('.'));
+        	//name is e.g. "tile.BlockCrystalizer.name"
+        	String name = NameHelper.getNameOnly((TileEntityBasicMachine) tileEntity);
         	//Dynamical class access, booyah!
         	try {
 				Class container = Class.forName("tv.Tunfisch.HardcoreSilicon.Container.Container" + name);
@@ -58,9 +57,7 @@ public class GuiHandler implements IGuiHandler {
 
         if (tileEntity != null && tileEntity instanceof TileEntityBasicMachine){
         	//name is e.g. "tile.blockCrystalizer.name"
-        	String name = ((TileEntityBasicMachine) tileEntity).getName();
-        	//cut name to e.g. "Crystalizer"
-        	name = name.substring(name.indexOf("k") + 1, name.lastIndexOf('.'));
+        	String name = NameHelper.getNameOnly((TileEntityBasicMachine) tileEntity);
         	//Dynamical class creation, booyah!
         	try {
 				Class gui = Class.forName("tv.Tunfisch.HardcoreSilicon.Gui.Gui" + name);

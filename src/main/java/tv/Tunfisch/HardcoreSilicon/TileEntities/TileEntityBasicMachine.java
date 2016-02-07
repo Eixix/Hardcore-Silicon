@@ -20,6 +20,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import tv.Tunfisch.HardcoreSilicon.HSMachineRecipe;
 import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
+import tv.Tunfisch.HardcoreSilicon.Reference;
 import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
 import tv.Tunfisch.HardcoreSilicon.Register.ItemRegister;
 
@@ -65,12 +66,6 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 	 * @return Number of the first output slot
 	 */
 	public abstract int getFirstOutputSlotNumber();
-
-	@Override
-	/**
-	 * Name pls
-	 */
-	public abstract String getName();
 
 	/**
 	 * Time in millisecond to process or to process some particular item
@@ -512,6 +507,16 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 		}
 		return false;
 	}
+	
+	@Override
+	public String getName() {
+		return NameHelper.getTileEntityName(this);
+	}
+	
+	@Override
+	public String getGuiID() {
+		return Reference.MOD_ID + NameHelper.getNameOnly(this).toLowerCase();
+	}
 
 	public boolean oneInputEmpty() {
 		for (int i = 0; i < this.getInputCount(); i++) {
@@ -520,4 +525,6 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 		}
 		return false;
 	}
+	
+	
 }

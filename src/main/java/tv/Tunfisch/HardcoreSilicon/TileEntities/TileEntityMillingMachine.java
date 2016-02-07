@@ -25,12 +25,7 @@ public class TileEntityMillingMachine extends TileEntityBasicMachine {
 	public int getCustomSlotsCount(){
 		return OUTPUT3 +1;
 	}
-	
-	@Override
-	public String getName() {
-		return "tile.BlockMillingMachine.name";
-	}
-	
+
 	@Override
 	public int timeToProcessOneItem(ItemStack parItemStack) {
 		return 200;
@@ -46,12 +41,7 @@ public class TileEntityMillingMachine extends TileEntityBasicMachine {
 	public int[] getSlotsForFace(EnumFacing side) {
 		return side == EnumFacing.DOWN ? slotsBottom : (side == EnumFacing.UP ? slotsTop : slotsSides);
 	}
-
-	@Override
-	public String getGuiID() {
-		return Reference.MOD_ID + ":millingMachine";
-	}
-
+	
 	@Override
 	public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
 		return new ContainerMillingMachine(playerInventory, this);
