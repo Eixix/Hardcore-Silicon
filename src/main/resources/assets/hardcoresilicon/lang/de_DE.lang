@@ -40,6 +40,7 @@ tile.BlockOreChromite.name=Chromiterz
 tile.BlockOreSalt.name=Salzerz
 tile.BlockElectrolyzer.name=Electrolysierer
 tile.BlockCrystalizer.name=Kristallzüchter
+tile.BlockUVR.name= Ultraviolettlaser
 tile.BlockGrinder.name=Universelles Mahlwerk
 tile.BlockBlastFurnace.name=Hochofen
 tile.BlockLimestone.name=Kalkstein

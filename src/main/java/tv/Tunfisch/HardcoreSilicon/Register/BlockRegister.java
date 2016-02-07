@@ -15,6 +15,7 @@ import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreBauxite;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreChromite;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreSalt;
+import tv.Tunfisch.HardcoreSilicon.Blocks.BlockUVR;
 import tv.Tunfisch.HardcoreSilicon.Fluids.SulfuricAcid;
 
 /**
@@ -30,6 +31,7 @@ public class BlockRegister {
 	public static Block blockLimestone;
 	public static Block blockBlastFurnace;
 	public static Block blockCrystalizer;
+	public static Block blockUVR;
 	//Fluids
 	public static Block blockSulfuricAcid;
 	
@@ -75,6 +77,9 @@ public class BlockRegister {
 		
 		blockCrystalizer = new BlockCrystalizer();
 		registerBlock(blockCrystalizer);
+		
+		blockUVR = new BlockUVR();
+		registerBlock(blockUVR);
 	}
 	
 	/**

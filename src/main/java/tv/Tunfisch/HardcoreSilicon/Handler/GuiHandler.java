@@ -24,7 +24,6 @@ import tv.Tunfisch.HardcoreSilicon.Gui.GuiElectrolyzer;
 import tv.Tunfisch.HardcoreSilicon.Gui.GuiGrinder;
 import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
 import tv.Tunfisch.HardcoreSilicon.Slots.SlotOutput;
-import tv.Tunfisch.HardcoreSilicon.Slots.SlotWater;
 import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityBasicMachine;
 import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityCrystalizer;
 

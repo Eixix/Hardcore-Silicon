@@ -35,12 +35,15 @@ public class MachineRecipeHandler {
 		this.addElectrolyzerRecipe(new ItemStack(Items.water_bucket), new ItemStack(ItemRegister.itemSalt), new ItemStack(ItemRegister.itemSodium),1);
 
 		//Grinder
-		this.addGrinderRecipe(new ItemStack(Items.coal), new ItemStack(Items.apple, 5),0.5);
+		this.addGrinderRecipe(new ItemStack(Items.coal,5), new ItemStack(Items.apple, 5),0.5);
 		this.addGrinderRecipe(new ItemStack(Blocks.stone, 2, BlockStone.EnumType.ANDESITE.getMetadata()), new ItemStack(ItemRegister.itemAndesiteDust),1);
 		this.addGrinderRecipe(new ItemStack(BlockRegister.blockOreChromite), new ItemStack(ItemRegister.itemChromite),1);
 		this.addGrinderRecipe(new ItemStack(ItemRegister.itemStainlessSteelIngot), new ItemStack(ItemRegister.itemStainlessSteelDust),1);
 		this.addGrinderRecipe(new ItemStack(ItemRegister.itemQuartzCrystal), new ItemStack(ItemRegister.itemQuartzDust),1);
 		//this.addGrinderRecipe(new ItemStack(), new ItemStack());
+		//UVR
+		//Put as stack size 0 in the first input slot, as it will be the template and should not be consumed
+		this.addUVRRecipe(new ItemStack(Items.coal, 0),  new ItemStack(Items.apple), new ItemStack(Items.glowstone_dust, 10), 0.8);
 		//Crystalizer
 		this.addCrystalizerRecipe(new ItemStack(Items.coal), new ItemStack(Items.diamond), 1);
 		//Blast Furnace
@@ -69,7 +72,7 @@ public class MachineRecipeHandler {
 	 * @param output As many ItemStacks as the machine can handle for the output [Array]
 	 * @param machine The name of the machine. To avoid conflicts, just use the NameHelper
 	 */
-	public void addRecipe(ItemStack[] input, ItemStack[] output, double[] outputChanches, String machine) {
+	private void addRecipe(ItemStack[] input, ItemStack[] output, double[] outputChanches, String machine) {
 		recipes.add(new HSMachineRecipe(input, output, outputChanches, machine));
 	}
 	
@@ -79,7 +82,7 @@ public class MachineRecipeHandler {
 	 * @param input2 ItemStack two input (order does not matter)
 	 * @param output ItemStack three output
 	 */
-	public void addElectrolyzerRecipe(ItemStack input1, ItemStack input2, ItemStack output, double outputChanche){
+	private void addElectrolyzerRecipe(ItemStack input1, ItemStack input2, ItemStack output, double outputChanche){
 		ItemStack[] in = {input1, input2};
 		ItemStack[] out = {output};
 		double[] chanches = {outputChanche};
@@ -87,11 +90,24 @@ public class MachineRecipeHandler {
 	}
 	
 	/**
+	 * Adds an recipe for the UVR. Easier to use but not as universal
+	 * @param input1 ItemStack one input (order does not matter)
+	 * @param input2 ItemStack two input (order does not matter)
+	 * @param output ItemStack three output
+	 */
+	private void addUVRRecipe(ItemStack input1, ItemStack input2, ItemStack output, double outputChanche){
+		ItemStack[] in = {input1, input2};
+		ItemStack[] out = {output};
+		double[] chanches = {outputChanche};
+	    recipes.add(new HSMachineRecipe(in, out, chanches, "tile.BlockUVR.name"));	
+	}
+	
+	/**
 	 * Adds an recipe for the Crystalizer. Easier to use but not as universal
 	 * @param input ItemStack one input (order does not matter)
 	 * @param output ItemStack three output
 	 */
-	public void addCrystalizerRecipe(ItemStack input, ItemStack output, double outputChanche){
+	private void addCrystalizerRecipe(ItemStack input, ItemStack output, double outputChanche){
 		ItemStack[] in = {input};
 		ItemStack[] out = {output};
 		double[] chanches = {outputChanche};
@@ -103,7 +119,7 @@ public class MachineRecipeHandler {
 	 * @param input ItemStack one input
 	 * @param output ItemStack two output
 	 */
-	public void addGrinderRecipe(ItemStack input, ItemStack output, double outputChanche){
+	private void addGrinderRecipe(ItemStack input, ItemStack output, double outputChanche){
 		ItemStack[] in = {input};
 		ItemStack[] out = {output};
 		double[] chanches = {outputChanche};
@@ -120,59 +136,28 @@ public class MachineRecipeHandler {
 	 * @param output2 ItemStack five output
 	 */
 	
-	public void addBlastFurnaceRecipe(ItemStack input1, ItemStack input2, ItemStack input3, ItemStack output1, ItemStack output2, double outputChanche1, double outputChanche2){
+	private void addBlastFurnaceRecipe(ItemStack input1, ItemStack input2, ItemStack input3, ItemStack output1, ItemStack output2, double outputChanche1, double outputChanche2){
 		ItemStack[] in = {input1, input2, input3};
 		ItemStack[] out = {output1, output2};
 		double[] chanches = {outputChanche1, outputChanche2};
 	    recipes.add(new HSMachineRecipe(in, out, chanches, "tile.BlockBlastFurnace.name"));	
 	}
-	
-	/**
-	 * Checks if the given recipe is valid by comparing it to all saved recipes
-	 * @param input ItemStack-Array input
-	 * @param output ItemStack-Array output
-	 * @param machine String machine name (NameHelper)
-	 * @return true if the recipe is known by the MachineRecipeHandler
-	 */
-	public boolean isRecipeValid(ItemStack[] input, ItemStack[] output, String machine) {
-		HSMachineRecipe recipe;
-		for (int i = 0; i < recipes.size(); i++) {
-			recipe = recipes.get(i);
-			if (recipe.isRecipeValid(input, output, machine))
-				return true;
-		}
-		return false;
-	}
 
 	/**
-	 * Returns the output to a given input if its valid.
-	 * @param input ItemStack-Array input
-	 * @param machine String machine name (Name Helper)
-	 * @return
+	 * Searches for the Recipe with the given input and machine.
+	 * @param input Inputstack array
+	 * @param machine Machine name
+	 * @return HSMachineRecipe if found, null else
 	 */
-	public ItemStack[] getOutput(ItemStack[] input, String machine) {
+	public HSMachineRecipe getRecipe(ItemStack[] input, String machine){
 		HSMachineRecipe recipe;
 		for (int i = 0; i < recipes.size(); i++) {
 			recipe = recipes.get(i);
-			// Checks if there is an output
-			if (recipe.isRecipeValid(input, recipe.getOutput(), machine))
-				return recipe.getOutput();
+			if (recipe.isRecipeValid(input, machine))
+				return recipe;
 		}
-		// DEBUG-DIAMOND-BLOCKS!
-		// ItemStack[] out = {new ItemStack(Blocks.diamond_block), new
-		// ItemStack(Blocks.diamond_block)};
 		return null;
 	}
-	
-	public double getOutputChanche(ItemStack[] input, ItemStack output, String machine){
-		HSMachineRecipe recipe;
-		for (int i = 0; i < recipes.size(); i++) {
-			recipe = recipes.get(i);
-			// Checks if there is an output
-			if (recipe.isRecipeValid(input, recipe.getOutput(), machine))
-				return recipe.getOutputChanche(output);
-		}
-		return 0.0;
-	}
+
 
 }

@@ -8,7 +8,7 @@ public class HSMachineRecipe {
 
 	private ItemStack[] input;
 	private ItemStack[] output;
-	private HashMap<ItemStack, Double> outputToChanche = new HashMap<ItemStack, Double>();
+	private double[] chanches;
 	private String machine;
 
 	public HSMachineRecipe(ItemStack[] inputStacks, ItemStack[] outputStacks, double[] outputChanche,
@@ -16,11 +16,8 @@ public class HSMachineRecipe {
 		// Copy parameters
 		input = inputStacks.clone();
 		output = outputStacks.clone();
+		chanches = outputChanche.clone();
 		machine = machineName;
-		// Get chances
-		for (int i = 0; i < output.length; i++) {
-			outputToChanche.put(output[i], outputChanche[i]);
-		}
 	}
 
 	/**
@@ -37,27 +34,7 @@ public class HSMachineRecipe {
 			return false;
 		// Check if ItemStacks are equal
 		for (int i = 0; i < input.length; i++) {
-			if (!input[i].isItemEqual(inputStacks[i]))
-				return false;
-		}
-		return true;
-	}
-
-	/**
-	 * Compares the given output to the saved output by comparing the length and
-	 * the content of the Arrays
-	 * 
-	 * @param outputStacks
-	 *            The outputStack to compare to
-	 * @return true if the Arrays contain the same Stacks
-	 */
-	private boolean isRecipeOutputEqualTo(ItemStack[] outputStacks) {
-		// Check if the length is the same
-		if (output.length != outputStacks.length)
-			return false;
-		// Check if ItemStacks are equal
-		for (int i = 0; i < output.length; i++) {
-			if (!output[i].isItemEqual(outputStacks[i]))
+			if (!input[i].isItemEqual(inputStacks[i]) || input[i].stackSize > inputStacks[i].stackSize)
 				return false;
 		}
 		return true;
@@ -65,23 +42,21 @@ public class HSMachineRecipe {
 
 	/**
 	 * Checks iterative and recursively if the Recipe is correct.
-	 * @param in InputStack
-	 * @param input true if input, false if output
-	 * @param shifted true if it has been shifted
+	 * 
+	 * @param in
+	 *            InputStack
+	 * @param shifted
+	 *            true if it has been shifted
 	 * @return true on a correct recipe
 	 */
-	private boolean isRecipeEqual(ItemStack[] in, boolean input, boolean shifted) {
+	private boolean isRecipeEqual(ItemStack[] in, boolean shifted) {
 		ItemStack[] stack = in.clone();
-		//Check all ItemStacks
+		// Check all ItemStacks
 		for (int i = 0; i < in.length; i++) {
-			if (input) {
-				if (isRecipeInputEqualTo(stack))
-					return true;
-			} else {
-				if (isRecipeOutputEqualTo(stack))
-					return true;
-			}
-			//Shift positions
+			if (isRecipeInputEqualTo(stack))
+				return true;
+
+			// Shift positions
 			stack = this.shiftPosition(stack);
 		}
 		// Switch out last two itemstacks and do it again
@@ -89,7 +64,7 @@ public class HSMachineRecipe {
 			ItemStack temp = stack[stack.length - 1];
 			stack[stack.length - 1] = stack[stack.length - 2];
 			stack[stack.length - 2] = temp;
-			return this.isRecipeEqual(stack, input, true);
+			return this.isRecipeEqual(stack, true);
 		}
 		return false;
 	}
@@ -124,11 +99,10 @@ public class HSMachineRecipe {
 	 *            The name of the machine
 	 * @return true if the input, the output and the machineName are met
 	 */
-	public boolean isRecipeValid(ItemStack[] inputStacks, ItemStack[] outputStacks, String machineName) {
-		boolean inputValid = this.isRecipeEqual(inputStacks, true, false);
-		boolean outputValid = this.isRecipeEqual(outputStacks, false, false);
+	public boolean isRecipeValid(ItemStack[] inputStacks, String machineName) {
+		boolean inputValid = this.isRecipeEqual(inputStacks, false);
 		boolean machineValid = machine.equals(machineName);
-		return inputValid && outputValid && machineValid;
+		return inputValid && machineValid;
 	}
 
 	public ItemStack[] getInput() {
@@ -146,7 +120,7 @@ public class HSMachineRecipe {
 	public double getOutputChanche(ItemStack outputStack) {
 		for (int i = 0; i < output.length; i++) {
 			if (output[i].getIsItemStackEqual(outputStack))
-				return outputToChanche.get(output[i]);
+				return chanches[i];
 		}
 		return 0.0;
 	}

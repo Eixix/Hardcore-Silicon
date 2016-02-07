@@ -2,6 +2,7 @@ package tv.Tunfisch.HardcoreSilicon.Gui;
 
 import java.awt.Color;
 
+import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -45,6 +46,7 @@ public class GuiCrystalizer extends GuiContainer {
 		// Draw Water level
 		drawGradientRect(marginHorizontal + 10, marginVertical + 80 - 15 * tileCrystalizer.getField(4), marginHorizontal + 30, marginVertical + 60, Color.CYAN.getRGB(), Color.BLUE.getRGB());
 	}
+
 
 	private int getProgressLevel(int progressIndicatorPixelWidth) {
 		int ticksGrindingItemSoFar = tileCrystalizer.getField(2);

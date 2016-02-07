@@ -17,6 +17,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import tv.Tunfisch.HardcoreSilicon.HSMachineRecipe;
 import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
 import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
@@ -29,6 +30,8 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 	protected int ticksProcessingItemSoFar;
 	protected int ticksPerItem;
 	protected int fuelValue;
+	protected HSMachineRecipe recipe;
+	
 	protected String machineCustomName;
 	protected ItemStack[] machineItemStacks = new ItemStack[this.getCustomSlotsCount()];
 
@@ -160,13 +163,20 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 			// Check if it has a Processing recipe
 			ItemStack[] in = this.getInputs();
 			String machine = this.getName();
-			ItemStack[] itemstack = HardcoreSilicon.mrh.getOutput(in, machine);
+			recipe = HardcoreSilicon.mrh.getRecipe(in, machine);
+			ItemStack[] itemstack;
+			if(recipe != null){
+				itemstack = recipe.getOutput();
+			}else{
+				return false;
+			}
+			/*
 			if (itemstack == null)
 				return false;
 			for (int i = 0; i < itemstack.length; i++) {
 				if (itemstack[i] == null)
 					return false;
-			}
+			}*/
 			// Check if all outputs are empty
 			int count = 0;
 			for (int i = this.getFirstOutputSlotNumber(); i < this.getCustomSlotsCount(); i++) {
@@ -204,13 +214,12 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 	public void processItem() {
 		if (this.canProcess()) {
 			// Fetch recipe output
-			ItemStack[] in = this.getInputs();
-			ItemStack[] itemstack = HardcoreSilicon.mrh.getOutput(in, this.getName());
+			ItemStack[] itemstack = recipe.getOutput();
 			// Check if output slot/s is/are empty
 			int j = 0;
 			for (int i = this.getFirstOutputSlotNumber(); i < this.getCustomSlotsCount(); i++) {
 				// Calculate Stacksize
-				double chanche = HardcoreSilicon.mrh.getOutputChanche(in, itemstack[j], this.getName());
+				double chanche = recipe.getOutputChanche(itemstack[j]);
 				int stacksize = itemstack[j].stackSize;
 				if (stacksize >= 1 && chanche < 1) {
 					for (int k = 0; k < itemstack[j].stackSize; k++) {
@@ -233,7 +242,8 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 			// Reduce input stack size by 1
 			for (int i = 0; i < this.getInputCount(); i++) {
 				if (machineItemStacks[i] != null)
-					machineItemStacks[i].stackSize--;
+					//HardcoreSilicon.mrh
+					machineItemStacks[i].stackSize -= recipe.getInput()[i].stackSize;
 			}
 			// Reduce fuel value if needed
 			if (this.getFuelSlotNumber() != -1)
@@ -243,7 +253,7 @@ public abstract class TileEntityBasicMachine extends TileEntityLockable
 				if (machineItemStacks[i].stackSize <= 0) {
 					if (this.isBucket(machineItemStacks[i])) {
 						machineItemStacks[i] = new ItemStack(Items.bucket);
-					} else {
+					} else if(recipe.getInput()[i].stackSize != 0){
 						machineItemStacks[i] = null;
 					}
 				}

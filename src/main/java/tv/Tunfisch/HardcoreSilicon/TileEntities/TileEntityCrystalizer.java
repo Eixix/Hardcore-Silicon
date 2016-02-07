@@ -1,29 +1,12 @@
 package tv.Tunfisch.HardcoreSilicon.TileEntities;
 
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
-import net.minecraft.tileentity.TileEntityLockable;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.StatCollector;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
-import tv.Tunfisch.HardcoreSilicon.NameHelper;
 import tv.Tunfisch.HardcoreSilicon.Reference;
 import tv.Tunfisch.HardcoreSilicon.Container.ContainerCrystalizer;
-import tv.Tunfisch.HardcoreSilicon.Container.ContainerElectrolyzer;
-import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
 
 public class TileEntityCrystalizer extends TileEntityBasicMachine {
 	// Enumerate the slots

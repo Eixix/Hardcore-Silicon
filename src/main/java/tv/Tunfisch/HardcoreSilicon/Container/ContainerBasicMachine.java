@@ -9,10 +9,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import tv.Tunfisch.HardcoreSilicon.Slots.SlotFuel;
-import tv.Tunfisch.HardcoreSilicon.Slots.SlotGrinderOutput;
-import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityElectrolyzer;
-import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityGrinder;
+
 
 public abstract class ContainerBasicMachine extends Container {
 	protected final IInventory tileMachine;
@@ -77,6 +74,7 @@ public abstract class ContainerBasicMachine extends Container {
 			if (fuel != tileMachine.getField(4)) {
 				icrafting.sendProgressBarUpdate(this, 4, tileMachine.getField(4));
 			}
+			
 		}
 
 		ticksProcessingItemSoFar = tileMachine.getField(2);

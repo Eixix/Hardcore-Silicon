@@ -1,25 +1,14 @@
 package tv.Tunfisch.HardcoreSilicon.Container;
 
-import net.minecraft.entity.player.EntityPlayer;
+
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
-import tv.Tunfisch.HardcoreSilicon.NameHelper;
-import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
-import tv.Tunfisch.HardcoreSilicon.Slots.SlotFuel;
-import tv.Tunfisch.HardcoreSilicon.Slots.SlotGrinderOutput;
+import net.minecraft.item.Item;
 import tv.Tunfisch.HardcoreSilicon.Slots.SlotOutput;
-import tv.Tunfisch.HardcoreSilicon.Slots.SlotWater;
+import tv.Tunfisch.HardcoreSilicon.Slots.SlotWhitelist;
 import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityCrystalizer;
-import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityElectrolyzer;
-import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityGrinder;
 
 public class ContainerCrystalizer extends ContainerBasicMachine {
 
@@ -30,7 +19,7 @@ public class ContainerCrystalizer extends ContainerBasicMachine {
 	@Override
 	protected void addSlots(InventoryPlayer playerInventory) {
 		// Water Slot
-		addSlotToContainer(new SlotWater(tileMachine, TileEntityCrystalizer.FUEL, 36, 35));
+		addSlotToContainer(new SlotWhitelist(tileMachine, TileEntityCrystalizer.FUEL, 36, 35, new Item[]{Items.water_bucket}));
 		// Input-Slot 
 		addSlotToContainer(new Slot(tileMachine, TileEntityCrystalizer.INPUT, 56, 35));
 		// Output-Slot

@@ -48,6 +48,7 @@ public class BlockElectrolyzer extends BlockBasicMachine {
 			if (tileentity instanceof TileEntityElectrolyzer) {
 				InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityElectrolyzer) tileentity);
 				worldIn.updateComparatorOutputLevel(pos, this);
+				
 			}
 		}
 	}

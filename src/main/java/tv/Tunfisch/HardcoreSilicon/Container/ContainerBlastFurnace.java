@@ -7,7 +7,6 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import tv.Tunfisch.HardcoreSilicon.Slots.SlotOutput;
 import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityBlastFurnace;
-import tv.Tunfisch.HardcoreSilicon.TileEntities.TileEntityBlastFurnace;
 
 public class ContainerBlastFurnace extends ContainerBasicMachine {
 
