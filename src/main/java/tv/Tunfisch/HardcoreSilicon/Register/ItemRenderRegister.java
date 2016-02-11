@@ -26,42 +26,6 @@ public final class ItemRenderRegister {
 		}
 		//Special Items
 		itemRenderRegister(ItemRegister.itemSodium);
-		//itemRenderRegister((HSItem)ItemRegister.itemSiliconCrystal);
-		/*itemRenderRegister(ItemRegister.itemWaferRaw);
-		itemRenderRegister(ItemRegister.itemWaferEtched);
-		itemRenderRegister(ItemRegister.itemSiliconRaw);
-		itemRenderRegister(ItemRegister.itemQuartzCrystal);
-		itemRenderRegister(ItemRegister.itemQuartzDust);
-		itemRenderRegister(ItemRegister.itemStainlessSteelIngot);
-		itemRenderRegister(ItemRegister.itemStainlessSteelDust);
-		itemRenderRegister(ItemRegister.itemCircuitBoard);
-		itemRenderRegister(ItemRegister.itemBasicBoard);
-		itemRenderRegister(ItemRegister.itemStorageModule128);
-		itemRenderRegister(ItemRegister.itemSenseless);
-		itemRenderRegister(ItemRegister.itemNandSwitch);
-		itemRenderRegister(ItemRegister.itemCoil);
-		itemRenderRegister(ItemRegister.itemCoalBrush);
-		itemRenderRegister(ItemRegister.itemGenerator);
-		itemRenderRegister(ItemRegister.itemEmotor);
-		itemRenderRegister(ItemRegister.itemIronOxide);
-		itemRenderRegister(ItemRegister.itemOsmiumIron);
-		itemRenderRegister(ItemRegister.itemAndesiteDust);
-		itemRenderRegister(ItemRegister.itemCoalDust);
-		itemRenderRegister(ItemRegister.itemChromite);
-		itemRenderRegister(ItemRegister.itemChromate);
-		itemRenderRegister(ItemRegister.itemChromeIngot);
-		itemRenderRegister(ItemRegister.itemSodium);
-		itemRenderRegister(ItemRegister.itemSalt);
-		itemRenderRegister(ItemRegister.itemSodiumchromate);
-		itemRenderRegister(ItemRegister.itemSodiumdichromate);
-		itemRenderRegister(ItemRegister.itemChromeIngot);
-		itemRenderRegister(ItemRegister.itemBatteryBasic);
-		itemRenderRegister(ItemRegister.itemBauxite);
-		itemRenderRegister(ItemRegister.itemChromeIIIOxide);
-		itemRenderRegister(ItemRegister.itemAluminiumIngot);
-		itemRenderRegister(ItemRegister.itemBauxiteDustTiny);
-		itemRenderRegister(ItemRegister.itemNuggetChrome);
-		itemRenderRegister(ItemRegister.itemSlag);*/
     }
 	
 	/**
