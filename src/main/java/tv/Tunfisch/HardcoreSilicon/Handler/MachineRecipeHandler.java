@@ -10,7 +10,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import tv.Tunfisch.HardcoreSilicon.HSMachineRecipe;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemQuartzCrystal;
 import tv.Tunfisch.HardcoreSilicon.Register.BlockRegister;
 import tv.Tunfisch.HardcoreSilicon.Register.ItemRegister;
 

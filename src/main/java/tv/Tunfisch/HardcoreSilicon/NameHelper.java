@@ -18,6 +18,10 @@ public class NameHelper {
 	public static String getTextureName(Object o){
 		return Reference.MOD_ID + ":" + o.getClass().getSimpleName();
 	}
+	
+	public static String getTextureName(String s){
+		return Reference.MOD_ID + ":" + s;
+	}
 
 	public static String getTileEntityName(TileEntityBasicMachine t){
 		String name = "tile.Block";

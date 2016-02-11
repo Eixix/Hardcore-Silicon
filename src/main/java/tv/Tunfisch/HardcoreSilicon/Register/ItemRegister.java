@@ -1,5 +1,7 @@
 package tv.Tunfisch.HardcoreSilicon.Register;
 
+import java.util.ArrayList;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -10,50 +12,20 @@ import net.minecraftforge.oredict.OreDictionary;
 import tv.Tunfisch.HardcoreSilicon.HardcoreSilicon;
 import tv.Tunfisch.HardcoreSilicon.NameHelper;
 import tv.Tunfisch.HardcoreSilicon.Blocks.BlockOreQuartz;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemAluminiumIngot;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemAndesiteDust;
+import tv.Tunfisch.HardcoreSilicon.Items.HSItem;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemAxeStainlessSteel;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemBasicBoard;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemBatteryBasic;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemBauxite;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemBauxiteDustTiny;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemChromate;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemChromeIIIOxide;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemChromeIngot;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemChromite;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemCircuitBoard;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemCoalBrush;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemCoalDust;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemCoil;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemEmotor;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemGenerator;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemIronOxide;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemNandSwitch;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemNuggetChrome;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemOsmiumIron;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemPickaxeStainlessSteel;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemQuartzCrystal;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemQuartzDust;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemSalt;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemSenseless;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemShovelStainlessSteel;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemSiliconCrystal;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemSiliconRaw;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemSlag;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSodium;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemSodiumchromate;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemSodiumdichromate;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemStainlessSteelDust;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemStainlessSteelIngot;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemStorageModule128;
 import tv.Tunfisch.HardcoreSilicon.Items.ItemSwordStainlessSteel;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemWaferEtched;
-import tv.Tunfisch.HardcoreSilicon.Items.ItemWaferRaw;
+
 
 /**
  * This class contains all mod Items and registers them.
  */
 public class ItemRegister {
+	
+		public static ArrayList<HSItem> itemList = new ArrayList<HSItem>();
 	
 	    //TOOLS
 		public static Item swordStainless;
@@ -63,41 +35,44 @@ public class ItemRegister {
 		
 		//ITEMS
 		
-		public static Item itemSiliconCrystal;
-		public static Item itemWaferRaw;
-		public static Item itemWaferEtched;
-		public static Item itemSiliconRaw;
-		public static Item itemQuartzCrystal;
-		public static Item itemQuartzDust;
-		public static Item itemStainlessSteelIngot;
-		public static Item itemStainlessSteelDust;
-		public static Item itemCircuitBoard;
-		public static Item itemBasicBoard;
-		public static Item itemStorageModule128;
-		public static Item itemSenseless;
-		public static Item itemNandSwitch;
-		public static Item itemCoil;
-		public static Item itemCoalBrush;
-		public static Item itemGenerator;
-		public static Item itemEmotor;
-		public static Item itemIronOxide;
-		public static Item itemOsmiumIron;
-		public static Item itemAndesiteDust;
-		public static Item itemCoalDust;
-		public static Item itemChromite;
-		public static Item itemChromate;
+		public static Item itemSiliconCrystal = new HSItem("ItemSiliconCrystal");
+		public static Item itemWaferRaw = new HSItem("ItemWaferRaw");
+		public static Item itemWaferEtched = new HSItem("ItemWaferEtched");
+		public static Item itemSiliconRaw = new HSItem("ItemSiliconRaw");
+		public static Item itemQuartzCrystal = new HSItem("ItemQuartzCrystal");
+		public static Item itemQuartzDust = new HSItem("ItemQuartzDust");
+		public static Item itemStainlessSteelIngot = new HSItem("ItemStainlessSteelIngot");
+		public static Item itemStainlessSteelDust = new HSItem("ItemStainlessSteelDust");
+		public static Item itemCircuitBoard = new HSItem("ItemCircuitBoard");
+		public static Item itemBasicBoard = new HSItem("ItemBasicBoard");
+		public static Item itemStorageModule128 = new HSItem("ItemStorageModule128");
+		public static Item itemSenseless = new HSItem("ItemSenseless");
+		public static Item itemNandSwitch = new HSItem("ItemNandSwitch");
+		public static Item itemCoil = new HSItem("ItemCoil");
+		public static Item itemCoalBrush = new HSItem("ItemCoalBrush");
+		public static Item itemGenerator = new HSItem("ItemGenerator");
+		public static Item itemEmotor = new HSItem("ItemEmotor");
+		public static Item itemIronOxide = new HSItem("ItemIronOxide");
+		public static Item itemOsmiumIron = new HSItem("ItemOsmiumIron");
+		public static Item itemAndesiteDust = new HSItem("ItemAndesiteDust");
+		public static Item itemCoalDust = new HSItem("ItemCoalDust");
+		public static Item itemChromite = new HSItem("ItemChromite");
+		public static Item itemChromate = new HSItem("ItemChromate");
+		public static Item itemSalt = new HSItem("ItemSalt");
+		public static Item itemSodiumchromate = new HSItem("ItemSodiumchromate");
+		public static Item itemSodiumdichromate = new HSItem("ItemSodiumdichromate");
+		public static Item itemChromeIngot = new HSItem("ItemChromeIngot");
+		public static Item itemBatteryBasic = new HSItem("ItemBatteryBasic");
+		public static Item itemBauxite = new HSItem("ItemBauxite");
+		public static Item itemChromeIIIOxide = new HSItem("ItemChromeIIIOxide");
+		public static Item itemAluminiumIngot = new HSItem("ItemAluminiumIngot");
+		public static Item itemBauxiteDustTiny = new HSItem("ItemBauxiteDustTiny");
+		public static Item itemNuggetChrome = new HSItem("ItemNuggetChrome");
+		public static Item itemSlag = new HSItem("ItemSlag");
+		
+		//Special Items
+		
 		public static Item itemSodium;
-		public static Item itemSalt;
-		public static Item itemSodiumchromate;
-		public static Item itemSodiumdichromate;
-		public static Item itemChromeIngot;
-		public static Item itemBatteryBasic;
-		public static Item itemBauxite;
-		public static Item itemChromeIIIOxide;
-		public static Item itemAluminiumIngot;
-		public static Item itemBauxiteDustTiny;
-		public static Item itemNuggetChrome;
-		public static Item itemSlag;
 
 		
 		/**
@@ -118,134 +93,28 @@ public class ItemRegister {
 			shovelStainless =  new ItemShovelStainlessSteel();
 			registerItem(shovelStainless);
 			
-			//ITEMS
-			
-			itemSiliconCrystal = new ItemSiliconCrystal();
-			registerItem(itemSiliconCrystal);
-			
-			itemWaferRaw = new ItemWaferRaw();
-			registerItem(itemWaferRaw);
-			
-			itemWaferEtched = new ItemWaferEtched();
-			registerItem(itemWaferEtched);
-			
-			itemSiliconRaw = new ItemSiliconRaw();
-			registerItem(itemSiliconRaw);
-
-			itemQuartzCrystal = new ItemQuartzCrystal();
-			registerItem(itemQuartzCrystal);
-			//Create an OreDictionary entry
-			OreDictionary.registerOre("gemQuartz", itemQuartzCrystal);
-			
-			itemQuartzDust = new ItemQuartzDust();
-			registerItem(itemQuartzDust);
-			//Create an OreDictionary entry
-			OreDictionary.registerOre("dustQuartz", itemQuartzDust);
-			
-			itemStainlessSteelDust = new ItemStainlessSteelDust();
-			registerItem(itemStainlessSteelDust);
-			//Create an OreDictionary entry
-			OreDictionary.registerOre("dustStainlessSteel", itemStainlessSteelDust);
-			
-			itemStainlessSteelIngot = new ItemStainlessSteelIngot();
-			registerItem(itemStainlessSteelIngot);
-			//Create an OreDictionary entry
-			OreDictionary.registerOre("ingotStainlessSteel", itemStainlessSteelIngot);
-			
-			itemCircuitBoard = new ItemCircuitBoard();
-			registerItem(itemCircuitBoard);
-			
-			itemBasicBoard = new ItemBasicBoard();
-			registerItem(itemBasicBoard);
-			
-			itemStorageModule128 = new ItemStorageModule128();
-			registerItem(itemStorageModule128);
-			
-			itemSenseless = new ItemSenseless();
-			registerItem(itemSenseless);
-			
-			itemNandSwitch = new ItemNandSwitch();
-			registerItem(itemNandSwitch);
-			
-			itemIronOxide = new ItemIronOxide();
-			registerItem(itemIronOxide);
-			
-			itemOsmiumIron = new ItemOsmiumIron();
-			registerItem(itemOsmiumIron);
-			
-			itemCoil = new ItemCoil().setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);
-			registerItem(itemCoil);
-			
-			itemCoalBrush = new ItemCoalBrush().setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);
-			registerItem(itemCoalBrush);
-			
-			itemGenerator = new ItemGenerator().setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);
-			registerItem(itemGenerator);
-			
-			itemEmotor = new ItemEmotor().setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);
-			registerItem(itemEmotor);
-			
-			itemAndesiteDust = new ItemAndesiteDust();
-			registerItem(itemAndesiteDust);
-			
-			itemCoalDust = new ItemCoalDust();
-			registerItem(itemCoalDust);
-			
-			itemChromite = new ItemChromite();
-			registerItem(itemChromite);
-			//Create Ore Dictionary Entry
-			OreDictionary.registerOre("itemChromite", itemChromite);
-			
-			itemChromeIngot = new ItemChromeIngot();
-			registerItem(itemChromeIngot);
-			//Create Ore Dictionary Entry
-			OreDictionary.registerOre("itemChromeIngot", itemChromeIngot);
-			
-			itemChromate = new ItemChromate();
-			registerItem(itemChromate);
+			//NON-HSItem-ITEMS
 			
 			itemSodium = new ItemSodium();
 			registerItem(itemSodium);
 			
-			itemSalt = new ItemSalt();
-			registerItem(itemSalt);
-			//Create Ore Dictionary Entry
+			//OreDictionary Entries
+			OreDictionary.registerOre("gemQuartz", itemQuartzCrystal);
+			OreDictionary.registerOre("dustQuartz", itemQuartzDust);
+			OreDictionary.registerOre("dustStainlessSteel", itemStainlessSteelDust);
+			OreDictionary.registerOre("ingotStainlessSteel", itemStainlessSteelIngot);
+			OreDictionary.registerOre("itemChromite", itemChromite);
+			OreDictionary.registerOre("itemChromeIngot", itemChromeIngot);
 			OreDictionary.registerOre("itemSalt", itemSalt);
-			
-			itemSodiumchromate = new ItemSodiumchromate();
-			registerItem(itemSodiumchromate);
-			
-			itemSodiumdichromate = new ItemSodiumdichromate();
-			registerItem(itemSodiumdichromate);
-			
-			itemBatteryBasic = new ItemBatteryBasic();
-			registerItem(itemBatteryBasic);
-			
-			itemBauxite = new ItemBauxite();
-			registerItem(itemBauxite);
-			//Create Ore Dictionary Entry
 			OreDictionary.registerOre("itemBauxite", itemBauxite);
-			
-			itemChromeIIIOxide = new ItemChromeIIIOxide();
-			registerItem(itemChromeIIIOxide);
-			
-			itemAluminiumIngot = new ItemAluminiumIngot();
-			registerItem(itemAluminiumIngot);
-			
-			itemBauxiteDustTiny = new ItemBauxiteDustTiny();
-			registerItem(itemBauxiteDustTiny);
-			
-			itemNuggetChrome = new ItemNuggetChrome();
-			registerItem(itemNuggetChrome);
-			//Create Ore Dictionary Entry
 			OreDictionary.registerOre("itemChromeNugget", itemNuggetChrome);
-			
-			itemSlag = new ItemSlag();
-			registerItem(itemSlag);
-			//Create Ore Dictionary Entry
 			OreDictionary.registerOre("itemSlag", itemSlag);
 			
-			
+			//Special Creative Tabs
+			itemCoil.setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);		
+			itemCoalBrush.setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);			
+			itemGenerator.setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);	
+			itemEmotor.setCreativeTab(HardcoreSilicon.tabHardcoreGenerators);			
 		}
 		
 		/**
